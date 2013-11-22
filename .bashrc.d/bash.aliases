@@ -1,3 +1,4 @@
+# vim: set filetype=sh
 ################################################################################
 alias editalias="vim ${home}/.bash.d/bash.alias"
 alias vimrc="vim ${HOME}/.vimrc"
@@ -5,3 +6,4 @@ alias vimrc="vim ${HOME}/.vimrc"
 alias fucking="sudo" 
 alias apt-upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
 
+# Funciones
