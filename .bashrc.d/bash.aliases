@@ -1,3 +1,5 @@
+# vim: set filetype=sh:
+
 alias editalias="vim ${home}/.bash.d/bash.alias"
 alias vimrc="vim ${HOME}/.vimrc"
 
