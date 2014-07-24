@@ -6,6 +6,10 @@ alias vimrc="vim ${HOME}/.vimrc"
 alias fucking="sudo" 
 alias apt-upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
 
+alias myip="wget -qO- http://canihazip.com/s"
+alias whatsmyip="wget -qO- http://canihazip.com/s"
+
+
 # Funciones
 
 startvm () { vboxmanage startvm $1 --type=headless ;}
