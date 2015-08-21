@@ -6,6 +6,7 @@ case $1 in
         ;;
 
     'vim')
+        rsync -rvc .vim* ~/
 	;;
 esac
 
