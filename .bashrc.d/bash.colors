@@ -1,3 +1,6 @@
+# vim: set filetype=sh:
+# This file is meant to be sourced from bashrc
+
 __BLACK="\033[01;30m"
 __RED="\033[01;31m"
 __GREEN="\033[01;32m"

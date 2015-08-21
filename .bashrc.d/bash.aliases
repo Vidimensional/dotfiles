@@ -1,5 +1,7 @@
 # vim: set filetype=sh:
+# This file is meant to be sourced from bashrc
 
+# Aliases
 alias editalias="vim ${home}/.bash.d/bash.alias"
 alias vimrc="vim ${HOME}/.vimrc"
 
@@ -11,7 +13,6 @@ alias whatsmyip="wget -qO- http://canihazip.com/s"
 
 
 # Funciones
-
 startvm () { vboxmanage startvm $1 --type=headless ;}
 stopvm  () { vboxmanage controlvm $1 poweroff ;} 
 

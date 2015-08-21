@@ -1,6 +1,4 @@
 # vim: set filetype=sh:
-
 # This file is meant to be sourced from bashrc
-
 
 export EDITOR=vim
