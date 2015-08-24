@@ -2,6 +2,9 @@
 # This file is meant to be sourced from bashrc
 
 # Aliases
+alias ls="ls --color"
+alias grep="grep --color"
+
 alias editalias="vim ${home}/.bash.d/bash.alias"
 alias vimrc="vim ${HOME}/.vimrc"
 
