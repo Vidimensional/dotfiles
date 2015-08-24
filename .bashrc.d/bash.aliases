@@ -5,14 +5,15 @@
 alias ls="ls --color"
 alias grep="grep --color"
 
-alias editalias="vim ${home}/.bash.d/bash.alias"
+alias editalias="vim ${home}/.bashrc.d/bash.alias"
 alias vimrc="vim ${HOME}/.vimrc"
+alias editvimrc="vimrc"
 
 alias fucking="sudo" 
 alias apt-upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
 
-alias myip="wget -qO- http://canihazip.com/s"
-alias whatsmyip="wget -qO- http://canihazip.com/s"
+alias myip="wget -qO- 'http://canihazip.com/s'; echo"
+alias whatsmyip="myip"
 
 
 # Funciones
