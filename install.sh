@@ -41,6 +41,7 @@ case $1 in
     'all')
         install_bashconfig
         install_vimconfig
+        install_i3config
 	;;
 
     *)
