@@ -6,7 +6,7 @@ log () {
 
 
 install_bashconfig () {
-    log "Installing .bashrc"
+    log "Installing bashrc."
     rsync -rvc .bashrc* ~/
 
     log "Downloading & installing git-prompt"
@@ -15,8 +15,13 @@ install_bashconfig () {
 }
 
 install_vimconfig () {
-    log "Installing .vimrc"
+    log "Installing vimrc."
     rsync -rvc .vim* ~/
+}
+
+install_i3config () {
+    log "Installing i3 config."
+    rsync -rvc .i3 ~/
 }
 
 case $1 in
@@ -28,13 +33,17 @@ case $1 in
         install_vimconfig
 	;;
 
+    'i3')
+        install_i3config
+	;;
+
     'all')
         install_bashconfig
         install_vimconfig
 	;;
 
     *)
-        echo "USAGE $0 <bash|vim>"
+        echo "USAGE $0 <bash|vim|i3>"
         ;;
 esac
 
