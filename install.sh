@@ -17,6 +17,7 @@ install_bashconfig () {
 install_vimconfig () {
     log "Installing vimrc."
     rsync -rvc .vim* ~/
+    log "Installing Vim plugins via Vundle."
 }
 
 install_i3config () {
