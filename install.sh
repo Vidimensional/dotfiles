@@ -10,10 +10,14 @@ log () {
 }
 
 
+_rsync () {
+    rsync -rvc --exclude '.*.swp' $@
+}
+
+
 install_bashconfig () {
     log "Installing bashrc."
-    rsync -rvc .bashrc* ~/
-
+    _rsync .bashrc* ~/
     log "Downloading & installing git-prompt"
     git_prompt_url='https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh'
     curl -s "${git_prompt_url}" -o ~/.bashrc.d/bash.git-prompt
@@ -22,7 +26,7 @@ install_bashconfig () {
 
 install_vimconfig () {
     log "Installing vimrc."
-    rsync -rvc .vim* ~/
+    _rsync .vim* ~/
     log "Installing Vim plugins via Vundle."
     vim +PluginInstall +qall
 }
@@ -30,7 +34,7 @@ install_vimconfig () {
 
 install_i3config () {
     log "Installing i3 config."
-    rsync -rvc .i3 ~/
+    _rsync .i3 ~/
 }
 
 
