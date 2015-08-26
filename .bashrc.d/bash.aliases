@@ -4,6 +4,7 @@
 # Aliases
 alias ls="ls --color"
 alias ll="ls -l"
+alias la="ls -la"
 alias grep="grep --color"
 
 alias editalias="vim ${home}/.bashrc.d/bash.alias"
