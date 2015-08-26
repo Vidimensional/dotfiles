@@ -50,7 +50,7 @@ case $1 in
         install_i3config
 	;;
     *)
-        echo "USAGE $0 <bash|vim|i3>"
+        echo "USAGE $0 <bash|vim|i3|all>"
         ;;
 esac
 
