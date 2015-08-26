@@ -23,3 +23,4 @@ alias delmonitor="xrandr --output DP1 --disable"
 startvm () { vboxmanage startvm $1 --type=headless ;}
 stopvm  () { vboxmanage controlvm $1 poweroff ;} 
 
+busca () { find . -iname "*$1*"; }
