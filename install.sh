@@ -9,9 +9,8 @@ log () {
     echo -ne "${__DEFAULT}"
 }
 
-
 _rsync () {
-    rsync -rvc --exclude '.*.swp' $@
+    rsync --recursive --verbose --checksum --exclude '.*.swp' $@
 }
 
 
