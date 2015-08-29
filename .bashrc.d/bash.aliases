@@ -2,7 +2,16 @@
 # This file is meant to be sourced from bashrc
 
 # Aliases
-alias ls="ls --color"
+
+#Difference between Linux and OS X commands.
+OS=$( uname -s )
+if [ "${OS}" == "Darwin" ]; then
+    alias ls="ls -G"
+    alias upgrade="sudo port selfupdate && sudo port upgrade outdated"
+elif [ "${OS}" == "Linux" ]; then
+    alias ls="ls --color"
+    alias upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
+fi
 alias ll="ls -l"
 alias la="ls -la"
 alias grep="grep --color"
@@ -12,7 +21,6 @@ alias vimrc="vim ${HOME}/.vimrc"
 alias editvimrc="vimrc"
 
 alias fucking="sudo"
-alias apt-upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
 
 alias myip="wget -qO- 'http://canihazip.com/s'; echo"
 alias whatsmyip="myip"
