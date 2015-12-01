@@ -36,10 +36,17 @@ install_i3config () {
     _rsync .i3 ~/
 }
 
-old_installer_md5="$( md5sum $0 )"
+
+if which md5sum; then
+	md5sum='md5sum'
+elif which md5; then
+	md5sum='md5'
+fi
+
+old_installer_md5="$( ${md5sum} $0 )"
 log "Getting the last version."
 git pull origin master
-new_installer_md5="$( md5sum $0 )"
+new_installer_md5="$( ${md5sum} $0 )"
 if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
 	log "The installler has been updated, calling it again"
 	$0 $#
