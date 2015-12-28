@@ -8,6 +8,7 @@ OS=$( uname -s )
 if [ "${OS}" == "Darwin" ]; then
     alias ls="ls -G"
     alias upgrade="sudo port selfupdate && sudo port upgrade outdated"
+    alias gvim="open -a macvim"
 elif [ "${OS}" == "Linux" ]; then
     alias ls="ls --color"
     alias upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
@@ -32,3 +33,16 @@ startvm () { vboxmanage startvm $1 --type=headless ;}
 stopvm  () { vboxmanage controlvm $1 poweroff ;} 
 
 busca () { find . -iname "*$1*"; }
+
+certview () { for cert in $1; do openssl x509 -in ${cert} -text -noout; done ; }
+
+pass () {
+    query=$1
+    cs_lines="$( grep -i "${query}" ~/Downloads/mitro-passwords.csv )"
+    for line in ${cs_lines}; do
+        echo "USER: $( echo ${line} | cut -d ',' -f 2 )"
+        echo "PASS: $( echo ${line} | cut -d ',' -f 3 )"
+        echo "URL: $( echo ${line} | cut -d ',' -f 1 )"
+	echo
+    done
+}
