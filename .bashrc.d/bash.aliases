@@ -36,13 +36,3 @@ busca () { find . -iname "*$1*"; }
 
 certview () { for cert in $1; do openssl x509 -in ${cert} -text -noout; done ; }
 
-pass () {
-    query=$1
-    cs_lines="$( grep -i "${query}" ~/Downloads/mitro-passwords.csv )"
-    for line in ${cs_lines}; do
-        echo "USER: $( echo ${line} | cut -d ',' -f 2 )"
-        echo "PASS: $( echo ${line} | cut -d ',' -f 3 )"
-        echo "URL: $( echo ${line} | cut -d ',' -f 1 )"
-	echo
-    done
-}
