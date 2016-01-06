@@ -34,5 +34,5 @@ stopvm  () { vboxmanage controlvm $1 poweroff ;}
 
 busca () { find . -iname "*$1*"; }
 
-certview () { for cert in $1; do openssl x509 -in ${cert} -text -noout; done ; }
+certview () { for cert in $@; do openssl x509 -in ${cert} -text -noout; done ; }
 
