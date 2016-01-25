@@ -27,6 +27,8 @@ alias fucking="sudo"
 alias myip="wget -qO- 'http://canihazip.com/s'; echo"
 alias whatsmyip="myip"
 
+which hub >/dev/null && alias git="hub"
+
 
 # Funciones
 startvm () { vboxmanage startvm $1 --type=headless ;}

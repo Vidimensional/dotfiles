@@ -20,6 +20,10 @@ install_bashconfig () {
     log "Downloading & installing git-prompt"
     git_prompt_url='https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh'
     curl -s "${git_prompt_url}" -o ~/.bashrc.d/bash.git-prompt
+    log "Downloading & installing bash completion for Hub."
+    hub_autocompletion_url='https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh'
+    curl -s "${hub_autocompletion_url}" -o  ~/.bashrc.d/bash.hub.bash_completion.sh
+
 }
 
 
