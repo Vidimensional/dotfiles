@@ -12,7 +12,7 @@ if [ "${OS}" == "Darwin" ]; then
 elif [ "${OS}" == "Linux" ]; then
     alias ls="ls --color"
     alias upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
-    alias monitor='xrandr --output eDP1 --auto --output DP1 --auto --left-of eDP1'
+    alias monitor='xrandr --output eDP1 --auto --output DP1 --auto --right-of eDP1'
 fi
 alias ll="ls -l"
 alias la="ls -la"
