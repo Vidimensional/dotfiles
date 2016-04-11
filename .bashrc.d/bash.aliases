@@ -27,6 +27,8 @@ alias fucking="sudo"
 alias myip="wget -qO- 'http://canihazip.com/s'; echo"
 alias whatsmyip="myip"
 
+alias gti='git' #Fuck this typo.
+
 which hub >/dev/null && alias git="hub"
 
 
