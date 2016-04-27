@@ -62,6 +62,7 @@ Plugin 'kien/ctrlp.vim' "Search
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'b4b4r07/vim-hcl'
+Plugin 'fatih/vim-hclfmt'
 
 
 call vundle#end()            " required
