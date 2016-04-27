@@ -29,6 +29,8 @@ alias whatsmyip="myip"
 
 alias gti='git' #Fuck this typo.
 
+alias unvim="find . -iname '.*.swp' -delete"
+
 which hub >/dev/null && alias git="hub"
 
 
