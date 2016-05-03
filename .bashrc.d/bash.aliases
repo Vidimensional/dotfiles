@@ -18,6 +18,10 @@ alias ll="ls -l"
 alias la="ls -la"
 alias grep="grep --color"
 
+alias mv='mv -v'
+alias cp='cp -v'
+alias rm='rm -v'
+
 alias editalias="vim ${HOME}/.bashrc.d/bash.alias"
 alias vimrc="vim ${HOME}/.vimrc"
 alias editvimrc="vimrc"
