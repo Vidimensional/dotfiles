@@ -37,6 +37,7 @@ alias unvim="find . -iname '.*.swp' -delete"
 
 which hub >/dev/null && alias git="hub"
 
+alias reloadbash='source ~/.bashrc'
 
 # Funciones
 startvm () { vboxmanage startvm $1 --type=headless ;}
