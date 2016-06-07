@@ -6,13 +6,13 @@
 #Difference between Linux and OS X commands.
 OS=$( uname -s )
 if [ "${OS}" == "Darwin" ]; then
-    alias ls="ls -G"
     alias gvim="open -a macvim"
 elif [ "${OS}" == "Linux" ]; then
-    alias ls="ls --color"
     alias upgrade="sudo apt-get update && sudo apt-get --asume-yes upgrade"
     alias monitor='xrandr --output eDP1 --auto --output DP1 --auto --right-of eDP1'
 fi
+
+alias ls="ls --color"
 alias ll="ls -l"
 alias la="ls -la"
 alias grep="grep --color"
