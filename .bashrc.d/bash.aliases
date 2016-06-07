@@ -7,7 +7,6 @@
 OS=$( uname -s )
 if [ "${OS}" == "Darwin" ]; then
     alias ls="ls -G"
-    alias upgrade="sudo port selfupdate && sudo port upgrade outdated"
     alias gvim="open -a macvim"
 elif [ "${OS}" == "Linux" ]; then
     alias ls="ls --color"
