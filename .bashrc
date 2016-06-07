@@ -14,6 +14,10 @@ elif [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
+if [ -d /usr/local/etc/bash_completion.d ]; then
+    source /usr/local/etc/bash_completion.d/*
+fi
+
 ################################################################################
 # Define prompt
 [ ${UID} -eq 0 ] && PS_USER="\[${__BRED}\]\u" || PS_USER="\[${__BGREEN}\]\u"
