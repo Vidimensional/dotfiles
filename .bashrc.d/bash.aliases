@@ -21,7 +21,11 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 
+alias reloadbash='source ~/.bashrc'
 alias editalias="vim ${HOME}/.bashrc.d/bash.alias"
+alias editsecrets="vim ${HOME}/.bashrc.d/bash.secrets"
+alias editvars="vim ${HOME}/.bashrc.d/bash.variables"
+
 alias vimrc="vim ${HOME}/.vimrc"
 alias editvimrc="vimrc"
 
@@ -36,7 +40,6 @@ alias unvim="find . -iname '.*.swp' -delete"
 
 which hub >/dev/null && alias git="hub"
 
-alias reloadbash='source ~/.bashrc'
 
 # Funciones
 startvm () { vboxmanage startvm $1 --type=headless ;}
