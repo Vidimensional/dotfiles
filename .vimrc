@@ -1,7 +1,6 @@
 "
 "
 
-
 nnoremap <CR> :noh<CR>
 map <F10> :set !wrap<CR>
 " ----------------------------------------------------------------------------
@@ -9,28 +8,24 @@ map <F10> :set !wrap<CR>
 " ----------------------------------------------------------------------------
 syntax enable
 
-
 " ----------------------------------------------------------------------------
 " Spaces & Tabs
 " ----------------------------------------------------------------------------
-
-
-
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set expandtab " expand tabs to spaces
+set nosmarttab " fuck tabs
 
 " ----------------------------------------------------------------------------
 " Text Formatting
 " ----------------------------------------------------------------------------
 set autoindent " automatic indent new lines
 set smartindent " be smart about it
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-set expandtab " expand tabs to spaces
-set nosmarttab " fuck tabs
 set formatoptions+=n " support for numbered/bullet lists
 "set textwidth=80 " wrap at 80 chars by default
 set virtualedit=block " allow virtual edit in visual block ..
-colorscheme elflord
+colorscheme desert
 " Searching
 set hlsearch
 set incsearch
@@ -38,6 +33,7 @@ set cursorline
 "set cursorcolumn
 set nu
 
+set mouse=a
 
 " ----------------------------------------------------------------------------
 " Vundle Requirements
@@ -71,4 +67,4 @@ filetype plugin indent on    " required
 source ~/.vimrc.d/airline.vim "Particular plugin configuration
 source ~/.vimrc.d/nerdtree.vim "Particular plugin configuration
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:h14
