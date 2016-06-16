@@ -54,7 +54,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'stephpy/vim-yaml' "Faster YAML syntax
 Plugin 'tpope/vim-fugitive' "Git magic
 Plugin 'scrooloose/nerdtree' "Directory tree
-Plugin 'kien/ctrlp.vim' "Search
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'b4b4r07/vim-hcl'
