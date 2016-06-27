@@ -15,7 +15,9 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 if [ -d /usr/local/etc/bash_completion.d ]; then
-    source /usr/local/etc/bash_completion.d/*
+    for file in $( find /usr/local/etc/bash_completion.d/ ! -type d); do
+        source ${file}
+    done
 fi
 
 ################################################################################
