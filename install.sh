@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .bashrc.d/bash.colors
+source bashrc.d/bash.colors
 
 
 log () {
@@ -16,7 +16,8 @@ _rsync () {
 
 install_bashconfig () {
     log "Installing bashrc."
-    _rsync .bashrc* ~/
+    cp -a bashrc ~/.bashrc
+    _rsync bashrc.d ~/.bashrc.d
     log "Downloading & installing git-prompt"
     git_prompt_url='https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh'
     curl -s "${git_prompt_url}" -o ~/.bashrc.d/bash.git-prompt
@@ -29,7 +30,8 @@ install_bashconfig () {
 
 install_vimconfig () {
     log "Installing vimrc."
-    _rsync .vim* ~/
+    cp vimrc ~/.vimrc
+    _rsync vimrc.d ~/.vimrc.d
     log "Installing Vim plugins via Vundle."
     vim +PluginInstall +qall
 }
@@ -37,7 +39,7 @@ install_vimconfig () {
 
 install_i3config () {
     log "Installing i3 config."
-    _rsync .i3 ~/
+    _rsync i3 ~/.i3
 }
 
 
