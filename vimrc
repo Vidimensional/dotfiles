@@ -69,4 +69,4 @@ filetype plugin indent on    " required
 source ~/.vimrc.d/airline.vim "Particular plugin configuration
 source ~/.vimrc.d/nerdtree.vim "Particular plugin configuration
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline:h14
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
