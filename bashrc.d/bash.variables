@@ -1,0 +1,14 @@
+export EDITOR='vim'
+
+export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+
+# Add $GOROOT to $PATH.
+export PATH="${PATH}:/usr/local/opt/go/libexec/bin"
+
+export GOPATH=~/dev/go
+export PATH="${PATH}:${GOPATH}/bin"
+
+# Add GNU coreutils to $PATH (override BSD ones).
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# Add GNU coreutils manpages to $MANPATH.
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
