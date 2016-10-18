@@ -24,7 +24,7 @@ install_bashconfig () {
     log "Downloading & installing bash completion for Hub."
     hub_autocompletion_url='https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh'
     curl -s "${hub_autocompletion_url}" -o  ~/.bashrc.d/bash.hub.bash_completion.sh
-
+    log "Done."
 }
 
 
@@ -34,12 +34,14 @@ install_vimconfig () {
     _rsync vimrc.d/* ~/.vimrc.d
     log "Installing Vim plugins via Plug."
     vim +PlugInstall +qall
+    log "Done."
 }
 
 
 install_i3config () {
     log "Installing i3 config."
     _rsync i3/* ~/.i3
+    lof "Done."
 }
 
 
