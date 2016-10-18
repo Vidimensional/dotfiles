@@ -61,7 +61,6 @@ Plugin 'b4b4r07/vim-hcl'
 Plugin 'fatih/vim-hclfmt'
 Plugin 'fatih/vim-go'
 "Plugin 'ryanoasis/vim-devicons'
-Plugin 'lepture/vim-jinja' "Jinja2 syntax and indentation.
 
 call vundle#end()            " required
 filetype plugin indent on    " required
