@@ -32,8 +32,8 @@ install_vimconfig () {
     log "Installing vimrc."
     cp vimrc ~/.vimrc
     _rsync vimrc.d/* ~/.vimrc.d
-    log "Installing Vim plugins via Vundle."
-    vim +PluginInstall +qall
+    log "Installing Vim plugins via Plug."
+    vim +PlugInstall +qall
 }
 
 

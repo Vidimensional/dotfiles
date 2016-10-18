@@ -36,35 +36,22 @@ set nu
 set mouse=a
 
 " ----------------------------------------------------------------------------
-" Vundle Requirements
-" Info: https://github.com/gmarik/Vundle.vim#quick-start
+" Plug
+" Info: https://github.com/junegunn/vim-plug
 " ----------------------------------------------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
+Plug 'stephpy/vim-yaml' "Faster YAML syntax
+Plug 'tpope/vim-fugitive' "Git magic
+Plug 'scrooloose/nerdtree' "Directory tree
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
+Plug 'fatih/vim-go'
+call plug#end()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-"""List of Plugins"""
-Plugin 'stephpy/vim-yaml' "Faster YAML syntax
-Plugin 'tpope/vim-fugitive' "Git magic
-Plugin 'scrooloose/nerdtree' "Directory tree
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'b4b4r07/vim-hcl'
-Plugin 'fatih/vim-hclfmt'
-Plugin 'fatih/vim-go'
-"Plugin 'ryanoasis/vim-devicons'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+" Extra plugin configuration.
 source ~/.vimrc.d/airline.vim "Particular plugin configuration
 source ~/.vimrc.d/nerdtree.vim "Particular plugin configuration
 
