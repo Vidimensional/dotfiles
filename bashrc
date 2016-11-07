@@ -22,8 +22,8 @@ fi
 
 ################################################################################
 # Define prompt
-[ ${UID} -eq 0 ] && PS_USER="\[${__BRED}\]\u" || PS_USER="\[${__BGREEN}\]\u"
-PS_HOSTNAME="\[${__BYELLOW}\]\h"
-PS_PATH="\[${__BBLUE}\]\w"
-PROMPT_COMMAND='__git_ps1 "${PS_USER}\[${__DEFAULT}\]@${PS_HOSTNAME}\[${__DEFAULT}\]:${PS_PATH}\[${__BPURPLE}\]" "\[${__DEFAULT}\]\\\$ "'
+[ ${UID} -eq 0 ] && PS_USER="\[${__RED}\]\u" || PS_USER="\[${__GREEN}\]\u"
+PS_HOSTNAME="\[${__YELLOW}\]\h"
+PS_PATH="\[${__BLUE}\]\w"
+PROMPT_COMMAND='__git_ps1 "${PS_USER}\[${__DEFAULT}\]@${PS_HOSTNAME}\[${__DEFAULT}\]:${PS_PATH}\[${__PURPLE}\]" "\[${__DEFAULT}\]\\\$ "'
 
