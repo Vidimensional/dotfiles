@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree' "Directory tree
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
 Plug 'fatih/vim-go'
