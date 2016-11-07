@@ -10,4 +10,3 @@ Where <config> could be:
 * all
 * bash
 * vim
-* i3

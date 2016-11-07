@@ -38,13 +38,6 @@ install_vimconfig () {
 }
 
 
-install_i3config () {
-    log "Installing i3 config."
-    _rsync i3/* ~/.i3
-    lof "Done."
-}
-
-
 if which md5sum; then
 	md5sum='md5sum'
 elif which md5; then
@@ -67,9 +60,6 @@ case $1 in
         ;;
     'vim')
         install_vimconfig
-	;;
-    'i3')
-        install_i3config
 	;;
     'all')
         install_bashconfig
