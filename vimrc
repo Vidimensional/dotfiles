@@ -1,5 +1,21 @@
 "
 "
+" ----------------------------------------------------------------------------
+" Plug
+" Info: https://github.com/junegunn/vim-plug
+" ----------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+Plug 'stephpy/vim-yaml' "Faster YAML syntax
+Plug 'tpope/vim-fugitive' "Git magic
+Plug 'scrooloose/nerdtree' "Directory tree
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
+Plug 'fatih/vim-go'
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
 
 nnoremap <CR> :noh<CR>
 map <F10> :set !wrap<CR>
@@ -25,7 +41,7 @@ set smartindent " be smart about it
 set formatoptions+=n " support for numbered/bullet lists
 "set textwidth=80 " wrap at 80 chars by default
 set virtualedit=block " allow virtual edit in visual block ..
-colorscheme desert
+colorscheme solarized
 " Searching
 set hlsearch
 set incsearch
@@ -35,21 +51,6 @@ set nu
 
 set mouse=a
 
-" ----------------------------------------------------------------------------
-" Plug
-" Info: https://github.com/junegunn/vim-plug
-" ----------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-Plug 'stephpy/vim-yaml' "Faster YAML syntax
-Plug 'tpope/vim-fugitive' "Git magic
-Plug 'scrooloose/nerdtree' "Directory tree
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
-Plug 'b4b4r07/vim-hcl'
-Plug 'fatih/vim-hclfmt'
-Plug 'fatih/vim-go'
-call plug#end()
 
 " Extra plugin configuration.
 source ~/.vimrc.d/airline.vim "Particular plugin configuration
