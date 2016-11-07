@@ -38,6 +38,13 @@ install_vimconfig () {
 }
 
 
+install_iterm2config () {
+    log "Installing iTerm2."
+    _rsync iterm2/* ~/.iterm2/
+    log "Done."
+}
+
+
 if which md5sum; then
 	md5sum='md5sum'
 elif which md5; then
@@ -60,12 +67,15 @@ case $1 in
         ;;
     'vim')
         install_vimconfig
-	;;
+        ;;
+    'iterm'|'iterm2')
+        install_iterm2config
+        ;;
     'all')
         install_bashconfig
         install_vimconfig
-        install_i3config
-	;;
+        install_iterm2config
+        ;;
     *)
         echo "USAGE $0 <bash|vim|i3|all>"
         ;;

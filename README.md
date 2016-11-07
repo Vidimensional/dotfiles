@@ -10,3 +10,4 @@ Where <config> could be:
 * all
 * bash
 * vim
+* iterm2
