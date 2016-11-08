@@ -34,6 +34,8 @@ set tabstop=4
 set expandtab " expand tabs to spaces
 set nosmarttab " fuck tabs
 
+set backspace=indent,eol,start
+
 " ----------------------------------------------------------------------------
 " Text Formatting
 " ----------------------------------------------------------------------------
