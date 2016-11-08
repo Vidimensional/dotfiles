@@ -1,5 +1,3 @@
-"
-"
 " ----------------------------------------------------------------------------
 " Plug
 " Info: https://github.com/junegunn/vim-plug
@@ -18,46 +16,51 @@ Plug 'fatih/vim-go'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
-nnoremap <CR> :noh<CR>
-map <F10> :set !wrap<CR>
 " ----------------------------------------------------------------------------
-" Colors
+" Appearance
 " ----------------------------------------------------------------------------
 syntax enable
+colorscheme solarized
+set number "Show number lines. 
+set cursorline "Higlights the line the cursor is.
 
 " ----------------------------------------------------------------------------
 " Spaces & Tabs
 " ----------------------------------------------------------------------------
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-set expandtab " expand tabs to spaces
-set nosmarttab " fuck tabs
-
-set backspace=indent,eol,start
-set clipboard=unnamed
+set tabstop=4 "How large is a "Tab".
+set softtabstop=4 "
+set shiftwidth=4 "Identation with << and >>.
+set expandtab "Expand tabs to spaces.
+set nosmarttab "Fuck tabs.
 
 " ----------------------------------------------------------------------------
 " Text Formatting
 " ----------------------------------------------------------------------------
-set autoindent " automatic indent new lines
-set smartindent " be smart about it
-set formatoptions+=n " support for numbered/bullet lists
-"set textwidth=80 " wrap at 80 chars by default
-set virtualedit=block " allow virtual edit in visual block ..
-colorscheme solarized
+set autoindent "Automatic indent new lines.
+set smartindent "Be smart about it.
+set formatoptions+=n "Support for numbered/bullet lists.
+set virtualedit=block "Allow virtual edit in visual block.
+
+" ----------------------------------------------------------------------------
 " Searching
-set hlsearch
-set incsearch
-set cursorline
-"set cursorcolumn
-set nu
+" ----------------------------------------------------------------------------
+set hlsearch "Highlight search occurences.
+set incsearch "Set incremental searches.
 
+" ----------------------------------------------------------------------------
+" 
+" ----------------------------------------------------------------------------
+nnoremap <CR> :noh<CR> "Removes the search higligh with a enter keystroke.
+map <F10> :set !wrap<CR>
+set backspace=indent,eol,start "Enables backspace usage as the rest of the editors.
+set clipboard=unnamed "Shares the Vim clipboard with the OS X clipboard.
 set mouse=a
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
 
 
+" ----------------------------------------------------------------------------
 " Extra plugin configuration.
+" ----------------------------------------------------------------------------
 source ~/.vimrc.d/airline.vim "Particular plugin configuration
 source ~/.vimrc.d/nerdtree.vim "Particular plugin configuration
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
