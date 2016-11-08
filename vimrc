@@ -35,6 +35,7 @@ set expandtab " expand tabs to spaces
 set nosmarttab " fuck tabs
 
 set backspace=indent,eol,start
+set clipboard=unnamed
 
 " ----------------------------------------------------------------------------
 " Text Formatting
