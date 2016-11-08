@@ -50,7 +50,8 @@ set incsearch "Set incremental searches.
 " ----------------------------------------------------------------------------
 " 
 " ----------------------------------------------------------------------------
-nnoremap <CR> :noh<CR> "Removes the search higligh with a enter keystroke.
+"Removes the search higligh with a enter keystroke.
+nnoremap <CR> :noh<CR>
 map <F10> :set !wrap<CR>
 set backspace=indent,eol,start "Enables backspace usage as the rest of the editors.
 set clipboard=unnamed "Shares the Vim clipboard with the OS X clipboard.
