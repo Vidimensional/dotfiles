@@ -4,10 +4,5 @@ A backup for my dotfiles.
 ## Install
 Just execute:
 ```
-./install.sh <config>
+./install.sh
 ```
-Where <config> could be:
-* all
-* bash
-* vim
-* iterm2

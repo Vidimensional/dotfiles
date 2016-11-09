@@ -61,23 +61,7 @@ if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
 	exit
 fi
 
-case $1 in
-    'bash')
-        install_bashconfig
-        ;;
-    'vim')
-        install_vimconfig
-        ;;
-    'iterm'|'iterm2')
-        install_iterm2config
-        ;;
-    'all')
-        install_bashconfig
-        install_vimconfig
-        install_iterm2config
-        ;;
-    *)
-        echo "USAGE $0 <bash|vim|i3|all>"
-        ;;
-esac
+install_bashconfig
+install_vimconfig
+install_iterm2config
 
