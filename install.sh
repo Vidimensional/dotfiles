@@ -24,6 +24,7 @@ install_bashconfig () {
     log "Downloading & installing bash completion for Hub."
     hub_autocompletion_url='https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh'
     curl -s "${hub_autocompletion_url}" -o  ~/.bashrc.d/bash.hub.bash_completion.sh
+    reloadbash #Alias that resources the .bashrc.
     log "Done."
 }
 
