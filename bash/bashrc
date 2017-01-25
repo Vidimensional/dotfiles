@@ -1,7 +1,7 @@
 ################################################################################
 # Source extra configs
 if [ -d ~/.bashrc.d ]; then
-    for config_file in ~/.bashrc.d/bash.*; do
+    for config_file in ~/.bashrc.d/*.bash; do
         [ -f ${config_file} ] && source ${config_file}
     done
 fi
