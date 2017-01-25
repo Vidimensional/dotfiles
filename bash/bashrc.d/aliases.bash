@@ -33,6 +33,8 @@ alias unvim="find . -iname '.*.swp' -delete"
 
 alias bonusly="curl -s https://bonus.ly/api/v1/users/me?access_token=\"${BONUSLY_API_TOKEN}\" | jq '.result | { para_gastar: .earning_balance_with_currency, para_dar: .giving_balance_with_currency }'"
 
+alias tiempo="curl wttr.in/"
+
 which hub >/dev/null && alias git="hub"
 
 
