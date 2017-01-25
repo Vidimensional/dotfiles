@@ -5,6 +5,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'stephpy/vim-yaml' "Faster YAML syntax
 Plug 'tpope/vim-fugitive' "Git magic
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree' "Directory tree
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
@@ -13,6 +14,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'fatih/vim-go'
 Plug 'altercation/vim-colors-solarized'
+Plug 'hashivim/vim-hashicorp-tools'
+"Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " ----------------------------------------------------------------------------
