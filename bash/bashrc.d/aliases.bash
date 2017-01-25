@@ -37,10 +37,10 @@ which hub >/dev/null && alias git="hub"
 
 
 # Funciones
-startvm () { vboxmanage startvm $1 --type=headless ;}
-stopvm  () { vboxmanage controlvm $1 poweroff ;} 
+startvm(){ vboxmanage startvm $1 --type=headless ;}
+stopvm(){ vboxmanage controlvm $1 poweroff ;}
 
-busca () { find . -iname "*$1*"; }
+busca(){ find . -iname "*$1*"; }
 
-certview () { for cert in $@; do openssl x509 -in ${cert} -text -noout; done ; }
+certview(){ for cert in $@; do openssl x509 -in ${cert} -text -noout; done ; }
 
