@@ -38,6 +38,12 @@ install_vimconfig () {
     log "Done."
 }
 
+install_gitconfig () {
+    log "Installing gitconfig."
+    cp -v git/gitconfig ~/.gitconfig
+    log "Done."
+}
+
 
 install_iterm2config () {
     log "Installing iTerm2."
@@ -63,6 +69,7 @@ if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
 fi
 
 install_bashconfig
+install_gitconfig
 install_vimconfig
 install_iterm2config
 
