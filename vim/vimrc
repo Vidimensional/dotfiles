@@ -15,6 +15,7 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'fatih/vim-go'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hashivim/vim-hashicorp-tools'
+Plug 'fatih/vim-hclfmt'
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
