@@ -12,6 +12,7 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 
+
 alias reloadbash='source ~/.bashrc'
 alias editalias="vim ${HOME}/.bashrc.d/bash.alias"
 alias editsecrets="vim ${HOME}/.bashrc.d/bash.secrets"
@@ -28,6 +29,7 @@ alias myip="wget -qO- 'http://canihazip.com/s'; echo"
 alias whatsmyip="myip"
 
 alias gti='git' #Fuck this typo.
+alias g='git'
 
 alias unvim="find . -iname '.*.swp' -delete"
 
