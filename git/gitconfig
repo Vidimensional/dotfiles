@@ -1,5 +1,5 @@
-[pull]
-	rebase = true
+[alias]
+    rp = !sh -c 'git pull --rebase $@ && git push $@'
 
 [include]
-    path = ~/.gitconfig.local
+    path = .gitconfig.local
