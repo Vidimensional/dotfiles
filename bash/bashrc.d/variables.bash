@@ -16,4 +16,6 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Add GNU coreutils manpages to $MANPATH.
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
+# Add my personal scripts to path. github.com/vidimensional/scripts
+export PATH="/opt/scripts/:${PATH}"
 
