@@ -51,11 +51,18 @@ install_iterm2config () {
     log "Done."
 }
 
+install_scripts () {
+    log "Installing scripts."
+    git submodule update --remote
+    (cd scripts && ./install.sh)
+    log "Done."
+}
+
 
 if which md5sum; then
-	md5sum='md5sum'
+    md5sum='md5sum'
 elif which md5; then
-	md5sum='md5'
+    md5sum='md5'
 fi
 
 old_installer_md5="$( ${md5sum} $0 )"
@@ -63,13 +70,13 @@ log "Getting the last version."
 git pull origin master
 new_installer_md5="$( ${md5sum} $0 )"
 if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
-	log "The installler has been updated, calling it again"
-	$0 $#
-	exit
+    log "The installler has been updated, calling it again"
+    $0 $#
+    exit
 fi
 
 install_bashconfig
 install_gitconfig
 install_vimconfig
 install_iterm2config
-
+install_scripts
