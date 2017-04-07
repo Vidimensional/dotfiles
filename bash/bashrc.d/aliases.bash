@@ -39,6 +39,7 @@ alias tiempo="curl wttr.in/"
 
 which hub >/dev/null && alias git="hub"
 
+alias describe_ec2_instances='docker run -it -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
 
 # Funciones
 startvm(){ vboxmanage startvm $1 --type=headless ;}
