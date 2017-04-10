@@ -49,3 +49,4 @@ busca(){ find . -iname "*$1*"; }
 
 certview(){ for cert in $@; do openssl x509 -in ${cert} -text -noout; done ; }
 
+secret() { curl -s -u "${ONETIMESECRET_API_TOKEN}" -F "secret=$1" https://onetimesecret.com/api/v1/share | jq -r '"https://onetimesecret.com/secret/\(.secret_key)"'; }
