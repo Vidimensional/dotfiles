@@ -50,3 +50,14 @@ busca(){ find . -iname "*$1*"; }
 certview(){ for cert in $@; do openssl x509 -in ${cert} -text -noout; done ; }
 
 secret() { curl -s -u "${ONETIMESECRET_API_TOKEN}" -F "secret=$1" https://onetimesecret.com/api/v1/share | jq -r '"https://onetimesecret.com/secret/\(.secret_key)"'; }
+
+gpush() {
+    branch="$(git symbolic-ref HEAD)"
+    branch_name="${branch##refs/heads/}"
+
+    echo -e "-> ${__YELLOW}git pull --rebase origin ${branch_name}${__DEFAULT}"
+    git pull --rebase origin "${branch_name}"
+    echo -e "-> ${__YELLOW}git push origin ${branch_name}${__DEFAULT}"
+    git push origin "${branch_name}"
+}
+
