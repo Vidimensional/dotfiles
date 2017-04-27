@@ -12,28 +12,19 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 
-
 alias reloadbash='source ~/.bashrc'
-alias editalias="vim ${HOME}/.bashrc.d/bash.alias"
-alias editsecrets="vim ${HOME}/.bashrc.d/bash.secrets"
-alias editvars="vim ${HOME}/.bashrc.d/bash.variables"
+alias editalias="vim \${HOME}/.bashrc.d/aliases.bash"
+alias editsecrets="vim \${HOME}/.bashrc.d/secrets.bash"
+alias editvars="vim \${HOME}/.bashrc.d/variables.bash"
+alias editvimrc="vim \${HOME}/.vimrc"
+alias vimrc="editvimrc"
 
-alias gopath="cd ${GOPATH}/src/github.com/Vidimensional"
-
-alias vimrc="vim ${HOME}/.vimrc"
-alias editvimrc="vimrc"
-
-alias fucking="sudo"
-
-alias myip="wget -qO- 'http://canihazip.com/s'; echo"
-alias whatsmyip="myip"
+alias gopath="cd \${GOPATH}/src/github.com/Vidimensional"
 
 alias gti='git' #Fuck this typo.
 alias g='git'
 
 alias unvim="find . -iname '.*.swp' -delete"
-
-alias bonusly="curl -s https://bonus.ly/api/v1/users/me?access_token=\"${BONUSLY_API_TOKEN}\" | jq '.result | { para_gastar: .earning_balance_with_currency, para_dar: .giving_balance_with_currency }'"
 
 alias tiempo="curl wttr.in/"
 
@@ -42,14 +33,25 @@ which hub >/dev/null && alias git="hub"
 alias describe_ec2_instances='docker run --rm -it -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
 
 # Funciones
-startvm(){ vboxmanage startvm $1 --type=headless ;}
-stopvm(){ vboxmanage controlvm $1 poweroff ;}
+myip() {
+    curl 'http://canihazip.com/s'
+    echo #Add a newline
+}
+alias whatsmyip="myip"
 
-busca(){ find . -iname "*$1*"; }
+busca(){
+    find . -iname "*$1*"
+}
 
-certview(){ for cert in $@; do openssl x509 -in ${cert} -text -noout; done ; }
+certview(){
+    for cert in $@; do
+        openssl x509 -in "${cert}" -text -noout
+    done
+}
 
-secret() { curl -s -u "${ONETIMESECRET_API_TOKEN}" -F "secret=$1" https://onetimesecret.com/api/v1/share | jq -r '"https://onetimesecret.com/secret/\(.secret_key)"'; }
+secret() {
+    curl -s -u "${ONETIMESECRET_API_TOKEN}" -F "secret=$1" https://onetimesecret.com/api/v1/share | jq -r '"https://onetimesecret.com/secret/\(.secret_key)"'
+}
 
 gpush() {
     branch="$(git symbolic-ref HEAD)"
