@@ -41,6 +41,7 @@ install_vimconfig () {
 install_gitconfig () {
     log "Installing gitconfig."
     cp -v git/gitconfig ~/.gitconfig
+    _rsync git/gitconfig.d/* ~/.gitconfig.d
     log "Done."
 }
 

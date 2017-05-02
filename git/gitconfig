@@ -3,3 +3,4 @@
 
 [include]
     path = .gitconfig.local
+    path = .gitconfig.d/nova.colors

@@ -4,7 +4,7 @@ set noshowmode
 let g:airline#extensions#branch#enabled = 1
 " let g:airline#extensions#branch#empty_message = ''
 " let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
 
 
 let g:airline_powerline_fonts = 1

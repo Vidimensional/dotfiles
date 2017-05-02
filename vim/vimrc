@@ -17,6 +17,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'fatih/vim-hclfmt'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'trevordmiller/nova-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -24,7 +26,7 @@ call plug#end()
 " Appearance
 " ----------------------------------------------------------------------------
 syntax enable
-colorscheme solarized
+colorscheme nova
 set number "Show number lines. 
 set cursorline "Higlights the line the cursor is.
 
