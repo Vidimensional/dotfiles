@@ -63,3 +63,10 @@ gpush() {
     git push origin "${branch_name}"
 }
 
+gpull() {
+    branch="$(git symbolic-ref HEAD)"
+    branch_name="${branch##refs/heads/}"
+
+    echo -e "-> ${__YELLOW}git pull --rebase origin ${branch_name}${__DEFAULT}"
+    git pull --rebase origin "${branch_name}"
+}
