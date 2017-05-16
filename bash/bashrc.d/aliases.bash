@@ -57,10 +57,15 @@ gpush() {
     branch="$(git symbolic-ref HEAD)"
     branch_name="${branch##refs/heads/}"
 
-    echo -e "-> ${__YELLOW}git pull --rebase origin ${branch_name}${__DEFAULT}"
-    git pull --rebase origin "${branch_name}"
-    echo -e "-> ${__YELLOW}git push origin ${branch_name}${__DEFAULT}"
-    git push origin "${branch_name}"
+    git_pull="git pull --rebase origin ${branch_name}"
+    echo -e "> ${__YELLOW}${git_pull}${__DEFAULT}"
+    if ! ${git_pull}; then
+        return $?
+    fi
+
+    git_push="git push origin ${branch_name}"
+    echo -e "> ${__YELLOW}${git_push}${branch_name}${__DEFAULT}"
+    ${git_push}
 }
 
 gpull() {
