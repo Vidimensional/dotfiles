@@ -53,25 +53,54 @@ secret() {
     curl -s -u "${ONETIMESECRET_API_TOKEN}" -F "secret=$1" https://onetimesecret.com/api/v1/share | jq -r '"https://onetimesecret.com/secret/\(.secret_key)"'
 }
 
+__log() {
+    echo -e "> ${__YELLOW}$1${__DEFAULT}"
+}
+
 gpush() {
     branch="$(git symbolic-ref HEAD)"
     branch_name="${branch##refs/heads/}"
 
-    git_pull="git pull --rebase origin ${branch_name}"
-    echo -e "> ${__YELLOW}${git_pull}${__DEFAULT}"
-    if ! ${git_pull}; then
-        return $?
+    git_stash_cmd="git stash"
+    git_stash_pop_cmd="git stash pop"
+    git_pull_cmd="git pull --rebase origin ${branch_name}"
+    git_push_cmd="git push origin ${branch_name}"
+
+    if git diff-index --quiet HEAD --; then
+        stash=0
+    else
+        stash=1
     fi
 
-    git_push="git push origin ${branch_name}"
-    echo -e "> ${__YELLOW}${git_push}${branch_name}${__DEFAULT}"
-    ${git_push}
+    if [ "$stash" -eq 1 ]; then
+        __log "$git_stash_cmd"
+        $git_stash_cmd || return $?
+    fi
+
+    __log "$git_pull_cmd"
+    if ! $git_pull_cmd; then
+        ret_val=$?
+        if [ "$stash" -eq 1 ]; then
+            __log "$git_stash_pop_cmd"
+            $git_stash_pop_cmd
+        fi
+        return $ret_val
+    fi
+
+    __log "$git_push_cmd"
+    $git_push_cmd
+
+    if [ "$stash" -eq 1 ]; then
+        __log "$git_stash_pop_cmd"
+        $git_stash_pop_cmd
+    fi
 }
 
 gpull() {
     branch="$(git symbolic-ref HEAD)"
     branch_name="${branch##refs/heads/}"
 
-    echo -e "-> ${__YELLOW}git pull --rebase origin ${branch_name}${__DEFAULT}"
-    git pull --rebase origin "${branch_name}"
+    git_pull="git pull --rebase origin ${branch_name}"
+    __log "$git_pull"
+    $git_pull
 }
