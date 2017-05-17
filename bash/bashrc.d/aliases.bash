@@ -58,14 +58,15 @@ __log() {
 }
 
 gpush() {
-    branch="$(git symbolic-ref HEAD)"
-    branch_name="${branch##refs/heads/}"
+    local branch="$(git symbolic-ref HEAD)"
+    local branch_name="${branch##refs/heads/}"
 
-    git_stash_cmd="git stash"
-    git_stash_pop_cmd="git stash pop"
-    git_pull_cmd="git pull --rebase origin ${branch_name}"
-    git_push_cmd="git push origin ${branch_name}"
+    local git_stash_cmd="git stash"
+    local git_stash_pop_cmd="git stash pop"
+    local git_pull_cmd="git pull --rebase origin ${branch_name}"
+    local git_push_cmd="git push origin ${branch_name}"
 
+    local stash
     if git diff-index --quiet HEAD --; then
         stash=0
     else
@@ -79,7 +80,7 @@ gpush() {
 
     __log "$git_pull_cmd"
     if ! $git_pull_cmd; then
-        ret_val=$?
+        local ret_val=$?
         if [ "$stash" -eq 1 ]; then
             __log "$git_stash_pop_cmd"
             $git_stash_pop_cmd
@@ -97,10 +98,10 @@ gpush() {
 }
 
 gpull() {
-    branch="$(git symbolic-ref HEAD)"
-    branch_name="${branch##refs/heads/}"
+    local branch="$(git symbolic-ref HEAD)"
+    local branch_name="${branch##refs/heads/}"
 
-    git_pull="git pull --rebase origin ${branch_name}"
-    __log "$git_pull"
-    $git_pull
+    local git_pull_command="git pull --rebase origin ${branch_name}"
+    __log "$git_pull_command"
+    $git_pull_command
 }
