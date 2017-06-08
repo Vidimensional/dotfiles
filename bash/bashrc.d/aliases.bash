@@ -65,7 +65,7 @@ gpush() {
     local branch_name="${branch##refs/heads/}"
 
     local git_stash_cmd="git stash"
-    local git_stash_pop_cmd="git stash pop"
+    local git_stash_pop_cmd="git stash pop --quiet"
     local git_pull_cmd="git pull --rebase origin ${branch_name}"
     local git_push_cmd="git push origin ${branch_name}"
 
