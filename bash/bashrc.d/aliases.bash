@@ -3,6 +3,9 @@
 
 # Aliases
 
+# Some aliases I use for work that I don't want to push to a public repo :P
+[ -e aliases_typeform.bash ] && source aliases_typeform.bash
+
 alias ls="ls --color"
 alias ll="ls -l"
 alias la="ls -la"
