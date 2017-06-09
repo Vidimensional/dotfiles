@@ -4,9 +4,7 @@ source bash/bashrc.d/colors.bash
 
 
 log () {
-    echo -ne "${__YELLOW}"
-    echo "[$(date +'%Y-%m-%d %H:%M:%S')] $@"
-    echo -ne "${__DEFAULT}"
+    echo -e "> ${__YELLOW}$@${__DEFAULT}"
 }
 
 _rsync () {
@@ -25,7 +23,6 @@ install_bashconfig () {
     hub_autocompletion_url='https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh'
     curl -s "${hub_autocompletion_url}" -o  ~/.bashrc.d/hub.bash_completion.bash
     source ~/.bashrc
-    log "Done."
 }
 
 
@@ -35,21 +32,18 @@ install_vimconfig () {
     _rsync vim/vimrc.d/* ~/.vimrc.d
     log "Installing Vim plugins via Plug."
     vim +PlugInstall +qall
-    log "Done."
 }
 
 install_gitconfig () {
     log "Installing gitconfig."
     cp -v git/gitconfig ~/.gitconfig
     _rsync git/gitconfig.d/* ~/.gitconfig.d
-    log "Done."
 }
 
 
 install_iterm2config () {
     log "Installing iTerm2."
     _rsync iterm2/* ~/.iterm2/
-    log "Done."
 }
 
 
