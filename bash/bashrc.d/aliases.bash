@@ -15,6 +15,8 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 
+alias dotfiles='cd ~/dev/repos/dotfiles'
+
 alias reloadbash='source ~/.bashrc'
 alias editalias="vim \${HOME}/.bashrc.d/aliases.bash"
 alias editsecrets="vim \${HOME}/.bashrc.d/secrets.bash"
