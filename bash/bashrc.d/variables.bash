@@ -19,3 +19,4 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # Add my personal scripts to path. github.com/vidimensional/scripts
 export PATH="/opt/scripts/:${PATH}"
 
+export AWS_DEFAULT_REGION='us-east-1' 
