@@ -72,6 +72,7 @@ gpush() {
     local git_push_cmd="git push origin ${branch_name}"
 
     local stash
+
     if git diff-index --quiet HEAD --; then
         stash=0
     else
@@ -83,14 +84,16 @@ gpush() {
         $git_stash_cmd || return $?
     fi
 
-    __log "$git_pull_cmd"
-    if ! $git_pull_cmd; then
-        local ret_val=$?
-        if [ "$stash" -eq 1 ]; then
-            __log "$git_stash_pop_cmd"
-            $git_stash_pop_cmd
+    if  git branch -r | grep -q "${branch_name}"; then
+        __log "$git_pull_cmd"
+        if ! $git_pull_cmd; then
+            local ret_val=$?
+            if [ "$stash" -eq 1 ]; then
+                __log "$git_stash_pop_cmd"
+                $git_stash_pop_cmd
+            fi
+            return $ret_val
         fi
-        return $ret_val
     fi
 
     __log "$git_push_cmd"
