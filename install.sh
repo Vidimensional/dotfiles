@@ -12,6 +12,16 @@ _rsync () {
 }
 
 
+install_docker_images() {
+    local images='vidimensional/slack_cli
+                  vidimensional/describe_ec2_instances'
+    for image in $images; do
+        log "Downloading ${image} Docker image."
+        docker pull "${image}"
+    done
+}
+
+
 install_bashconfig () {
     log "Installing bashrc."
     cp -v bash/bashrc ~/.bashrc
@@ -48,9 +58,9 @@ install_iterm2config () {
 
 
 if which md5sum; then
-	md5sum='md5sum'
+    md5sum='md5sum'
 elif which md5; then
-	md5sum='md5'
+    md5sum='md5'
 fi
 
 old_installer_md5="$( ${md5sum} $0 )"
@@ -58,11 +68,12 @@ log "Getting the last version."
 git pull origin master
 new_installer_md5="$( ${md5sum} $0 )"
 if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
-	log "The installler has been updated, calling it again"
-	$0 $#
-	exit
+    log "The installler has been updated, calling it again"
+    $0 $#
+    exit
 fi
 
+install_docker_images
 install_bashconfig
 install_gitconfig
 install_vimconfig
