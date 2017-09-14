@@ -8,18 +8,27 @@ fi
 
 ################################################################################
 # Load bash-completion configuration
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-    source /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+#if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    source /usr/share/bash-completion/bash_completion
+#elif [ -f /etc/bash_completion ]; then
+#    source /etc/bash_completion
+#fi
 
-if [ -d /usr/local/etc/bash_completion.d ]; then
-    for file in $( find /usr/local/etc/bash_completion.d/ ! -type d); do
-        source ${file}
-    done
-fi
-
+load_dir() {
+    if [[ -d $1 ]]; then
+        (
+            cd $1
+            if [ -d /usr/local/etc/bash_completion.d ]; then
+                for file in $( find /usr/local/etc/bash_completion.d/ ! -type d); do
+                    source ${file}
+                done
+            fi
+        )
+    else
+        echo "$1 Is not a directory"
+    fi
+}
 ################################################################################
 # Define prompt
 [ ${UID} -eq 0 ] && PS_USER="\[${__BRED}\]\u" || PS_USER="\[${__BGREEN}\]\u"
