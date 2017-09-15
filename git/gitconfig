@@ -1,6 +1,9 @@
+[core]
+    excludesfile = ~/.gitconfig.d/gitignore
+
 [alias]
     rp = !sh -c 'git pull --rebase $@ && echo '===' && git push $@'
 
 [include]
-    path = .gitconfig.local
-    path = .gitconfig.d/nova.colors
+    path = ~/.gitconfig.local
+    path = ~/.gitconfig.d/nova.colors
