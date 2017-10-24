@@ -11,10 +11,12 @@ export PATH="${PATH}:/usr/local/opt/go/libexec/bin"
 export GOPATH=~/dev/go
 export PATH="${PATH}:${GOPATH}/bin"
 
-# Add GNU coreutils to $PATH (override BSD ones).
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-# Add GNU coreutils manpages to $MANPATH.
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+if [ "$( uname -s )" != Linux ]; then
+    # Add GNU coreutils to $PATH (override BSD ones).
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    # Add GNU coreutils manpages to $MANPATH.
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
 
 # Add my personal scripts to path. github.com/vidimensional/scripts
 export PATH="/opt/scripts/:${PATH}"
