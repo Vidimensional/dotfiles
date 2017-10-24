@@ -34,6 +34,10 @@ load_dir() {
         echo "$1 Is not a directory"
     fi
 }
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+            source /etc/profile.d/vte.sh
+fi
 ################################################################################
 # Define prompt
 [ ${UID} -eq 0 ] && PS_USER="\[${__BRED}\]\u" || PS_USER="\[${__BGREEN}\]\u"
