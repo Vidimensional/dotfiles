@@ -19,6 +19,7 @@ Plug 'fatih/vim-hclfmt'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'trevordmiller/nova-vim'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -26,7 +27,10 @@ call plug#end()
 " Appearance
 " ----------------------------------------------------------------------------
 syntax enable
-colorscheme nova
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+set background=dark
+colorscheme hybrid_material
 set number "Show number lines. 
 set cursorline "Higlights the line the cursor is.
 
