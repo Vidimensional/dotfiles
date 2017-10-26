@@ -72,7 +72,12 @@ __log() {
     echo -e "> ${__YELLOW}$1${__DEFAULT}"
 }
 
-gpush() {
+__gpullpush() {
+    local do_push='1'
+    if [ $1 == 'no_push' ] || [ $1 == 'nopush' ] || [ $1 == 'no-push' ]; then
+        no_push=''
+    fi
+
     local branch="$(git symbolic-ref HEAD)"
     local branch_name="${branch##refs/heads/}"
 
@@ -106,20 +111,23 @@ gpush() {
         fi
     fi
 
-    __log "$git_push_cmd"
-    $git_push_cmd
+
+    if [ -n "${do_push}" ]; then
+        __log "$git_push_cmd"
+        $git_push_cmd
+    fi
 
     if [ "$stash" -eq 1 ]; then
         __log "$git_stash_pop_cmd"
         $git_stash_pop_cmd
     fi
+    
+}
+
+gpush() {
+    __gpullpush
 }
 
 gpull() {
-    local branch="$(git symbolic-ref HEAD)"
-    local branch_name="${branch##refs/heads/}"
-
-    local git_pull_command="git pull --rebase origin ${branch_name}"
-    __log "$git_pull_command"
-    $git_pull_command
+    __gpullpush nopush
 }
