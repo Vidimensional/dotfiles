@@ -5,11 +5,17 @@ export LS_COLORS='rs=0:di=00;34:ln=00;36:mh=00:pi=40;33:so=00;35:do=00;35:bd=40;
 
 export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/scripts'
 
-# Add $GOROOT to $PATH.
-export PATH="${PATH}:/usr/local/opt/go/libexec/bin"
-
 export GOPATH=~/dev/go
-export PATH="${PATH}:${GOPATH}/bin"
+if [ "$( uname -s )" == Linux ]; then
+    export GOROOT="/opt/go/current"
+else
+   export GOROOT="/usr/local/opt/go/libexec" 
+fi
+export GOPATH=~/dev/go
+
+# Add $GOROOT and $GOPATH to $PATH.
+export PATH="${PATH}:${GOPATH}/bin:${GOROOT}/bin"
+
 
 if [ "$( uname -s )" != Linux ]; then
     # Add GNU coreutils to $PATH (override BSD ones).
