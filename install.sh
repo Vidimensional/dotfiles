@@ -56,6 +56,13 @@ install_iterm2config () {
     _rsync iterm2/* ~/.iterm2/
 }
 
+install_scripts () {
+    log "Installing scripts."
+    local scripts_dir='/opt/scripts'
+    sudo mkdir -p "${scripts_dir}"
+    sudo chown "$(whoami)" "${scripts_dir}"
+    _rsync scripts/* "${scripts_dir}"
+}
 
 if which md5sum; then
     md5sum='md5sum'
@@ -78,4 +85,5 @@ install_bashconfig
 install_gitconfig
 install_vimconfig
 install_iterm2config
+install_scripts
 
