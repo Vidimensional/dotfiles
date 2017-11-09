@@ -64,9 +64,11 @@ install_scripts () {
     _rsync scripts/* "${scripts_dir}"
 }
 
-if which md5sum; then
+log "Checking sudo."
+sudo echo "Ok."
+if which md5sum >/dev/null; then
     md5sum='md5sum'
-elif which md5; then
+elif which md5 >/dev/null; then
     md5sum='md5'
 fi
 
