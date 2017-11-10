@@ -49,7 +49,7 @@ alias untab='sed "s/\t/    /g"'
 
 # Funciones
 myip() {
-    curl 'http://canihazip.com/s'
+    curl 'https://canihazip.com/s'
     echo #Add a newline
 }
 alias whatsmyip="myip"
