@@ -1,39 +1,24 @@
+__source_dir() {
+    if [[ -d "$1" ]]; then
+        for file in $(find "$1" ! -type d); do
+            source "${file}"
+        done
+        for dir in $(find "$1" -type d ! -path $1); do
+            source "${dir}"
+        done
+    else
+        echo "ERROR: $1 is not a dir."
+    fi
+}
+
 ################################################################################
 # Source extra configs
-if [ -d ~/.bashrc.d ]; then
-    for config_file in ~/.bashrc.d/*.bash; do
-        [ -f ${config_file} ] && source ${config_file}
-    done
-fi
+__source_dir ~/.bashrc.d
 
 ################################################################################
 # Load bash-completion configuration
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-#if [ -f /usr/share/bash-completion/bash_completion ]; then
-#    source /usr/share/bash-completion/bash_completion
-#elif [ -f /etc/bash_completion ]; then
-#    source /etc/bash_completion
-#fi
-
-
-if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-    . /usr/local/share/bash-completion/bash_completion
-fi
-
-load_dir() {
-    if [[ -d $1 ]]; then
-        (
-            cd $1
-            if [ -d /usr/local/etc/bash_completion.d ]; then
-                for file in $( find /usr/local/etc/bash_completion.d/ ! -type d); do
-                    source ${file}
-                done
-            fi
-        )
-    else
-        echo "$1 Is not a directory"
-    fi
-}
+[ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
+__source_dir "/etc/bash_completion.d"
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
             source /etc/profile.d/vte.sh
