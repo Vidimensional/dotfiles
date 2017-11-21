@@ -14,6 +14,7 @@ alias grep="grep --color"
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
+alias ln='ln -v'
 
 repos_path=~/dev/repos
 alias repos="cd ${repos_path}"
