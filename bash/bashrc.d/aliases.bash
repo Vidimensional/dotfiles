@@ -49,6 +49,8 @@ alias terminate_instance='aws ec2 terminate-instances --instance-ids'
 # Turns tabs into 4 spaces.
 alias untab='sed "s/\t/    /g"' 
 
+alias uupgrade='sudo apt update && sudo apt upgrade' #Ubuntu upgrade
+
 # Funciones
 myip() {
     curl 'https://canihazip.com/s'
