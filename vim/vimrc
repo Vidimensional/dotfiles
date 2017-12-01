@@ -15,7 +15,6 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'fatih/vim-go'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hashivim/vim-hashicorp-tools'
-Plug 'fatih/vim-hclfmt'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'trevordmiller/nova-vim'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -74,4 +73,5 @@ set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
 " ----------------------------------------------------------------------------
 source ~/.vimrc.d/airline.vim "Particular plugin configuration
 source ~/.vimrc.d/nerdtree.vim "Particular plugin configuration
+source ~/.vimrc.d/vim-terraform.vim "Particular plugin configuration
 
