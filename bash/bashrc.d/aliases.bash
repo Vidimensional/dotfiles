@@ -79,7 +79,7 @@ __log() {
 __gpullpush() {
     local do_push='1'
     if [ "$1" == 'no_push' ] || [ "$1" == 'nopush' ] || [ "$1" == 'no-push' ]; then
-        no_push=''
+        do_push=''
     fi
 
     local branch="$(git symbolic-ref HEAD)"
