@@ -42,6 +42,7 @@ which hub >/dev/null && alias git="hub"
 #Access Docker4Mac xhyve virtual machine.
 alias sshdocker='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 
+alias psql="docker run -it psql"
 alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
 alias slack='docker run --rm -e "SLACK_CLI_USERNAME=$SLACK_CLI_USERNAME" -e "SLACK_CLI_URL=$SLACK_CLI_URL" vidimensional/slack_cli'
 alias terminate_instance='aws ec2 terminate-instances --instance-ids'
