@@ -45,6 +45,7 @@ alias sshdocker='screen ~/Library/Containers/com.docker.docker/Data/com.docker.d
 alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" psql'
 alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
 alias slack='docker run --rm -e "SLACK_CLI_USERNAME=$SLACK_CLI_USERNAME" -e "SLACK_CLI_URL=$SLACK_CLI_URL" vidimensional/slack_cli'
+alias kctl_proxy='kubectl proxy >/dev/null 2>&1 &'
 alias terminate_instance='aws ec2 terminate-instances --instance-ids'
 
 # Turns tabs into 4 spaces.
