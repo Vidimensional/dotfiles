@@ -14,7 +14,12 @@ _rsync () {
 
 install_docker_images() {
     local images='vidimensional/slack_cli
-                  vidimensional/describe_ec2_instances'
+                  vidimensional/describe_ec2_instances
+                  vidimensional/describe_ec2_instances
+                  vidimensional/psql
+                  vidimensional/mysql-client
+                  vidimensional/jq
+                  mesosphere/aws-cli'
     for image in $images; do
         log "Downloading ${image} Docker image."
         docker pull "${image}"
