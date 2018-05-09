@@ -32,6 +32,7 @@ alias gopath="cd \${GOPATH}/src/github.com/Vidimensional"
 alias gti='git' #Fuck this typo.
 alias g='git'
 alias k='kubectl'
+alias d='docker'
 
 alias unvim="find . -iname '.*.swp' -delete"
 
