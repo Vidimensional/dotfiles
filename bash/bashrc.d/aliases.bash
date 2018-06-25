@@ -62,7 +62,7 @@ alias untab='sed "s/\t/    /g"'
 uupgrade(){
 sudo apt update || return
 sudo apt upgrade || return
-pip list --outdated --format=freeze | cut -d= -f1 | xargs -I{} -- sudo -H -- pip install -U  {}
+#pip list --outdated --format=freeze | cut -d= -f1 | xargs -I{} -- sudo -H -- pip install -U  {}  Since PIP is broken on my machine.
 }
 
 # Funciones
