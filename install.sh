@@ -29,7 +29,12 @@ install_docker_images() {
 
 install_bashconfig () {
     log "Installing bashrc."
-    cp -v bash/bashrc ~/.bashrc
+    local os="$(uname -s)"
+    if [[ "$os" == 'Linux' ]]; then
+        cp -v bash/bashrc ~/.bashrc
+    elif [[ "$os" == Darwin ]]; then
+        cp -v bash/bashrc ~/.bash_profile
+    fi
     _rsync bash/bashrc.d/* ~/.bashrc.d
     log "Downloading & installing git-prompt"
     git_prompt_url='https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh'
