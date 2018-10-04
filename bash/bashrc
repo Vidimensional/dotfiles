@@ -18,7 +18,13 @@ __source_dir ~/.bashrc.d
 ################################################################################
 # Load bash-completion configuration
 [ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
-__source_dir "/etc/bash_completion.d"
+
+os="$(uname -s)"
+if [[ "$os" == Linux ]]; then
+    __source_dir /etc/bash_completion.d
+elif [[ "$os" == Darwin ]]; then
+    __source_dir /usr/local/etc/bash_completion.d
+fi
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
             source /etc/profile.d/vte.sh

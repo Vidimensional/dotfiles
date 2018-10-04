@@ -29,12 +29,14 @@ install_docker_images() {
 
 install_bashconfig () {
     log "Installing bashrc."
-    local os="$(uname -s)"
-    if [[ "$os" == 'Linux' ]]; then
-        cp -v bash/bashrc ~/.bashrc
-    elif [[ "$os" == Darwin ]]; then
-        cp -v bash/bashrc ~/.bash_profile
+    cp -v bash/bashrc ~/.bashrc
+    if [[ "$(uname -s)" == Darwin ]]; then
+        if ! [[ -L ~/.bash_profile ]] || ! [[ "$(readlink ~/.bash_profile)" == ~/.bashrc ]]; then
+            rm ~/.bash_profile
+            ln -s  ~/.bashrc ~/.bash_profile
+        fi
     fi
+
     _rsync bash/bashrc.d/* ~/.bashrc.d
     log "Downloading & installing git-prompt"
     git_prompt_url='https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh'
@@ -92,10 +94,10 @@ if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
     exit
 fi
 
-install_docker_images
+#install_docker_images
 install_bashconfig
 install_gitconfig
-install_vimconfig
+#install_vimconfig
 install_iterm2config
 install_scripts
 
