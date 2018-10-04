@@ -44,15 +44,15 @@ which hub >/dev/null && alias git="hub"
 alias sshdocker='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 
 #Commands running on Docker containers.
-alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
-alias mysql='docker run -it vidimensional/mysql-client'
-alias jq='docker run -i -v "${PWD}:/opt/jq/workspace" vidimensional/jq'
-alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
-alias slack='docker run --rm -e "SLACK_CLI_USERNAME=$SLACK_CLI_USERNAME" -e "SLACK_CLI_URL=$SLACK_CLI_URL" vidimensional/slack_cli'
-alias aws='docker run -it -v ~/.aws:/root/.aws -v ${PWD}:/project mesosphere/aws-cli'
-alias ansible-vault='docker run -it --rm -v "${PWD}:/opt/workspace" --entrypoint /usr/local/bin/ansible-vault vidimensional/ansible'
+#alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
+#alias mysql='docker run -it vidimensional/mysql-client'
+#alias jq='docker run -i -v "${PWD}:/opt/jq/workspace" vidimensional/jq'
+#alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
+#alias slack='docker run --rm -e "SLACK_CLI_USERNAME=$SLACK_CLI_USERNAME" -e "SLACK_CLI_URL=$SLACK_CLI_URL" vidimensional/slack_cli'
+#alias aws='docker run -it -v ~/.aws:/root/.aws -v ${PWD}:/project mesosphere/aws-cli'
+#alias ansible-vault='docker run -it --rm -v "${PWD}:/opt/workspace" --entrypoint /usr/local/bin/ansible-vault vidimensional/ansible'
 
-alias kctl_proxy='kubectl proxy >/dev/null 2>&1 &'
+#alias kctl_proxy='kubectl proxy >/dev/null 2>&1 &'
 alias terminate_instance='aws ec2 terminate-instances --instance-ids'
 
 # Turns tabs into 4 spaces.
