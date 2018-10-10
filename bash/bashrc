@@ -23,6 +23,9 @@ os="$(uname -s)"
 if [[ "$os" == Linux ]]; then
     __source_dir /etc/bash_completion.d
 elif [[ "$os" == Darwin ]]; then
+    if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+        . /usr/local/share/bash-completion/bash_completion
+    fi
     __source_dir /usr/local/etc/bash_completion.d
 fi
 
