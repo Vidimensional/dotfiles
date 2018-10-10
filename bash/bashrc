@@ -37,4 +37,4 @@ fi
 #[ ${UID} -eq 0 ] && PS_USER="\[${__BRED}\]\u" || PS_USER="\[${__BGREEN}\]\u"
 #PS_HOSTNAME="\[${__BYELLOW}\]\h"
 PS_PATH="\[${__BBLUE}\]\w"
-PROMPT_COMMAND='__git_ps1 "\\n${PS_PATH}\[${__PURPLE}\]" " \[${__YELLOW}\]$(_kubeprompt)\\n\[${__GREEN}\]\\\$\[${__DEFAULT}\] "'
+PROMPT_COMMAND='__git_ps1 "\\n${PS_PATH}\[${__PURPLE}\]" " \[$__RED\]$(_awsprompt) \[${__YELLOW}\]$(_kubeprompt)\\n\[${__GREEN}\]\\\$\[${__DEFAULT}\] "'
