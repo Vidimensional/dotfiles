@@ -37,3 +37,9 @@ awsprofile() {
         return 1
     fi
 }
+
+_awsprofile_completion() {
+  COMPREPLY=($(compgen -W "$(_aws_list_profiles)" -- "${COMP_WORDS[1]}"))
+
+}
+complete -F _awsprofile_completion awsprofile
