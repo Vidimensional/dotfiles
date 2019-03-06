@@ -4,7 +4,7 @@
 # Aliases
 
 # Some aliases I use for work that I don't want to push to a public repo :P
-[ -e aliases_typeform.bash ] && source aliases_typeform.bash
+[ -e aliases_mytheresa.bash ] && source aliases_mytheresa.bash
 
 alias ls="ls --color"
 alias ll="ls -l"
@@ -16,7 +16,7 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias ln='ln -v'
 
-repos_path=~/dev/repos
+repos_path=~/dev/vidi
 alias repos="cd ${repos_path}"
 alias dotfiles="cd ${repos_path}/dotfiles"
 
@@ -45,9 +45,9 @@ alias sshdocker='screen ~/Library/Containers/com.docker.docker/Data/com.docker.d
 
 #Commands running on Docker containers.
 #alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
-#alias mysql='docker run -it vidimensional/mysql-client'
+alias mysql='docker run -it vidimensional/mysql-client'
 #alias jq='docker run -i -v "${PWD}:/opt/jq/workspace" vidimensional/jq'
-#alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
+alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
 #alias slack='docker run --rm -e "SLACK_CLI_USERNAME=$SLACK_CLI_USERNAME" -e "SLACK_CLI_URL=$SLACK_CLI_URL" vidimensional/slack_cli'
 #alias aws='docker run -it -v ~/.aws:/root/.aws -v ${PWD}:/project mesosphere/aws-cli'
 #alias ansible-vault='docker run -it --rm -v "${PWD}:/opt/workspace" --entrypoint /usr/local/bin/ansible-vault vidimensional/ansible'
