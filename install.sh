@@ -60,7 +60,7 @@ install_gitconfig () {
     log "Installing gitconfig."
     cp -v git/gitconfig ~/.gitconfig
     cp -v git/gitignore_global ~/.gitignore_global
-    _rsync git/gitconfig.d/* ~/.gitconfig.d
+    _rsync git/gitconfig.d/* ~/.gitconfig.d/
 }
 
 
