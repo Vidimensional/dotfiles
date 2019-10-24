@@ -4,7 +4,7 @@
 # Aliases
 
 # Some aliases I use for work that I don't want to push to a public repo :P
-[ -e aliases_typeform.bash ] && source aliases_typeform.bash
+[ -e aliases_mytheresa.bash ] && source aliases_mytheresa.bash
 
 alias ls="ls --color"
 alias ll="ls -l"
@@ -16,7 +16,7 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias ln='ln -v'
 
-repos_path=~/dev/repos
+repos_path=~/dev/vidi
 alias repos="cd ${repos_path}"
 alias dotfiles="cd ${repos_path}/dotfiles"
 
@@ -29,28 +29,20 @@ alias vimrc="editvimrc"
 
 alias gopath="cd \${GOPATH}/src/github.com/Vidimensional"
 
-alias gti='git' #Fuck this typo.
-alias g='git'
 alias k='kubectl'
 alias d='docker'
+alias tf='terraform'
 
 alias unvim="find . -iname '.*.swp' -delete"
 
 alias tiempo="curl wttr.in/"
 
-which hub >/dev/null && alias git="hub"
-
 #Access Docker4Mac xhyve virtual machine.
 alias sshdocker='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 
 #Commands running on Docker containers.
-#alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
-#alias mysql='docker run -it vidimensional/mysql-client'
-#alias jq='docker run -i -v "${PWD}:/opt/jq/workspace" vidimensional/jq'
-#alias describe_ec2_instances='docker run --rm -e AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" vidimensional/describe_ec2_instances'
-#alias slack='docker run --rm -e "SLACK_CLI_USERNAME=$SLACK_CLI_USERNAME" -e "SLACK_CLI_URL=$SLACK_CLI_URL" vidimensional/slack_cli'
-#alias aws='docker run -it -v ~/.aws:/root/.aws -v ${PWD}:/project mesosphere/aws-cli'
-#alias ansible-vault='docker run -it --rm -v "${PWD}:/opt/workspace" --entrypoint /usr/local/bin/ansible-vault vidimensional/ansible'
+alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
+alias mysql='docker run -it vidimensional/mysql-client'
 
 #alias kctl_proxy='kubectl proxy >/dev/null 2>&1 &'
 alias terminate_instance='aws ec2 terminate-instances --instance-ids'
@@ -86,8 +78,9 @@ secret() {
     curl -s -u "${ONETIMESECRET_API_TOKEN}" -F "secret=$1" https://onetimesecret.com/api/v1/share | jq -r '"https://onetimesecret.com/secret/\(.secret_key)"'
 }
 
-__log() {
-    echo -e "> ${__YELLOW}$1${__DEFAULT}"
+decode_base64() {
+    echo;echo
+    echo -n "$1"  | base64 -d
 }
 
 __gpullpush() {
@@ -101,7 +94,7 @@ __gpullpush() {
 
     local git_stash_cmd="git stash"
     local git_stash_pop_cmd="git stash pop --quiet"
-    local git_pull_cmd="git pull --rebase origin ${branch_name}"
+    local git_pull_cmd="git pull origin ${branch_name}"
     local git_push_cmd="git push origin ${branch_name}"
 
     local stash
