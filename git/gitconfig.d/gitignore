@@ -1,4 +1,10 @@
+# Vim
 *.swp
 *.swa
 *.swo
+
+#Visual Studio Code
 .vscode
+
+# JetBrains
+.idea
