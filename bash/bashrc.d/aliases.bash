@@ -142,3 +142,7 @@ gpush() {
 gpull() {
     __gpullpush nopush
 }
+
+__log(){
+    echo -e "> ${__YELLOW}$@${__DEFAULT}"
+}
