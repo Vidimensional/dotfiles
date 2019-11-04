@@ -27,7 +27,7 @@ alias editvars="vim \${HOME}/.bashrc.d/variables.bash"
 alias editvimrc="vim \${HOME}/.vimrc"
 alias vimrc="editvimrc"
 
-alias gopath="cd \${GOPATH}/src/github.com/Vidimensional"
+alias gopath="cd \${GOPATH}/src/github.com/"
 
 alias k='kubectl'
 alias d='docker'
