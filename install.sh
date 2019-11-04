@@ -47,7 +47,6 @@ install_bashconfig () {
     source ~/.bashrc
 }
 
-
 install_vimconfig () {
     log "Installing vimrc."
     cp -v vim/vimrc ~/.vimrc
@@ -76,6 +75,31 @@ install_scripts () {
     _rsync scripts/* "${scripts_dir}"
 }
 
+install_homebrew () {
+    if ! which brew > /dev/null; then
+        # Install Homebrew
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    install_packages='awscli
+                      coreutils
+                      docker-completion
+                      docker-compose-completion
+                      docker-machine-completion
+                      git
+                      go
+                      htop
+                      jq
+                      kops
+                      kubectx
+                      kubernetes-cli
+                      the_platinum_searcher'
+    brew update
+    brew upgrade
+    for package in ${install_packages}; do
+        brew install "${package}"
+    done
+}
+
 log "Checking sudo."
 sudo echo "Ok."
 if which md5sum >/dev/null; then
@@ -100,4 +124,5 @@ install_gitconfig
 #install_vimconfig
 install_iterm2config
 install_scripts
+install_homebrew
 
