@@ -76,6 +76,7 @@ install_scripts () {
 }
 
 install_homebrew () {
+    log "Installing packages using Homebrew."
     if ! which brew > /dev/null; then
         # Install Homebrew
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -92,7 +93,8 @@ install_homebrew () {
                       kops
                       kubectx
                       kubernetes-cli
-                      the_platinum_searcher'
+                      the_platinum_searcher
+                      tree'
     brew update
     brew upgrade
     for package in ${install_packages}; do
