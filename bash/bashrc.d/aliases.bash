@@ -31,6 +31,7 @@ alias gopath="cd \${GOPATH}/src/github.com/"
 
 alias k='kubectl'
 alias d='docker'
+alias dcompose='docker-compose'
 alias tf='terraform'
 
 alias unvim="find . -iname '.*.swp' -delete"
