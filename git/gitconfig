@@ -4,5 +4,8 @@
 [alias]
     rp = !sh -c 'git pull --rebase $@ && echo '===' && git push $@'
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [include]
     path = ~/.gitconfig.local
