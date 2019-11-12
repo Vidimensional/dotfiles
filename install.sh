@@ -86,6 +86,7 @@ install_homebrew () {
                       docker-completion
                       docker-compose-completion
                       docker-machine-completion
+                      fish
                       git
                       go
                       htop
@@ -97,9 +98,7 @@ install_homebrew () {
                       tree'
     brew update
     brew upgrade
-    for package in ${install_packages}; do
-        brew install "${package}"
-    done
+    echo "${install_packages}" | tr '\n' ' ' | xargs -- brew install
 }
 
 log "Checking sudo."
