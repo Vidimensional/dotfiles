@@ -89,6 +89,8 @@ install_homebrew () {
                       fish
                       git
                       go
+                      gnu-sed
+                      grep
                       htop
                       jq
                       kops
