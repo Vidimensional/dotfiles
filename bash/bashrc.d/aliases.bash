@@ -84,6 +84,14 @@ decode_base64() {
     echo -n "$1"  | base64 -d
 }
 
+rebuild_dockercompose () {
+    __log "Stopping and deleting containers..."
+    docker-compose rm --stop --force
+
+    __log "Starting new containers..."
+    docker-compose up --detach
+}
+
 __gpullpush() {
     local do_push='1'
     if [ "$1" == 'no_push' ] || [ "$1" == 'nopush' ] || [ "$1" == 'no-push' ]; then
