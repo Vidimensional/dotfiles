@@ -38,9 +38,6 @@ alias unvim="find . -iname '.*.swp' -delete"
 
 alias tiempo="curl wttr.in/"
 
-#Access Docker4Mac xhyve virtual machine.
-alias sshdocker='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
-
 #Commands running on Docker containers.
 alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
 alias mysql='docker run -it vidimensional/mysql-client'
@@ -84,12 +81,16 @@ decode_base64() {
     echo -n "$1"  | base64 -d
 }
 
-rebuild_dockercompose () {
+dcomposestopremove () {
     __log "Stopping and deleting containers..."
     docker-compose rm --stop --force
+}
+
+dcomposerebuild () {
+    dcomposestopremove
 
     __log "Starting new containers..."
-    docker-compose up --detach
+    docker-compose up --detach --build
 }
 
 __gpullpush() {
