@@ -97,6 +97,7 @@ install_homebrew () {
                       kops
                       kubectx
                       kubernetes-cli
+                      tflint
                       the_platinum_searcher
                       tree'
     brew update
