@@ -93,6 +93,13 @@ dcomposerebuild () {
     docker-compose up --detach --build
 }
 
+ecrlogin () {
+    local password="$(aws ecr get-login-password)"
+    local region="$(aws configure get region)"
+    local aws_account_id="$(aws sts get-caller-identity | jq -r '.Account')"
+    echo "${password}" | docker login --username AWS --password-stdin "https://${aws_account_id}.dkr.ecr.${region}.amazonaws.com"
+}
+
 __gpullpush() {
     local do_push='1'
     if [ "$1" == 'no_push' ] || [ "$1" == 'nopush' ] || [ "$1" == 'no-push' ]; then
