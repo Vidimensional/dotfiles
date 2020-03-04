@@ -94,10 +94,9 @@ dcomposerebuild () {
 }
 
 ecrlogin () {
-    local password="$(aws ecr get-login-password)"
     local region="$(aws configure get region)"
     local aws_account_id="$(aws sts get-caller-identity | jq -r '.Account')"
-    echo "${password}" | docker login --username AWS --password-stdin "https://${aws_account_id}.dkr.ecr.${region}.amazonaws.com"
+    aws ecr get-login-password | docker login --username AWS --password-stdin "https://${aws_account_id}.dkr.ecr.${region}.amazonaws.com"
 }
 
 __gpullpush() {
