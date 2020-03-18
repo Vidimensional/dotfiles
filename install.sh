@@ -47,14 +47,6 @@ install_bashconfig () {
     source ~/.bashrc
 }
 
-install_vimconfig () {
-    log "Installing vimrc."
-    cp -v vim/vimrc ~/.vimrc
-    _rsync vim/vimrc.d/* ~/.vimrc.d
-    log "Installing Vim plugins via Plug."
-    vim +PlugInstall +qall
-}
-
 install_gitconfig () {
     log "Installing gitconfig."
     cp -v git/gitconfig ~/.gitconfig
@@ -126,7 +118,6 @@ fi
 #install_docker_images
 install_bashconfig
 install_gitconfig
-#install_vimconfig
 install_iterm2config
 install_scripts
 install_homebrew
