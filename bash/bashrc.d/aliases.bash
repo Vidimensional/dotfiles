@@ -48,6 +48,8 @@ alias terminate_instance='aws ec2 terminate-instances --instance-ids'
 # Turns tabs into 4 spaces.
 alias untab='sed "s/\t/    /g"' 
 
+alias dkillall='docker ps --all --format={{.ID}} | xargs -- docker rm --force'
+
 #alias uupgrade='sudo apt update && sudo apt upgrade' #Ubuntu upgrade
 uupgrade(){
 sudo apt update || return
