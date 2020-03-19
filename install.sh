@@ -89,6 +89,8 @@ install_homebrew () {
                       kops
                       kubectx
                       kubernetes-cli
+                      libpq
+                      mysql-client
                       tflint
                       the_platinum_searcher
                       tree'

@@ -39,8 +39,8 @@ alias unvim="find . -iname '.*.swp' -delete"
 alias tiempo="curl wttr.in/"
 
 #Commands running on Docker containers.
-alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
-alias mysql='docker run -it vidimensional/mysql-client'
+#alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
+#alias mysql='docker run -it vidimensional/mysql-client'
 
 #alias kctl_proxy='kubectl proxy >/dev/null 2>&1 &'
 alias terminate_instance='aws ec2 terminate-instances --instance-ids'

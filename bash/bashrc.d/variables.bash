@@ -22,6 +22,7 @@ if [ "$( uname -s )" != Linux ]; then
     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
     PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/libpq/bin:$PATH"
     export PATH
     # Add GNU coreutils manpages to $MANPATH.
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
