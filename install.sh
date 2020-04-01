@@ -82,6 +82,7 @@ install_homebrew () {
                       fish
                       git
                       go
+                      golangci/tap/golangci-lint
                       gnu-sed
                       grep
                       htop
