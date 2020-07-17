@@ -28,11 +28,13 @@ alias editvimrc="vim \${HOME}/.vimrc"
 alias vimrc="editvimrc"
 
 alias gopath="cd \${GOPATH}/src/github.com/"
+alias govidi="cd \${GOPATH}/src/github.com/vidimensional"
 
 alias k='kubectl'
 alias d='docker'
 alias dcompose='docker-compose'
 alias tf='terraform'
+alias ntpl='lsof -nPi4TCP | grep --color=never LISTEN' # Similar output to `netstat -ntpl`
 
 alias unvim="find . -iname '.*.swp' -delete"
 
