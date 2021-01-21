@@ -9,13 +9,15 @@ export GOPATH=~/dev/go
 if [ "$( uname -s )" == Linux ]; then
     export GOROOT="/opt/go/current"
 else
-   export GOROOT="/usr/local/opt/go/libexec" 
+   export GOROOT="/usr/local/opt/go/libexec"
 fi
 export GOPATH=~/dev/go
 
 # Add $GOROOT and $GOPATH to $PATH.
 export PATH="${PATH}:${GOPATH}/bin:${GOROOT}/bin"
 
+# Add php7.4
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 
 if [ "$( uname -s )" != Linux ]; then
     # Add GNU tools $PATH (override BSD ones).
