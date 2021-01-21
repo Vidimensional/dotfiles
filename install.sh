@@ -87,6 +87,7 @@ install_homebrew () {
                       grep
                       htop
                       jq
+                      pstree
                       kops
                       kubectx
                       kubernetes-cli
