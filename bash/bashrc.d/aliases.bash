@@ -37,6 +37,9 @@ alias tf='terraform'
 alias ntpl='lsof -nPi4TCP | grep --color=never LISTEN' # Similar output to `netstat -ntpl`
 alias goland='goland "$(pwd)"'
 alias phpstorm='phpstorm "$(pwd)"'
+alias idea='idea "$(pwd)"'
+alias pycharm='pycharm "$(pwd)"'
+alias webstorm='webstorm "$(pwd)"'
 
 alias unvim="find . -iname '.*.swp' -delete"
 
