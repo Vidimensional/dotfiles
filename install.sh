@@ -78,8 +78,6 @@ install_homebrew () {
                       docker-completion
                       docker-compose-completion
                       docker-machine-completion
-                      drone-cli
-                      fish
                       git
                       go
                       golangci/tap/golangci-lint
@@ -88,7 +86,6 @@ install_homebrew () {
                       htop
                       jq
                       pstree
-                      kops
                       kubectx
                       kubernetes-cli
                       libpq
