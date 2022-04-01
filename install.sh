@@ -71,27 +71,32 @@ install_homebrew () {
     log "Installing packages using Homebrew."
     if ! which brew > /dev/null; then
         # Install Homebrew
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     install_packages='awscli
+                      bash
                       coreutils
                       docker-completion
                       docker-compose-completion
                       docker-machine-completion
                       git
+                      gnu-sed
                       go
                       golangci/tap/golangci-lint
-                      gnu-sed
                       grep
                       htop
                       jq
-                      pstree
                       kubectx
                       kubernetes-cli
                       libpq
                       mysql-client
+                      python3
+                      pre-commit
+                      pstree
+                      tfenv
                       tflint
                       the_platinum_searcher
+                      tig
                       tree'
     brew update
     brew upgrade
@@ -122,4 +127,3 @@ install_gitconfig
 install_iterm2config
 install_scripts
 install_homebrew
-
