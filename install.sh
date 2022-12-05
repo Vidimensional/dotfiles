@@ -95,6 +95,7 @@ install_homebrew () {
                       pstree
                       tfenv
                       tflint
+                      tfsec
                       the_platinum_searcher
                       tig
                       tree'
@@ -118,7 +119,7 @@ new_installer_md5="$( ${md5sum} $0 )"
 if [ "${old_installer_md5}" != "${new_installer_md5}" ]; then
     log "The installler has been updated, calling it again"
     $0 $#
-    exit
+    exit $?
 fi
 
 #install_docker_images

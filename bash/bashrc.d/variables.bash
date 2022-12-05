@@ -19,7 +19,10 @@ export PATH="${PATH}:${GOPATH}/bin:${GOROOT}/bin"
 # Add php7.4
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 
-if [ "$( uname -s )" != Linux ]; then
+# Add mysql-client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+if [ "$( uname -s )" == Darwin ]; then
     # Add GNU tools $PATH (override BSD ones).
     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
