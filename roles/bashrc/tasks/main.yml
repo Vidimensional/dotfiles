@@ -1,0 +1,16 @@
+---
+- name: Copy .bashrc config
+  ansible.builtin.copy:
+    src: bashrc
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    owner: vidi
+    group: vidi
+    mode: u=rw,g=r,o=r
+
+- name: Copy .bashrc.d/
+  ansible.builtin.copy:
+    src: bashrc.d/
+    dest: "{{ ansible_env.HOME }}/.bashrc.d"
+    owner: vidi
+    group: vidi
+    mode: u=rw,g=r,o=r
