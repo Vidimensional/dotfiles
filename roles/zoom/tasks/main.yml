@@ -1,0 +1,19 @@
+---
+- name: Install dependencies.
+  ansible.builtin.apt:
+    name:
+      - libgl1-mesa-glx
+      - libegl1-mesa
+      - libxcb-xtest0
+      - libxcb-xinerama0
+    state: present
+
+- name: Copy .deb file.
+  ansible.builtin.copy:
+    src: zoom_amd64.deb
+    dest: "{{ tmp_path }}/zoom_amd64.deb"
+    mode: '644'
+
+- name: Install .deb file.
+  ansible.builtin.apt:
+    deb: "{{ tmp_path }}/zoom_amd64.deb"
