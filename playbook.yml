@@ -19,7 +19,7 @@
       become: true
       changed_when: false
 
-    - name: Install pip basic packages
+    - name: Install pip packages
       ansible.builtin.pip:
         name:
           - ansible-lint
@@ -39,10 +39,18 @@
       vars:
         holaluz_openvpn_config_path: /etc/openvpn/holaluz
 
-    - name: Install Zoom
-      ansible.builtin.include_role:
-        name: zoom
+    # - name: Install Zoom
+    #   ansible.builtin.include_role:
+    #     name: zoom
 
     - name: Install Docker
       ansible.builtin.include_role:
         name: docker
+
+    - name: Install git
+      ansible.builtin.include_role:
+        name: git
+
+    - name: Configure Bash
+      ansible.builtin.include_role:
+        name: bashrc

@@ -98,6 +98,10 @@ install_homebrew () {
     echo "${install_packages}" | tr '\n' ' ' | xargs -- brew install
 }
 
+
+install_apt {
+    
+}
 log "Checking sudo."
 sudo echo "Ok."
 if which md5sum >/dev/null; then
@@ -119,6 +123,9 @@ fi
 #install_docker_images
 install_bashconfig
 install_gitconfig
+if [ "$(uname -s)" == Linux ]; then
+    install_apt
+fi
 install_iterm2config
 install_scripts
 install_homebrew

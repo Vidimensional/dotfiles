@@ -1,0 +1,24 @@
+---
+- name: Install git tools
+  ansible.builtin.apt:
+    name:
+      - git
+      - tig
+    state: present
+  become: true
+
+- name: Copy .gitconfig
+  ansible.builtin.copy:
+    src: gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    owner: vidi
+    group: vidi
+    mode: u=rw,g=r,o=r
+
+- name: Copy .gitconfig.d/
+  ansible.builtin.copy:
+    src: gitconfig.d/
+    dest: "{{ ansible_env.HOME }}/.gitconfig.d"
+    owner: vidi
+    group: vidi
+    mode: u=rw,g=r,o=r
