@@ -1,0 +1,11 @@
+# This file is meant to be sourced from bashrc
+
+export GOPATH=~/dev/go
+
+case `uname -s` in
+    Linux)
+        PATH="${PATH}:{{ go_prefix_path }}go/bin"
+        ;;
+esac
+
+export PATH

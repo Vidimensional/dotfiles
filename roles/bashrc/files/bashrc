@@ -1,9 +1,9 @@
 __source_dir() {
     if [[ -d "$1" ]]; then
-        for file in $(find "$1" ! -type d); do
+        for file in $(find "$1" ! -type d | sort); do
             source "${file}"
         done
-        for dir in $(find "$1" -type d ! -path $1); do
+        for dir in $(find "$1" -type d ! -path $1 | sort); do
             source "${dir}"
         done
     else
@@ -12,29 +12,37 @@ __source_dir() {
 }
 
 ################################################################################
+# Base PATH
+
+PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin'
+
+################################################################################
 # Source extra configs
 __source_dir ~/.bashrc.d
 
 ################################################################################
 # Load bash-completion configuration
+
 [ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
 
-os="$(uname -s)"
-if [[ "$os" == Linux ]]; then
-    __source_dir /etc/bash_completion.d
-elif [[ "$os" == Darwin ]]; then
-    if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-        . /usr/local/share/bash-completion/bash_completion
-    fi
-    __source_dir /usr/local/etc/bash_completion.d
-fi
+case `(uname -s)` in
+    Linux)
+        __source_dir /etc/bash_completion.d
+        ;;
+    Darwin)
+        if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+            . /usr/local/share/bash-completion/bash_completion
+        fi
+        __source_dir /usr/local/etc/bash_completion.d
+        ;;
+esac
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
             source /etc/profile.d/vte.sh
 fi
+
 ################################################################################
 # Define prompt
-#[ ${UID} -eq 0 ] && PS_USER="\[${__BRED}\]\u" || PS_USER="\[${__BGREEN}\]\u"
-#PS_HOSTNAME="\[${__BYELLOW}\]\h"
+
 PS_PATH="\[${__BBLUE}\]\w"
 PROMPT_COMMAND='__git_ps1 "\\n${PS_PATH}\[${__PURPLE}\]" " \[$__BRED\]$(_awsprompt) \[${__CYAN}\]$(_get_virtualenv) \[${__YELLOW}\]$(_kubeprompt)\\n\[${__GREEN}\]\\\$\[${__DEFAULT}\] "'

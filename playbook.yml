@@ -7,6 +7,18 @@
     tmp_path: /tmp/dotfiles
 
   tasks:
+    - name: Get caller effective user
+      ansible.builtin.command:
+        cmd: id -nu
+      register: caller_user
+      changed_when: false
+
+    - name: Get caller effective group
+      ansible.builtin.command:
+        cmd: id -ng
+      register: caller_group
+      changed_when: false
+
     - name: Create tmp path for working
       ansible.builtin.file:
         path: "{{ tmp_path }}/"
@@ -46,10 +58,18 @@
     - name: Install Docker
       ansible.builtin.include_role:
         name: docker
+      vars:
+        user: '{{ caller_user.stdout }}'
 
     - name: Install git
       ansible.builtin.include_role:
         name: git
+
+    - name: Install Go
+      ansible.builtin.include_role:
+        name: go
+      vars:
+        version: 'go1.19.4'
 
     - name: Configure Bash
       ansible.builtin.include_role:

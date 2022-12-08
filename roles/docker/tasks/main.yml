@@ -12,7 +12,7 @@
 
 - name: Add user to docker group.
   ansible.builtin.user:
-    name: vidi
+    name: '{{ caller_user.stdout }}'
     groups: docker
     append: true
     state: present

@@ -1,8 +1,19 @@
+# This file is meant to be sourced from bashrc
+
 alias gti='git' #Fuck this typo.
 alias g='git'
 
-# Use hub if installed.
-which hub >/dev/null && alias git="hub"
+gpush() {
+    __gpullpush
+}
+
+gpull() {
+    __gpullpush nopush
+}
+
+gcleanbranches() {
+    git branch --merged master | grep -v master | xargs -I{} -- git branch -d {}
+}
 
 __gpullpush() {
     local do_push='1'
@@ -53,17 +64,4 @@ __gpullpush() {
         __log "$git_stash_pop_cmd"
         $git_stash_pop_cmd
     fi
-    
-}
-
-gpush() {
-    __gpullpush
-}
-
-gpull() {
-    __gpullpush nopush
-}
-
-gcleanbranches() {
-    git branch --merged master | grep -v master | xargs -I{} -- git branch -d {}
 }

@@ -1,4 +1,4 @@
-
+# This file is meant to be sourced from bashrc
 
 kpon() { echo 'true' > /tmp/kubeprompt; }
 kpoff() { echo 'false' > /tmp/kubeprompt; }

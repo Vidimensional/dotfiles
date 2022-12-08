@@ -1,0 +1,17 @@
+---
+- name: Check if installation exists
+  ansible.builtin.stat:
+    path: '{{ go_prefix_path }}/go/VERSION'
+  register: version_file
+
+- name: Install new Go version
+  ansible.builtin.include_tasks: install.yml
+  when: not version_file.stat.exists or lookup('file', version_file.stat.path) != version
+
+- name: Copy bashrc config
+  ansible.builtin.template:
+    src: go.bash.j2
+    dest: '{{ ansible_env.HOME }}/.bashrc.d/go.bash'
+    owner: '{{ caller_user.stdout }}'
+    group: '{{ caller_group.stdout }}'
+    mode: u=rw,g=r,o=r

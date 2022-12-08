@@ -1,3 +1,5 @@
+# This file is meant to be sourced from bashrc
+
 _awsprompt() {
   local aws_profile
   aws_profile="$(env | grep AWS_PROFILE | cut -d= -f2)"

@@ -7,18 +7,17 @@
     state: present
   become: true
 
-- name: Copy .gitconfig
+- name: Copy config
   ansible.builtin.copy:
-    src: gitconfig
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
-    owner: vidi
-    group: vidi
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: "{{ caller_user.stdout }}"
+    group: "{{ caller_group.stdout }}"
     mode: u=rw,g=r,o=r
-
-- name: Copy .gitconfig.d/
-  ansible.builtin.copy:
-    src: gitconfig.d/
-    dest: "{{ ansible_env.HOME }}/.gitconfig.d"
-    owner: vidi
-    group: vidi
-    mode: u=rw,g=r,o=r
+  loop:
+    - src: gitconfig
+      dest: '{{ ansible_env.HOME }}/.gitconfig'
+    - src: gitconfig.d/
+      dest: '{{ ansible_env.HOME }}/.gitconfig.d'
+    - src: bashrc.git.sh
+      dest: '{{ ansible_env.HOME }}/.bashrc.d/git.sh'
