@@ -54,7 +54,10 @@
         name:
           - code
           - pycharm-community
+          - remmina
           - slack
+        state: present
+      become: true
 
     - name: Install Holaluz's OpenVPN
       ansible.builtin.include_role:
