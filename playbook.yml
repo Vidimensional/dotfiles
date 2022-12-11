@@ -5,6 +5,7 @@
 
   vars:
     tmp_path: /tmp/dotfiles
+    go_version: 'go1.19.4'
 
   tasks:
     - name: Get caller effective user
@@ -25,17 +26,27 @@
         state: directory
         mode: u=rwx,g=rx,o=rx
 
-    - name: Run 'apt-get update'
+    - name: apt update # noqa name (https://ansible-lint.readthedocs.io/rules/name/)
       ansible.builtin.apt:
         update_cache: true
       become: true
       changed_when: false
 
-    - name: Install pip packages
+    - name: apt upgrade # noqa name (https://ansible-lint.readthedocs.io/rules/name/)
+      ansible.builtin.apt:
+        upgrade: full
+      become: true
+
+
+    - name: Install & upgrade pip packages
       ansible.builtin.pip:
         name:
+          - ansible
           - ansible-lint
-        state: present
+          - awscli
+          - pip
+          - virtualenv
+        state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
         extra_args: --user
 
     - name: Install snap packages
@@ -69,7 +80,7 @@
       ansible.builtin.include_role:
         name: go
       vars:
-        version: 'go1.19.4'
+        version: "{{ go_version }}"
 
     - name: Configure Bash
       ansible.builtin.include_role:
