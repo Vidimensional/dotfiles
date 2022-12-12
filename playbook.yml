@@ -37,6 +37,14 @@
         upgrade: full
       become: true
 
+    - name: Install apt packages
+      ansible.builtin.apt:
+        name:
+          - htop
+          - jq
+        state: present
+      become: true
+
     - name: Install & upgrade pip packages
       ansible.builtin.pip:
         name:
