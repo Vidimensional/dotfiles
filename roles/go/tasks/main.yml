@@ -4,7 +4,7 @@
     path: '{{ go_prefix_path }}/go/VERSION'
   register: version_file
 
-- name: Install new Go version
+- name: Install Go if version outdated
   ansible.builtin.include_tasks: install.yml
   when: not version_file.stat.exists or lookup('file', version_file.stat.path) != version
 

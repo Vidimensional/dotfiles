@@ -26,13 +26,13 @@
         state: directory
         mode: u=rwx,g=rx,o=rx
 
-    - name: apt update # noqa name (https://ansible-lint.readthedocs.io/rules/name/)
+    - name: Update apt database
       ansible.builtin.apt:
         update_cache: true
       become: true
       changed_when: false
 
-    - name: apt upgrade # noqa name (https://ansible-lint.readthedocs.io/rules/name/)
+    - name: Upgrade apt packages
       ansible.builtin.apt:
         upgrade: full
       become: true
