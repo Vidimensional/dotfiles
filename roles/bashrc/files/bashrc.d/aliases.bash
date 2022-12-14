@@ -11,7 +11,7 @@ alias rm='rm -v'
 alias ln='ln -v'
 
 repos_path=~/dev/vidi
-alias dotfiles="cd ${repos_path}/dotfiles"
+alias dotfiles="code ${repos_path}/dotfiles"
 
 alias reloadbash='source ~/.bashrc'
 
