@@ -71,6 +71,10 @@
     #   ansible.builtin.include_role:
     #     name: zoom
 
+    - name: Install Google Chrome
+      ansible.builtin.include_role:
+        name: chrome
+
     - name: Install Docker
       ansible.builtin.include_role:
         name: docker
