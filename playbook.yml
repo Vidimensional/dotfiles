@@ -51,6 +51,7 @@
           - ansible
           - ansible-lint
           - awscli
+          - coverage
           - pip
           - virtualenv
         state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
