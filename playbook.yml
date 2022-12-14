@@ -53,6 +53,7 @@
           - awscli
           - coverage
           - pip
+          - pre-commit
           - virtualenv
         state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
         extra_args: --user
