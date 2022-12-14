@@ -67,10 +67,6 @@
         state: present
       become: true
 
-    # - name: Install Zoom
-    #   ansible.builtin.include_role:
-    #     name: zoom
-
     - name: Install Google Chrome
       ansible.builtin.include_role:
         name: chrome
