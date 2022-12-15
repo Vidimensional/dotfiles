@@ -40,6 +40,7 @@
     - name: Install apt packages
       ansible.builtin.apt:
         name:
+          - curl
           - htop
           - jq
         state: present
