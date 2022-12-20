@@ -1,0 +1,27 @@
+---
+- name: Install | Install dependencies
+  ansible.builtin.apt:
+    name:
+      - groff
+      - less
+    state: present
+  become: true
+
+- name: Install | Download installer .zip
+  ansible.builtin.get_url:
+    url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-{{ version }}.zip"
+    dest: "{{ tmp_path }}/awscli-exe-linux-x86_64.zip"
+    owner: "{{ caller_user.stdout }}"
+    group: "{{ caller_group.stdout }}"
+    mode: u=rw,g=r,o=r
+
+- name: Install | Extract installer
+  ansible.builtin.unarchive:
+    src: "{{ tmp_path }}/awscli-exe-linux-x86_64.zip"
+    dest: "{{ tmp_path }}"
+    owner: "{{ caller_user.stdout }}"
+    group: "{{ caller_group.stdout }}"
+
+- name: Install | Execute installer
+  ansible.builtin.command: "{{ tmp_path }}/aws/install --update"
+  become: true

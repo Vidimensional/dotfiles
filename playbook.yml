@@ -5,7 +5,8 @@
 
   vars:
     tmp_path: /tmp/dotfiles
-    go_version: 'go1.19.4'
+    go_version: "go1.19.4"
+    awscli_version: "2.9.7"
 
   tasks:
     - name: Get caller effective user
@@ -52,7 +53,6 @@
         name:
           - ansible
           - ansible-lint
-          - awscli
           - coverage
           - pip
           - pre-commit
@@ -69,6 +69,12 @@
           - slack
         state: present
       become: true
+
+    - name: Install AWS CLI
+      ansible.builtin.include_role:
+        name: awscli
+      vars:
+        version: "{{ awscli_version }}"
 
     - name: Install Google Chrome
       ansible.builtin.include_role:

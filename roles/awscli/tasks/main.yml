@@ -1,0 +1,13 @@
+- name: Get awscli current version
+  ansible.builtin.shell:
+    executable: /bin/bash
+    cmd: |
+      set -o pipefail
+      aws --version | grep -Eo 'aws-cli/[0-9]+\.[0-9]+\.[0-9]+' | cut -d/ -f2
+  register: awscli_current_version
+  changed_when: false
+  failed_when: false
+
+- name: Install AWS CLI if version outdated
+  ansible.builtin.include_tasks: install.yml
+  when: awscli_current_version.rc != 0 or awscli_current_version.stdout != version
