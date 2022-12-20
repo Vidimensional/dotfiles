@@ -43,6 +43,7 @@
           - curl
           - htop
           - jq
+          - ruby
         state: present
       become: true
 
