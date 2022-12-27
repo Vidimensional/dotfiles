@@ -1,0 +1,2 @@
+---
+sshaws_installation_path: "{{ ansible_env.HOME }}/.local/bin"

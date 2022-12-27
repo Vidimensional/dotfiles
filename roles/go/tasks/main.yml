@@ -1,7 +1,7 @@
 ---
 - name: Check if installation exists
   ansible.builtin.stat:
-    path: '{{ go_prefix_path }}/go/VERSION'
+    path: "{{ go_prefix_path }}/go/VERSION"
   register: version_file
 
 - name: Install Go if version outdated
@@ -11,7 +11,7 @@
 - name: Copy bashrc config
   ansible.builtin.template:
     src: go.bash.j2
-    dest: '{{ ansible_env.HOME }}/.bashrc.d/go.bash'
-    owner: '{{ caller_user.stdout }}'
-    group: '{{ caller_group.stdout }}'
+    dest: "{{ ansible_env.HOME }}/.bashrc.d/go.bash"
+    owner: "{{ caller_user.stdout }}"
+    group: "{{ caller_group.stdout }}"
     mode: u=rw,g=r,o=r
