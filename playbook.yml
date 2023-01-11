@@ -6,7 +6,7 @@
   vars:
     tmp_path: /tmp/dotfiles
     go_version: "go1.19.4"
-    awscli_version: "2.9.7"
+    awscli_version: "2.9.10"
 
   tasks:
     - name: Get caller effective user
