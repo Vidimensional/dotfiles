@@ -46,6 +46,7 @@
           - jq
           - remmina
           - ruby
+          - traceroute
         state: present
       become: true
 
