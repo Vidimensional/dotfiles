@@ -22,6 +22,6 @@
     owner: "{{ caller_user.stdout }}"
     group: "{{ caller_group.stdout }}"
 
-- name: Install | Execute installer
+- name: Install | Execute installer # noqa no-changed-when | We're calling this file only when the installed awscli version differs from the desired
   ansible.builtin.command: "{{ tmp_path }}/aws/install --update"
   become: true
