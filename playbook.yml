@@ -66,6 +66,7 @@
       community.general.snap:
         name:
           - code
+          - intellij-idea-community
           - pycharm-community
           - remmina
           - slack
