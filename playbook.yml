@@ -45,6 +45,7 @@
           - curl
           - htop
           - jq
+          - net-tools
           - npm
           - remmina
           - ruby
