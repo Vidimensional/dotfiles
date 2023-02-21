@@ -1,0 +1,14 @@
+---
+- name: Install npm package
+  community.general.npm:
+    name: serverless
+    state: latest
+    path: "{{ ansible_env.HOME }}/.local"
+
+- name: Create symlink lo ~/.local/bin
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/.local/node_modules/serverless/bin/serverless.js"
+    dest: "{{ ansible_env.HOME }}/.local/bin/serverless"
+    owner: "{{ caller_user.stdout }}"
+    group: "{{ caller_group.stdout }}"
+    state: link

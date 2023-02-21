@@ -45,6 +45,7 @@
           - curl
           - htop
           - jq
+          - npm
           - remmina
           - ruby
           - traceroute
@@ -99,6 +100,10 @@
         name: go
       vars:
         version: "{{ go_version }}"
+
+    - name: Install serverless framework
+      ansible.builtin.include_role:
+        name: serverless_framework
 
     - name: Configure Bash
       ansible.builtin.include_role:
