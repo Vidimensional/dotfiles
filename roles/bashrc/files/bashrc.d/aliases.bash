@@ -17,6 +17,7 @@ alias reloadbash='source ~/.bashrc'
 
 alias k='kubectl'
 alias d='docker'
+alias h='helm3'
 alias dcompose='docker-compose'
 alias tf='terraform'
 alias ntpl='lsof -nPi4TCP | grep --color=never LISTEN' # Similar output to `netstat -ntpl`

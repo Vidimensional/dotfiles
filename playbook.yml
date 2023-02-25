@@ -102,6 +102,10 @@
       vars:
         version: "{{ go_version }}"
 
+    - name: Install Microk8s
+      ansible.builtin.include_role:
+        name: microk8s
+
     - name: Install serverless framework
       ansible.builtin.include_role:
         name: serverless_framework
