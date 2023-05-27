@@ -30,27 +30,15 @@
         state: directory
         mode: u=rwx,g=rx,o=rx
 
-    - name: Update apt database
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 28800 # 8 hours * 3600 = 28800 seconds
-      become: true
-      changed_when: false
-
-    - name: Upgrade apt packages
-      ansible.builtin.apt:
-        upgrade: full
-      become: true
-
-    - name: Install apt packages
-      ansible.builtin.apt:
-        name:
+    - name: Install & upgrade apt packages
+      ansible.builtin.include_role:
+        name: apt_packages
+      vars:
+        apt_packages_list:
           - curl
           - jq
           - python3-full
           - python3-pip
-        state: present
-      become: true
 
     - name: Install & upgrade pip packages
       ansible.builtin.pip:
@@ -76,4 +64,3 @@
         name: go
       vars:
         version: "{{ go_version }}"
-
