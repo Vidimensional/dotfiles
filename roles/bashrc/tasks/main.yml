@@ -9,8 +9,8 @@
   ansible.builtin.copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
-    owner: "{{ caller_user.stdout }}"
-    group: "{{ caller_group.stdout }}"
+    owner: "{{ local_user }}"
+    group: "{{ local_group }}"
     mode: u=rw,g=r,o=r
   loop:
     - src: bashrc

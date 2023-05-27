@@ -1,0 +1,32 @@
+- name: Update apt database
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 28800 # 8 hours * 3600 = 28800 seconds
+  become: true
+  changed_when: false
+
+- name: Upgrade apt packages
+  ansible.builtin.apt:
+    upgrade: full
+  become: true
+
+- name: Install apt packages
+  ansible.builtin.apt:
+    name: '{{ apt_packages }}'
+    state: present
+  become: true
+  when: apt_packages is defined
+
+- name: Install & upgrade pip packages
+  ansible.builtin.pip:
+    name: '{{ pip_packages }}'
+    state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
+  become: true
+  when: pip_packages is defined
+
+- name: Install & upgrade snap packages
+  ansible.builtin.pip:
+    name: '{{ snap_packages }}'
+    state: present
+  become: true
+  when: snap_packages is defined

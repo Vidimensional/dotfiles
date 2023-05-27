@@ -9,8 +9,8 @@
   ansible.builtin.get_url:
     url: "https://dl.google.com/go/{{ version }}.linux-amd64.tar.gz"
     dest: "{{ tmp_path }}/{{ version }}.linux-amd64.tar.gz"
-    owner: "{{ caller_user.stdout }}"
-    group: "{{ caller_group.stdout }}"
+    owner: "{{ local_user }}"
+    group: "{{ local_group }}"
     mode: u=rw,g=r,o=r
 
 - name: Install | Extract .tar.gz

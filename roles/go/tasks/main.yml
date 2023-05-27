@@ -12,6 +12,6 @@
   ansible.builtin.template:
     src: go.bash.j2
     dest: "{{ ansible_env.HOME }}/.bashrc.d/go.bash"
-    owner: "{{ caller_user.stdout }}"
-    group: "{{ caller_group.stdout }}"
+    owner: "{{ local_user }}"
+    group: "{{ local_group }}"
     mode: u=rw,g=r,o=r

@@ -4,63 +4,43 @@
   connection: local
 
   vars:
-    caller_user: vidi
-    caller_group: vidi
+    local_user: vidi
+    local_group: vidi
 
     tmp_path: /tmp/dotfiles
     go_version: "go1.20"
     awscli_version: "2.9.21"
 
-  tasks:
-    - name: Get caller effective user
-      ansible.builtin.command:
-        cmd: id -nu
-      register: caller_user
-      changed_when: false
-
-    - name: Get caller effective group
-      ansible.builtin.command:
-        cmd: id -ng
-      register: caller_group
-      changed_when: false
-
+  pre_tasks:
     - name: Create tmp path for working
       ansible.builtin.file:
         path: "{{ tmp_path }}/"
         state: directory
         mode: u=rwx,g=rx,o=rx
 
-    - name: Install & upgrade apt packages
-      ansible.builtin.include_role:
-        name: apt_packages
+  roles:
+    - name: Install & upgrade packages.
+      role: install_packages
       vars:
-        apt_packages_list:
+        apt_packages:
           - curl
           - jq
           - python3-full
           - python3-pip
-
-    - name: Install & upgrade pip packages
-      ansible.builtin.pip:
-        name:
+        pip_packages:
           - ansible
           - ansible-lint
           - virtualenv
-        state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
-      become: true
 
     - name: Install & configure git
-      ansible.builtin.include_role:
-        name: git
+      role: git
 
     - name: Install AWS CLI
-      ansible.builtin.include_role:
-        name: awscli
+      role: awscli
       vars:
         version: "{{ awscli_version }}"
 
     - name: Install Go
-      ansible.builtin.include_role:
-        name: go
+      role: go
       vars:
         version: "{{ go_version }}"

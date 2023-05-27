@@ -9,6 +9,6 @@
   ansible.builtin.file:
     src: "{{ ansible_env.HOME }}/.local/node_modules/serverless/bin/serverless.js"
     dest: "{{ ansible_env.HOME }}/.local/bin/serverless"
-    owner: "{{ caller_user.stdout }}"
-    group: "{{ caller_group.stdout }}"
+    owner: "{{ local_user }}"
+    group: "{{ local_group }}"
     state: link

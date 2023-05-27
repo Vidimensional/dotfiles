@@ -5,7 +5,7 @@
 
 - name: Add user to microk8s group.
   ansible.builtin.user:
-    name: "{{ caller_user.stdout }}"
+    name: "{{ local_user }}"
     groups: microk8s
     append: true
     state: present
@@ -15,8 +15,8 @@
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/usr/local/bin/{{ item }}"
-    owner: "{{ caller_user.stdout }}"
-    group: "{{ caller_group.stdout }}"
+    owner: "{{ local_user }}"
+    group: "{{ local_group }}"
     mode: u=xrw,g=r,o=r
   become: true
   loop:

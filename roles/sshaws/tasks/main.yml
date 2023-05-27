@@ -8,7 +8,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/uritau/sshaws/releases/latest/download/sshaws"
     dest: "{{ sshaws_installation_path }}/sshaws"
-    owner: "{{ caller_user.stdout }}"
-    group: "{{ caller_group.stdout }}"
+    owner: "{{ local_user }}"
+    group: "{{ local_group }}"
     mode: u=rwx,g=rx,o=rx
   when: not sshaws.stat.exists

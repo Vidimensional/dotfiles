@@ -8,30 +8,18 @@
     go_version: "go1.20"
     awscli_version: "2.9.21"
 
-  tasks:
-    - name: Get caller effective user
-      ansible.builtin.command:
-        cmd: id -nu
-      register: caller_user
-      changed_when: false
-
-    - name: Get caller effective group
-      ansible.builtin.command:
-        cmd: id -ng
-      register: caller_group
-      changed_when: false
-
+  pre_tasks:
     - name: Create tmp path for working
       ansible.builtin.file:
         path: "{{ tmp_path }}/"
         state: directory
         mode: u=rwx,g=rx,o=rx
 
-    - name: Install & upgrade apt packages
-      ansible.builtin.include_role:
-        name: apt_packages
+  roles:
+    - name: Install & upgrade packages.
+      role: install_packages
       vars:
-        apt_packages_list:
+        apt_packages:
           - curl
           - htop
           - jq
@@ -40,64 +28,46 @@
           - remmina
           - ruby
           - traceroute
-
-    - name: Install & upgrade pip packages
-      ansible.builtin.pip:
-        name:
+        pip_packages:
           - ansible
           - ansible-lint
           - coverage
           - pip
           - pre-commit
           - virtualenv
-        state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
-        extra_args: --user
-
-    - name: Install snap packages
-      community.general.snap:
-        name:
+        snap_packages:
           - code
           - intellij-idea-community
           - pycharm-community
           - remmina
           - slack
-        state: present
-      become: true
-
+    
     - name: Install AWS CLI
-      ansible.builtin.include_role:
-        name: awscli
+      role: awscli
       vars:
         version: "{{ awscli_version }}"
 
     - name: Install Google Chrome
-      ansible.builtin.include_role:
-        name: chrome
+      role: chrome
 
     - name: Install Docker
-      ansible.builtin.include_role:
-        name: docker
+      role: docker
       vars:
-        user: '{{ caller_user.stdout }}'
+        user: '{{ local_user }}'
 
     - name: Install git
-      ansible.builtin.include_role:
-        name: git
+      role: git
 
     - name: Install Go
-      ansible.builtin.include_role:
-        name: go
+      rolee: go
       vars:
         version: "{{ go_version }}"
 
     - name: Install Microk8s
-      ansible.builtin.include_role:
-        name: microk8s
+      role: microk8s
 
     - name: Install serverless framework
-      ansible.builtin.include_role:
-        name: serverless_framework
+      role: serverless_framework
 
     - name: Configure Bash
-      ansible.builtin.include_role:
-        name: bashrc
+      role: bashrc
