@@ -9,3 +9,7 @@
 
 [include]
     path = ~/.gitconfig.local
+
+[user]
+    email = dvrubia@gmail.com
+    name = Daniel Vidal de la Rubia
