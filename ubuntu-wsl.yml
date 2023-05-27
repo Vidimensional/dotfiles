@@ -1,0 +1,79 @@
+---
+- name: Configure WSL (Ubuntu 22.04)
+  hosts: localhost
+  connection: local
+
+  vars:
+    caller_user: vidi
+    caller_group: vidi
+
+    tmp_path: /tmp/dotfiles
+    go_version: "go1.20"
+    awscli_version: "2.9.21"
+
+  tasks:
+    - name: Get caller effective user
+      ansible.builtin.command:
+        cmd: id -nu
+      register: caller_user
+      changed_when: false
+
+    - name: Get caller effective group
+      ansible.builtin.command:
+        cmd: id -ng
+      register: caller_group
+      changed_when: false
+
+    - name: Create tmp path for working
+      ansible.builtin.file:
+        path: "{{ tmp_path }}/"
+        state: directory
+        mode: u=rwx,g=rx,o=rx
+
+    - name: Update apt database
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 28800 # 8 hours * 3600 = 28800 seconds
+      become: true
+      changed_when: false
+
+    - name: Upgrade apt packages
+      ansible.builtin.apt:
+        upgrade: full
+      become: true
+
+    - name: Install apt packages
+      ansible.builtin.apt:
+        name:
+          - curl
+          - jq
+          - python3-full
+          - python3-pip
+        state: present
+      become: true
+
+    - name: Install & upgrade pip packages
+      ansible.builtin.pip:
+        name:
+          - ansible
+          - ansible-lint
+          - virtualenv
+        state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
+      become: true
+
+    - name: Install & configure git
+      ansible.builtin.include_role:
+        name: git
+
+    - name: Install AWS CLI
+      ansible.builtin.include_role:
+        name: awscli
+      vars:
+        version: "{{ awscli_version }}"
+
+    - name: Install Go
+      ansible.builtin.include_role:
+        name: go
+      vars:
+        version: "{{ go_version }}"
+
