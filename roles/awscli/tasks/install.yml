@@ -4,6 +4,7 @@
     name:
       - groff
       - less
+      - unzip
     state: present
   become: true
 
