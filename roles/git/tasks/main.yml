@@ -7,6 +7,12 @@
     state: present
   become: true
 
+- name: Ensure .bashrc.d directory exists
+  ansible.builtin.file:
+    path: '{{ ansible_env.HOME }}/.bashrc.d'
+    state: directory
+    mode: '0755'
+
 - name: Copy config
   ansible.builtin.copy:
     src: '{{ item.src }}'
