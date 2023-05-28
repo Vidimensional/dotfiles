@@ -5,7 +5,7 @@ init:
 
 .PHONY: laptop
 laptop:
-	ansible-playbook --ask-become-pass playbook.yml
+	ansible-playbook --ask-become-pass laptop.yml
 
 .PHONY: ubuntu-wsl
 ubuntu-wsl:
