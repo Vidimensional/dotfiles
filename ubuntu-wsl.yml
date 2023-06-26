@@ -26,6 +26,9 @@
         mode: u=rwx,g=rx,o=rx
 
   roles:
+    - name: Base bash configuration.
+      role: bashrc
+
     - name: Install & upgrade packages.
       role: install_packages
       vars:
@@ -37,17 +40,18 @@
         pip_packages:
           - ansible
           - ansible-lint
+          - black
           - virtualenv
 
-    - name: Install & configure git
+    - name: Install & configure git.
       role: git
 
-    - name: Install AWS CLI
+    - name: Install AWS CLI.
       role: awscli
       vars:
-        version: "{{ awscli_version }}"
+        version: "{{ awscli_version  }}"
 
-    - name: Install Go
+    - name: Install Go.
       role: go
       vars:
         version: "{{ go_version }}"
