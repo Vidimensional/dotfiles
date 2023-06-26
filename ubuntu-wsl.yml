@@ -4,12 +4,19 @@
   connection: local
 
   vars:
+    github_token: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          38366230656261643936353032333964323135303463633034646665646262613030303530616663
+          3065303634376532623138643934623664366263653838610a303130633032326632646263316564
+          63633139393963323039376539306637386235313139623038303933653136656331643931613634
+          6239653731633464640a613930663761366333623465373239616436356437616330396161373661
+          61656531343565663731623739353731613838336633306131623236306134396466343662396661
+          6139653834616161303662343638616332643634363635303732
     local_user: vidi
     local_group: vidi
-
     tmp_path: /tmp/dotfiles
-    go_version: "go1.20"
-    awscli_version: "2.9.21"
+    go_version: "go{{ lookup('vidimensional.collection.github_release', repo='golang/go', token=github_token) }}"
+    awscli_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/aws-cli', token=github_token) }}"
 
   pre_tasks:
     - name: Create tmp path for working
