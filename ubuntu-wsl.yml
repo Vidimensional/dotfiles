@@ -26,28 +26,34 @@
         mode: u=rwx,g=rx,o=rx
 
   roles:
-    - name: Install & upgrade packages.
-      role: install_packages
-      vars:
-        apt_packages:
-          - curl
-          - jq
-          - python3-full
-          - python3-pip
-        pip_packages:
-          - ansible
-          - ansible-lint
-          - virtualenv
+    # - name: Configure Bash
+    #   role: bashrc
 
-    - name: Install & configure git
-      role: git
+    # - name: Install & upgrade packages.
+    #   role: install_packages
+    #   vars:
+    #     apt_packages:
+    #       - curl
+    #       - jq
+    #       - python3-full
+    #       - python3-pip
+    #     pip_packages:
+    #       - ansible
+    #       - ansible-lint
+    #       - virtualenv
 
-    - name: Install AWS CLI
-      role: awscli
-      vars:
-        version: "{{ awscli_version }}"
+    # - name: Install & configure git
+    #   role: git
 
-    - name: Install Go
-      role: go
-      vars:
-        version: "{{ go_version }}"
+    # - name: Install AWS CLI
+    #   role: awscli
+    #   vars:
+    #     version: "{{ awscli_version }}"
+
+    - name: Install aws_ssm_plugin
+      role: aws_ssm_plugin
+
+    # - name: Install Go
+    #   role: go
+    #   vars:
+    #     version: "{{ go_version }}"

@@ -1,18 +1,19 @@
 ---
-# - name: Check if sshaws is installed
-#   ansible.builtin.stat:
-#     path: "{{ sshaws_installation_path }}/sshaws"
-#   register: sshaws
+- name: Get aws_ssm_plugin current version
+  ansible.builtin.shell:
+    executable: /bin/bash
+    cmd: |
+      set -o pipefail
+      session-manager-plugin --version
+  register: aws_ssm_plugin_current_version
+  changed_when: false
+  failed_when: false
 
-- name: Download .deb
-  ansible.builtin.get_url:
-    url: "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb"
-    dest: "{{ tmp_path }}/session-manager-plugin.deb"
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
-    mode: u=rw,g=r,o=r
+- debug:
+    msg: "Version -> {{ version }}"
+- debug:
+    msg: "current version -> {{ aws_ssm_plugin_current_version.stdout }}"
 
-- name: Install .deb file
-  ansible.builtin.apt:
-    deb: "{{ tmp_path }}/session-manager-plugin.deb"
-  become: True
+- name: Install aws_ssm_plugin if version outdated
+  ansible.builtin.include_tasks: install.yml
+  when: aws_ssm_plugin_current_version.rc != 0 or aws_ssm_plugin_current_version.stdout != version
