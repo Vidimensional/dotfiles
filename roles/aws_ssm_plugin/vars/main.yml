@@ -1,2 +1,2 @@
 ---
-version: "{{ lookup('vidimensional.collection.github_release', repo='aws/session-manager-plugin', token=github_token) }}"
+latest_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/session-manager-plugin', token=github_token) }}"

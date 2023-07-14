@@ -1,5 +1,5 @@
 ---
-- name: Install | Install dependencies
+- name: Install awscli | Install dependencies
   ansible.builtin.apt:
     name:
       - groff
@@ -8,21 +8,21 @@
     state: present
   become: true
 
-- name: Install | Download installer .zip
+- name: Install awscli | Download installer .zip
   ansible.builtin.get_url:
-    url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-{{ version }}.zip"
+    url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-{{ awscli_version }}.zip"
     dest: "{{ tmp_path }}/awscli-exe-linux-x86_64.zip"
     owner: "{{ local_user }}"
     group: "{{ local_group }}"
     mode: u=rw,g=r,o=r
 
-- name: Install | Extract installer
+- name: Install awscli | Extract installer
   ansible.builtin.unarchive:
     src: "{{ tmp_path }}/awscli-exe-linux-x86_64.zip"
     dest: "{{ tmp_path }}"
     owner: "{{ local_user }}"
     group: "{{ local_group }}"
 
-- name: Install | Execute installer # noqa no-changed-when | We're calling this file only when the installed awscli version differs from the desired
+- name: Install awscli | Execute installer # noqa no-changed-when | We're calling this file only when the installed awscli version differs from the desired
   ansible.builtin.command: "{{ tmp_path }}/aws/install --update"
   become: true

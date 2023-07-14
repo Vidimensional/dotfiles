@@ -2,18 +2,14 @@
 - name: Get aws_ssm_plugin current version
   ansible.builtin.shell:
     executable: /bin/bash
-    cmd: |
-      set -o pipefail
-      session-manager-plugin --version
-  register: aws_ssm_plugin_current_version
+    cmd: session-manager-plugin --version
+  register: ssm_plugin_current_version
   changed_when: false
   failed_when: false
 
-- debug:
-    msg: "Version -> {{ version }}"
-- debug:
-    msg: "current version -> {{ aws_ssm_plugin_current_version.stdout }}"
-
-- name: Install aws_ssm_plugin if version outdated
+- name: Install aws_ssm_plugin if aws_ssm_plugin current version is outdated
   ansible.builtin.include_tasks: install.yml
-  when: aws_ssm_plugin_current_version.rc != 0 or aws_ssm_plugin_current_version.stdout != version
+  when: |
+    ssm_plugin_current_version is failed or 
+    ssm_plugin_current_version.stdout != latest_version|replace("+", ".")
+  # `latest_version` is defined in vars/main.yaml, and its value is the latest release from aws/session-manager-plugin GitHub repo.
