@@ -1,10 +1,5 @@
 ---
-# - name: Check if sshaws is installed
-#   ansible.builtin.stat:
-#     path: "{{ sshaws_installation_path }}/sshaws"
-#   register: sshaws
-
-- name: Download .deb
+- name: Install ssm_plugin | Download .deb
   ansible.builtin.get_url:
     url: "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb"
     dest: "{{ tmp_path }}/session-manager-plugin.deb"
@@ -12,7 +7,7 @@
     group: "{{ local_group }}"
     mode: u=rw,g=r,o=r
 
-- name: Install .deb file
+- name: Install ssm_plugin | Install .deb file
   ansible.builtin.apt:
     deb: "{{ tmp_path }}/session-manager-plugin.deb"
-  become: True
+  become: true

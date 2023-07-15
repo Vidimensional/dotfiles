@@ -6,7 +6,9 @@
 
 - name: Install Go if version outdated
   ansible.builtin.include_tasks: install.yml
-  when: not go_version_file.stat.exists or lookup('file', go_version_file.stat.path) != version
+  when: |
+    not go_version_file.stat.exists or
+    lookup('file', go_version_file.stat.path) != version
 
 - name: Copy bashrc config
   ansible.builtin.template:

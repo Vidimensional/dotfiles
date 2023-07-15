@@ -16,7 +16,8 @@
     local_group: vidi
     tmp_path: /tmp/dotfiles
     go_version: "go{{ lookup('vidimensional.collection.github_release', repo='golang/go', token=github_token) }}"
-    awscli_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/aws-cli', token=github_token) }}"
+    aws_cli_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/aws-cli', token=github_token) }}"
+    awscli_ssm_plugin_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/session-manager-plugin', token=github_token) }}"
 
   pre_tasks:
     - name: Create tmp path for working
@@ -49,7 +50,9 @@
     - name: Install AWS CLI.
       role: awscli
       vars:
-        version: "{{ awscli_version  }}"
+        awscli_version: "{{ aws_cli_version }}"
+        install_ssm_plugin: true
+        ssm_plugin_version: "{{ awscli_ssm_plugin_version }}"
 
     - name: Install Go.
       role: go
