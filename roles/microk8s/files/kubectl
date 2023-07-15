@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# We can use microk8s kubectl as kubectl if we don't need to connect to external Kubernetes
-
-microk8s kubectl $@
