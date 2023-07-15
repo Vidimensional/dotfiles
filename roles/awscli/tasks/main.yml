@@ -26,12 +26,12 @@
   register: ssm_plugin_current_version
   changed_when: false
   failed_when: false
-  when: install_ssm_plugin == true
+  when: install_ssm_plugin
 
 - name: Install aws_ssm_plugin if current version is outdated
   ansible.builtin.include_tasks: install_ssm_plugin.yml
   when: |
-    install_ssm_plugin == true and (
+    install_ssm_plugin and (
       ssm_plugin_current_version is failed or
       ssm_plugin_current_version.stdout != ssm_plugin_version|replace("+", ".")
     )
