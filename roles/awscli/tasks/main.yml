@@ -20,9 +20,7 @@
 # Check if we want to install aws_ssm_plugin
 
 - name: Get aws_ssm_plugin current version
-  ansible.builtin.shell:
-    executable: /bin/bash
-    cmd: session-manager-plugin --version
+  ansible.builtin.command: session-manager-plugin --version
   register: ssm_plugin_current_version
   changed_when: false
   failed_when: false
