@@ -39,7 +39,7 @@
           - black
           - virtualenv
 
-    - name: Install & configure git.
+    - name: Install Git.
       role: git
 
     - name: Install AWS CLI.
@@ -53,3 +53,8 @@
       role: go
       vars:
         version: "go{{ lookup('vidimensional.collection.github_release', repo='golang/go', token=github_token) }}"
+
+    - name: Install Terraform.
+      role: terraform
+      vars:
+        tfenv_version: "v{{ lookup('vidimensional.collection.github_release', repo='tfutils/tfenv', token=github_token) }}"
