@@ -3,8 +3,8 @@
   ansible.builtin.get_url:
     url: "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb"
     dest: "{{ tmp_path }}/session-manager-plugin.deb"
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
 
 - name: Install ssm_plugin | Install .deb file

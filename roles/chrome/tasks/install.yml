@@ -1,12 +1,12 @@
 ---
 - name: Install | Download .deb
   ansible.builtin.get_url:
-    url: 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-    dest: '{{ tmp_path }}/google-chrome-stable_current_amd64.deb'
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
+    url: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    dest: "{{ tmp_path }}/google-chrome-stable_current_amd64.deb"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
 
 - name: Install | Install .deb 'file'
   ansible.builtin.apt:
-    deb: '{{ tmp_path }}/google-chrome-stable_current_amd64.deb'
+    deb: "{{ tmp_path }}/google-chrome-stable_current_amd64.deb"

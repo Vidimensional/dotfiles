@@ -9,21 +9,21 @@
 
 - name: Ensure .bashrc.d directory exists
   ansible.builtin.file:
-    path: '{{ ansible_env.HOME }}/.bashrc.d'
+    path: "{{ ansible_facts['user_dir'] }}/.bashrc.d"
     state: directory
-    mode: '0755'
+    mode: "0755"
 
 - name: Copy config
   ansible.builtin.copy:
-    src: '{{ item.src }}'
-    dest: '{{ item.dest }}'
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
   loop:
     - src: gitconfig
-      dest: '{{ ansible_env.HOME }}/.gitconfig'
+      dest: "{{ ansible_facts['user_dir'] }}/.gitconfig"
     - src: gitconfig.d/
-      dest: '{{ ansible_env.HOME }}/.gitconfig.d'
+      dest: "{{ ansible_facts['user_dir'] }}/.gitconfig.d"
     - src: bashrc.git.sh
-      dest: '{{ ansible_env.HOME }}/.bashrc.d/git.sh'
+      dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/git.sh"

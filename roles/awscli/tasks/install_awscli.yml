@@ -12,16 +12,16 @@
   ansible.builtin.get_url:
     url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-{{ awscli_version }}.zip"
     dest: "{{ tmp_path }}/awscli-exe-linux-x86_64.zip"
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
 
 - name: Install awscli | Extract installer
   ansible.builtin.unarchive:
     src: "{{ tmp_path }}/awscli-exe-linux-x86_64.zip"
     dest: "{{ tmp_path }}"
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
 
 - name: Install awscli | Execute installer # noqa no-changed-when | We're calling this file only when the installed awscli version differs from the desired
   ansible.builtin.command: "{{ tmp_path }}/aws/install --update"

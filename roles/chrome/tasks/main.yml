@@ -1,7 +1,7 @@
 ---
 - name: Check if Chrome is installed
   ansible.builtin.stat:
-    path: '/etc/default/google-chrome'
+    path: "/etc/default/google-chrome"
   register: chrome_config
 
 - name: Install Chrome

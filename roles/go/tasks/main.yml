@@ -13,7 +13,7 @@
 - name: Copy bashrc config
   ansible.builtin.template:
     src: go.bash.j2
-    dest: "{{ ansible_env.HOME }}/.bashrc.d/go.bash"
-    owner: "{{ local_user }}"
-    group: "{{ local_group }}"
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/go.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
