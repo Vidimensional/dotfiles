@@ -2,4 +2,6 @@
 tfenv_path: /opt/tfenv
 tfenv_repo: https://github.com/tfutils/tfenv.git
 tfenv_version:
+
 terraform_versions: []
+terraform_use_version:

@@ -55,3 +55,12 @@
     owner: "{{ ansible_facts['user_uid'] }}"
     group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
+
+- name: Install Terraform versions.
+  ansible.builtin.command: tfenv install "{{ item }}"
+  become: true
+  loop: "{{ terraform_versions }}"
+
+- name: Use Terraform verison.
+  ansible.builtin.command: tfenv use "{{ terraform_use_version }}"
+  become: true
