@@ -1,0 +1,22 @@
+---
+- name: Install | Delete previous Go installation
+  ansible.builtin.file:
+    path: "{{ go_prefix_path }}/go"
+    state: absent
+  become: true
+
+- name: Install | Download .tar.gz
+  ansible.builtin.get_url:
+    url: "https://dl.google.com/go/{{ version }}.linux-amd64.tar.gz"
+    dest: "{{ tmp_path }}/{{ version }}.linux-amd64.tar.gz"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
+
+- name: Install | Extract .tar.gz
+  ansible.builtin.unarchive:
+    src: "{{ tmp_path }}/{{ version }}.linux-amd64.tar.gz"
+    dest: "{{ go_prefix_path }}"
+    owner: root
+    group: root
+  become: true    

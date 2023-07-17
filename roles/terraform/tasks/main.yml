@@ -10,51 +10,10 @@
   failed_when: false
 
 - name: Install tfenv
+  ansible.builtin.include_tasks: install_tfenv.yml
   when: |
     tfenv_current_version is failed or
     tfenv_current_version.stdout != tfenv_version
-  block:
-    - name: Install tfenv | Remove previous installation
-      ansible.builtin.file:
-        path: "{{ tfenv_path }}"
-        state: absent
-      become: true
-
-    - name: Install tfenv | Download required version
-      ansible.builtin.git:
-        repo: "{{ tfenv_repo }}"
-        version: "{{ tfenv_version }}"
-        dest: "{{ tfenv_path }}"
-        depth: 1
-      become: true
-
-    - name: Install tfenv | Link to /usr/local/bin/tfenv
-      ansible.builtin.file:
-        path: /usr/local/bin/tfenv
-        src: "{{ tfenv_path }}/bin/tfenv"
-        state: link
-        owner: root
-        group: root
-        mode: u=rwx,g=rx,o=rx
-      become: true
-
-    - name: Install tfenv | Link to /usr/local/bin/terraform
-      ansible.builtin.file:
-        path: /usr/local/bin/terraform
-        src: "{{ tfenv_path }}/bin/terraform"
-        state: link
-        owner: root
-        group: root
-        mode: u=rwx,g=rx,o=rx
-      become: true
-
-- name: Copy bash configuration.
-  ansible.builtin.template:
-    src: tfenv.bash.j2
-    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/tfenv.bash"
-    owner: "{{ ansible_facts['user_uid'] }}"
-    group: "{{ ansible_facts['user_gid'] }}"
-    mode: u=rw,g=r,o=r
 
 - name: Install Terraform versions.
   ansible.builtin.command: tfenv install "{{ item }}"
