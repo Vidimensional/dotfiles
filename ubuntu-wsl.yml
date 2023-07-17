@@ -57,5 +57,5 @@
     - name: Install Terraform.
       role: terraform
       vars:
-        tfenv_version: "v{{ lookup('vidimensional.collection.github_release', repo='tfutils/tfenv', token=github_token) }}"
+        tfenv_version: "{{ lookup('vidimensional.collection.github_release', repo='tfutils/tfenv', token=github_token) }}"
         terraform_use_version: "{{ lookup('vidimensional.collection.github_release', repo='hashicorp/terraform', token=github_token) }}"
