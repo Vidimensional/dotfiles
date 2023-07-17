@@ -1,36 +1,6 @@
 ---
-# Install AWSCLI
-
-- name: Get awscli current version
-  ansible.builtin.shell:
-    executable: /bin/bash
-    cmd: |
-      set -o pipefail
-      aws --version | grep -Eo 'aws-cli/[0-9]+\.[0-9]+\.[0-9]+' | cut -d/ -f2
-  register: awscli_current_version
-  changed_when: false
-  failed_when: false
-
-- name: Install awscli if current version is outdated
+- name: Install awscli
   ansible.builtin.include_tasks: install_awscli.yml
-  when: |
-    awscli_current_version is failed or
-    awscli_current_version.stdout != awscli_version
 
-# Check if we want to install aws_ssm_plugin
-
-- name: Get aws_ssm_plugin current version
-  ansible.builtin.command: session-manager-plugin --version
-  register: ssm_plugin_current_version
-  changed_when: false
-  failed_when: false
-  when: install_ssm_plugin
-
-- name: Install aws_ssm_plugin if current version is outdated
+- name: Install aws_ssm_plugin
   ansible.builtin.include_tasks: install_ssm_plugin.yml
-  when: |
-    install_ssm_plugin and (
-      ssm_plugin_current_version is failed or
-      ssm_plugin_current_version.stdout != ssm_plugin_version|replace("+", ".")
-    )
-  # `latest_version` is defined in vars/main.yaml, and its value is the latest release from aws/session-manager-plugin GitHub repo.
