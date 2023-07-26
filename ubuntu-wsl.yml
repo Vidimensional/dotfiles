@@ -33,6 +33,7 @@
           - jq
           - python3-full
           - python3-pip
+          - tree
         pip_packages:
           - ansible
           - ansible-lint
