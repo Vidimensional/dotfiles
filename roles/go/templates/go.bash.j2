@@ -4,7 +4,7 @@ export GOPATH=~/dev/go
 
 case `uname -s` in
     Linux)
-        PATH="${PATH}:{{ go_prefix_path }}go/bin"
+        PATH="${PATH}:{{ go_prefix_path }}go/bin:${GOPATH}/bin"
         ;;
 esac
 
