@@ -28,16 +28,17 @@
     - name: Install & upgrade packages.
       role: install_packages
       vars:
-        apt_packages:
+        install_packages_apt:
           - curl
           - jq
           - python3-full
           - python3-pip
           - tree
-        pip_packages:
+        install_packages_pip:
           - ansible
           - ansible-lint
           - black
+          - pre-commit
           - virtualenv
 
     - name: Install Git.
