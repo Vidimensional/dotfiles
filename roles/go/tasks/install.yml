@@ -19,4 +19,4 @@
     dest: "{{ go_prefix_path }}"
     owner: root
     group: root
-  become: true    
+  become: true
