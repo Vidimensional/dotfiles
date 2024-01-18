@@ -8,7 +8,10 @@
   ansible.builtin.include_tasks: install.yml
   when: |
     not go_version_file.stat.exists or
-    lookup('file', go_version_file.stat.path) != version
+    go_installed_version != go_expected_version
+  vars:
+    go_installed_version: "{{ lookup('file', go_version_file.stat.path) | regex_search('go[0-9]+(.[0-9]+)?(.[0-9]+)?') }}"
+
 
 - name: Copy bashrc config
   ansible.builtin.template:
