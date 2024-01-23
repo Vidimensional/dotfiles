@@ -50,6 +50,9 @@
     - name: Install Git.
       role: git
 
+    - name: Install Docker.
+      role: docker
+
     - name: Install AWS CLI.
       role: awscli
       vars:
