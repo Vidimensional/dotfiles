@@ -30,6 +30,7 @@
       vars:
         install_packages_apt:
           - curl
+          - gnome-screenshot
           - hplip-gui
           - htop
           - jq
