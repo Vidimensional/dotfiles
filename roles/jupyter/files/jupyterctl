@@ -1,0 +1,78 @@
+#!/bin/bash
+
+source ~/.bashrc.d/colors.bash
+
+CONTAINER_NAME=jupyter
+IMAGE_URL=local-jupyter
+
+function is_container_running {
+    [ -n "$(docker ps --filter name="^${CONTAINER_NAME}$" --format {{.Names}})" ]
+}
+
+function start_container {
+    if ! is_container_running; then
+        echo -n "Starting Jupyter container... "
+        docker run \
+            --detach \
+            --volume '/home/vidi/dev:/home/jovyan/work' \
+            --publish '127.0.0.1:8888:8888' \
+            --name "${CONTAINER_NAME}" \
+            "${IMAGE_URL}"\
+            > /dev/null \
+        && echo -e "${__BGREEN}OK${__DEFAULT}"\
+        || echo -e "${__BRED}KO${__DEFAULT}"
+    else
+        echo "Jupyter container already running"
+    fi
+}
+
+function stop_container {
+    if is_container_running; then
+        echo -n "Stopping Jupyter container... "
+        docker stop "${CONTAINER_NAME}" > /dev/null &&
+        docker rm "${CONTAINER_NAME}" > /dev/null && 
+        echo -e "${__BGREEN}OK${__DEFAULT}" ||
+        echo -e "${BRED}KO${__DEFAULT}"
+    else 
+        echo "Jupyter container already stopped"
+    fi
+}
+
+case $1 in
+    status)
+        if is_container_running; then
+            echo -e "Jupyter container is ${__BGREEN}running${__DEFAULT}"
+        else 
+            echo -e "Jupyter container is ${__BRED}not runing${__DEFAULT}"
+        fi 
+    ;;
+    
+    start)
+        start_container
+    ;;
+    
+    stop)
+        stop_container
+    ;;
+
+    restart)
+        stop_container
+        start_container
+    ;;
+
+    log|logs)
+        if is_container_running; then
+            docker logs "${CONTAINER_NAME}"
+        else
+            echo "Jupyter containter is not running"
+        fi
+    ;;
+
+    *)
+        echo "USAGE $0 OPTION"
+        echo " * status: shows if container is running"
+        echo " * start: starts the container"
+        echo " * stop: stops and removes the container"
+        echo " * logs: shows container lgos"
+    ;;
+esac    
