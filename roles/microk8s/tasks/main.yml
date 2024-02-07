@@ -1,0 +1,14 @@
+---
+- name: Install microk8s from snap
+  ansible.builtin.snap:
+    name: microk8s
+    state: present
+  become: true
+
+- name: Copy .bashrc config
+  ansible.builtin.copy:
+    src: aliases_microk8s.bash
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/aliases_microk8s.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r

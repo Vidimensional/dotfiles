@@ -96,3 +96,8 @@
       role: jupyter
       tags:
       - jupyter
+
+    - name: Install microk8s
+      role: microk8s
+      tags:
+      - microk8s
