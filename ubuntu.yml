@@ -46,6 +46,11 @@
           - virtualenv
           - semantic-version>=2.10 # FIXME Needed for vidimensional.collection.github_release
           - PyGithub>=1.58 # FIXME Needed for vidimensional.collection.github_release
+        install_packages_snap:
+          - code
+          - discord
+          - dive
+          - steam
 
     - name: Install Git.
       role: git
