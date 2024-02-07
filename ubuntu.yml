@@ -24,6 +24,9 @@
   roles:
     - name: Base bash configuration.
       role: bashrc
+      tags:
+      - bash
+      - bashrc
 
     - name: Install & upgrade packages.
       role: install_packages
@@ -51,12 +54,18 @@
           - discord
           - dive
           - steam
+      tags:
+        - packages
 
     - name: Install Git.
       role: git
+      tags:
+      - git
 
     - name: Install Docker.
       role: docker
+      tags:
+      - docker
 
     - name: Install AWS CLI.
       role: awscli
@@ -64,17 +73,26 @@
         awscli_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/aws-cli', token=github_token) }}"
         install_ssm_plugin: true
         ssm_plugin_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/session-manager-plugin', token=github_token) }}"
+      tags:
+      - aws
+      - awscli
 
     - name: Install Go.
       role: go
       vars:
         go_expected_version: "go{{ lookup('vidimensional.collection.github_release', repo='golang/go', token=github_token) }}"
+      tags:
+      - go
 
     - name: Install Terraform.
       role: terraform
       vars:
         tfenv_version: "v{{ lookup('vidimensional.collection.github_release', repo='tfutils/tfenv', token=github_token) }}"
         terraform_use_version: "{{ lookup('vidimensional.collection.github_release', repo='hashicorp/terraform', token=github_token) }}"
+      tags:
+      - terraform
 
     - name: Install Jupyter
       role: jupyter
+      tags:
+      - jupyter
