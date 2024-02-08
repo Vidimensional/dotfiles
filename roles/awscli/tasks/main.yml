@@ -1,20 +1,10 @@
 ---
-
-- name: Get awscli current version
-  ansible.builtin.shell:
-    executable: /bin/bash
-    cmd: |
-      set -o pipefail
-      aws --version | grep -Eo 'aws-cli/[0-9]+\.[0-9]+\.[0-9]+' | cut -d/ -f2
-  register: awscli_current_version
-  changed_when: false
-  failed_when: false
-
-- name: Install awscli
-  ansible.builtin.include_tasks: install_awscli.yml
-  when: |
-    awscli_current_version is failed or
-    awscli_current_version.stdout != awscli_version
+- name: Install aws-cli
+  ansible.builtin.snap:
+    name: aws-cli
+    state: present
+    classic: true
+  become: true
 
 - name: Get aws_ssm_plugin current version
   ansible.builtin.command: session-manager-plugin --version
