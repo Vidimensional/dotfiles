@@ -41,8 +41,3 @@
     image: foldingathome
     volumes:
       - "{{ ansible_facts['user_dir'] }}/ContainerData/foldingathome:/fahclient"
-
-
-
-# 11:32:47:       CUDA: Not detected: Failed to open dynamic library 'libcuda.so': cannot open shared object file: No such file or directory
-# 11:32:47:     OpenCL: Not detected: Failed to open dynamic library 'libOpenCL.so': cannot open shared object file: No such file or directory
