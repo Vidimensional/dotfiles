@@ -20,6 +20,7 @@ function start_container {
             --publish '127.0.0.1:8888:8888' \
             --name "${CONTAINER_NAME}" \
             "${IMAGE_URL}"\
+            start-notebook.py --IdentityProvider.token=''\
             > /dev/null \
         && echo -e "${__BGREEN}OK${__DEFAULT}"\
         || echo -e "${__BRED}KO${__DEFAULT}"
@@ -68,15 +69,6 @@ case $1 in
         else
             echo "Jupyter containter is not running"
         fi
-    ;;
-
-    url)
-        if is_container_running; then
-            docker logs jupyter 2>&1 | grep -Eo 'http://127\.0\.0\.1:8888/lab\?token=[a-zA-Z0-9]+'
-        else
-            echo "Jupyter containter is not running"
-        fi
-
     ;;
 
     log|logs)
