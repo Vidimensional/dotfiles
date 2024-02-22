@@ -49,6 +49,7 @@
           - python3-pip
           - python-is-python3
           - tree
+          - vim
         install_packages_pip:
           - ansible
           - ansible-lint
