@@ -45,6 +45,7 @@
           - hplip-gui
           - htop
           - jq
+          - mockery
           - python3-full
           - python3-pip
           - python-is-python3
