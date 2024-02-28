@@ -46,6 +46,7 @@
           - htop
           - jq
           - mockery
+          - podman
           - python3-full
           - python3-pip
           - python-is-python3

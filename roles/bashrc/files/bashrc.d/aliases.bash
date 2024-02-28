@@ -17,6 +17,7 @@ alias reloadbash='source ~/.bashrc'
 
 alias k='kubectl'
 alias d='docker'
+alias p='podman'
 alias h='helm3'
 alias dcompose='docker-compose'
 alias tf='terraform'
