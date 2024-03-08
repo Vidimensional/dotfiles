@@ -7,7 +7,7 @@ RUN useradd --create-home --home-dir /fahclient fahclient && \
     \
     apt update && \
     apt upgrade --yes && \
-    apt install --yes wget ocl-icd-opencl-dev && \
+    apt install --yes wget ocl-icd-opencl-dev ocl-icd-libopencl1 && \
     \
     mkdir -p /tmp/fah && \
     wget https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v${FAH_VERSION_MINOR}/fahclient_${FAH_VERSION_MINOR}.${FAH_VERSION_PATCH}_amd64.deb -O /tmp/fah/fahclient_${FAH_VERSION_MINOR}.${FAH_VERSION_PATCH}_amd64.deb &&\
@@ -25,4 +25,4 @@ WORKDIR /fahclient
 
 COPY --chown=fahclient:fahclient config.xml /etc/fahclient/config.xml
 
-ENTRYPOINT [ "/usr/bin/FAHClient", "/etc/fahclient/config.xml", "--run-as", "fahclient" ]
+ENTRYPOINT [ "/usr/bin/FAHClient", "/etc/fahclient/config.xml", "--run-as", "fahclient", "--power", "full" ]

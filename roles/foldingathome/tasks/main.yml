@@ -23,11 +23,12 @@
 
 - name: Build foldingathome image
   community.docker.docker_image:
+    source: build
     build:
       path: "{{ tmp_path }}/fah/"
+      cache_from: foldingathome:latest
     name: foldingathome
     tag: latest
-    source: build
 
 - name: Create tmp path for Dockerbuild
   ansible.builtin.file:
