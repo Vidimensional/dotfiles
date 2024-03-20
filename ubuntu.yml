@@ -81,9 +81,6 @@
 
     - name: Install AWS CLI.
       role: awscli
-      vars:
-        install_ssm_plugin: true
-        ssm_plugin_version: "{{ lookup('vidimensional.collection.github_release', repo='aws/session-manager-plugin', token=github_token) }}"
       tags:
       - aws
       - awscli
