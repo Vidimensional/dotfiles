@@ -87,8 +87,6 @@
 
     - name: Install Go.
       role: go
-      vars:
-        go_expected_version: "go{{ lookup('vidimensional.collection.github_release', repo='golang/go', token=github_token) }}"
       tags:
       - go
 
