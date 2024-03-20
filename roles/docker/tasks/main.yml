@@ -18,3 +18,11 @@
     append: true
     state: present
   become: true
+
+- name: Copy .bashrc config
+  ansible.builtin.copy:
+    src: "docker.bash"
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/docker.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
