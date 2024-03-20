@@ -5,3 +5,12 @@
     state: present
     classic: true
   become: true
+
+- name: Copy .bashrc config
+  ansible.builtin.copy:
+    src: "awsprofile.bash"
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/awsprofile.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
+

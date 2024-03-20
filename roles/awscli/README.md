@@ -9,3 +9,7 @@ Installs awscli using snap.
 ## Variables
 
 N/A
+
+## Notes
+
+It installs `awsprofile` tool to switch between aws profiles ([Link](files/awsprofile.bash)).
