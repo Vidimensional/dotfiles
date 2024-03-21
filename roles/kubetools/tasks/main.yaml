@@ -7,11 +7,11 @@
   become: true
 
 - name:
-  ansible.builtin.include: kubectx.yaml
+  ansible.builtin.include_tasks: kubectx.yaml
   when: kubectl_install_kubectx
 
 - name:
-  ansible.builtin.include: helm.yaml
+  ansible.builtin.include_tasks: helm.yaml
   when: kubectl_install_helm
 
 - name: Copy bashrc config
