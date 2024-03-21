@@ -10,7 +10,7 @@
   failed_when: false
 
 - name: Install tfenv
-  ansible.builtin.include_tasks: install_tfenv.yml
+  ansible.builtin.include_tasks: install_tfenv.yaml
   when: |
     tfenv_current_version is failed or
     tfenv_current_version.stdout != tfenv_version
