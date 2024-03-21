@@ -1,0 +1,9 @@
+# This file is meant to be sourced from bashrc
+
+alias k="kubectl"
+{% if kubectl_install_kubectx %}
+alias kctx='kubectl ctx'
+alias kns='kubectx ns'
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+{% endif %}
