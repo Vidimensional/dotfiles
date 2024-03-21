@@ -1,10 +1,10 @@
 # kubectl Role
 
-Installs `kubectl` (and, optionally, `[kubectx](https://github.com/ahmetb/kubectx)` and `[kubens](https://github.com/ahmetb/kubectx)` using `[krew](https://krew.sigs.k8s.io/)`).
+Installs `kubectl` (and, optionally, [`kubectx`](https://github.com/ahmetb/kubectx) and [`kubens`](https://github.com/ahmetb/kubectx) using [`krew`](https://krew.sigs.k8s.io/)).
 
 ## Variables
 
-* `kubectl_install_kubectx`: (default:`true`) if true will install `[krew](https://krew.sigs.k8s.io/)` and then use it to install `[kubectx](https://github.com/ahmetb/kubectx)` and `[kubens](https://github.com/ahmetb/kubectx)`.
+* __kubectl_install_kubectx__: (default:`true`) if true will install [krew](https://krew.sigs.k8s.io/) and then use it to install [kubectx](https://github.com/ahmetb/kubectx) and [kubens](https://github.com/ahmetb/kubectx).
 
 ## Examples
 
