@@ -1,9 +1,11 @@
 FROM ubuntu:focal
 
+ARG FAHCLIENT_UID=1000
+
 ENV FAH_VERSION_MINOR=7.6
 ENV FAH_VERSION_PATCH=21
 
-RUN useradd --create-home --home-dir /fahclient fahclient && \
+RUN useradd --create-home --home-dir /fahclient fahclient --uid ${FAHCLIENT_UID} && \
     \
     apt update && \
     apt upgrade --yes && \

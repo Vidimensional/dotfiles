@@ -1,0 +1,8 @@
+---
+- name: Install Kubectl
+  ansible.builtin.snap:
+    name: kubectl
+    state: present
+    classic: true
+  become: true
+

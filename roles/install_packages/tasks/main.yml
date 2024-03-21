@@ -21,7 +21,7 @@
   ansible.builtin.pip:
     name: "{{ install_packages_pip }}"
     state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
-    extra_args: --break-system-packages # Annoying PEP 668.
+    # extra_args: --break-system-packages # Annoying PEP 668.
   become: true
   when: install_packages_pip is defined
 
