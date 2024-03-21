@@ -1,4 +1,13 @@
 ---
+- name: Install `jupyterctl`
+  ansible.builtin.copy:
+    src: "jupyterctl"
+    dest: "/usr/local/bin/jupyterctl"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rwx,g=rx,o=rx
+  become: true
+
 - name: Create tmp path for Dockerbuild
   ansible.builtin.file:
     path: "{{ tmp_path }}/jupyter-image"
@@ -21,12 +30,3 @@
     name: local-jupyter
     tag: latest
     source: build
-
-- name: Install `jupyterctl`
-  ansible.builtin.copy:
-    src: "jupyterctl"
-    dest: "/usr/local/bin/jupyterctl"
-    owner: "{{ ansible_facts['user_uid'] }}"
-    group: "{{ ansible_facts['user_gid'] }}"
-    mode: u=rwx,g=rx,o=rx
-  become: true

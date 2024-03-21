@@ -1,13 +1,5 @@
 # This file is meant to be sourced from bashrc
 
-_awsprompt() {
-  local aws_profile
-  aws_profile="$(env | grep AWS_PROFILE | cut -d= -f2)"
-  [[ "${aws_profile}" == "" ]] && aws_profile=default
-  
-  echo "[AWS->${aws_profile}]"
-}
-
 _aws_list_profiles() {
     grep '\[' ~/.aws/credentials | tr -d ']['
 }

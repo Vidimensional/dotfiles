@@ -15,19 +15,6 @@ alias dotfiles="code ${repos_path}/dotfiles"
 
 alias reloadbash='source ~/.bashrc'
 
-alias k='kubectl'
-alias d='docker'
-alias p='podman'
-alias h='helm3'
-alias dcompose='docker-compose'
-alias tf='terraform'
-alias ntpl='lsof -nPi4TCP | grep --color=never LISTEN' # Similar output to `netstat -ntpl`
-alias goland='goland "$(pwd)"'
-alias phpstorm='phpstorm "$(pwd)"'
-alias idea='idea "$(pwd)"'
-alias pycharm='pycharm "$(pwd)"'
-alias webstorm='webstorm "$(pwd)"'
-
 alias unvim="find . -iname '.*.swp' -delete"
 
 alias tiempo="curl wttr.in/"
