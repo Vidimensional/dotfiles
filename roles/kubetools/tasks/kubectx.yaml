@@ -1,11 +1,4 @@
 ---
-- name: Install Kubectl
-  ansible.builtin.snap:
-    name: kubectl
-    state: present
-    classic: true
-  become: true
-
 - name: Install Krew
   ansible.builtin.shell: |
     # From https://krew.sigs.k8s.io/docs/user-guide/setup/install/
@@ -19,26 +12,15 @@
     ./"${KREW}" install krew
   args:
     creates: "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew"
-  when: kubectl_install_kubectx
 
 - name: Install kubectx
   ansible.builtin.command: |
     "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew install ctx"
   args:
     creates: "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-ctx"
-  when: kubectl_install_kubectx
 
 - name: Install kubens
   ansible.builtin.command: |
     "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew install ns"
   args:
     creates: "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-ns"
-  when: kubectl_install_kubectx
-
-- name: Copy bashrc config
-  ansible.builtin.template:
-    src: kubectl.bash.j2
-    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/kubectl.bash"
-    owner: "{{ ansible_facts['user_uid'] }}"
-    group: "{{ ansible_facts['user_gid'] }}"
-    mode: u=rw,g=r,o=r

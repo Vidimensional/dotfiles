@@ -1,2 +1,3 @@
 ---
 kubectl_install_kubectx: true
+kubectl_install_helm: true

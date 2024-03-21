@@ -98,15 +98,18 @@
       tags:
       - terraform
 
+    - name: Install kubectl and other k8s tools
+      role: kubetools
+      tags:
+      - kubetools
+      - kubectl
+      - helm
+      - kubernetes
+
     - name: Install Jupyter
       role: jupyter
       tags:
       - jupyter
-
-    - name: Install microk8s
-      role: microk8s
-      tags:
-      - microk8s
 
     - name: Install foldingathome
       role: foldingathome

@@ -4,6 +4,12 @@ alias k="kubectl"
 {% if kubectl_install_kubectx %}
 alias kctx='kubectl ctx'
 alias kns='kubectx ns'
+{% endif %}
+{% if kubectl_install_helm %}
+alias h='helm'
+alias helm3='helm'
+{% endif %}
 
+{% if kubectl_install_kubectx %}
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 {% endif %}

@@ -1,0 +1,7 @@
+---
+- name: Install Helm
+  ansible.builtin.snap:
+    name: microk8s
+    state: present
+    classic: true
+  become: true

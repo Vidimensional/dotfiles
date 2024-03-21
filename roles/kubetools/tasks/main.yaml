@@ -1,0 +1,23 @@
+---
+- name: Install Kubectl
+  ansible.builtin.snap:
+    name: kubectl
+    state: present
+    classic: true
+  become: true
+
+- name:
+  ansible.builtin.include: kubectx.yaml
+  when: kubectl_install_kubectx
+
+- name:
+  ansible.builtin.include: helm.yaml
+  when: kubectl_install_helm
+
+- name: Copy bashrc config
+  ansible.builtin.template:
+    src: kubectl.bash.j2
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/kubectl.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
