@@ -25,6 +25,8 @@
   community.docker.docker_image:
     source: build
     build:
+      args: 
+        FAHCLIENT_UID: "{{ ansible_facts['user_uid'] }}"
       path: "{{ tmp_path }}/fah/"
       cache_from: foldingathome:latest
     name: foldingathome
