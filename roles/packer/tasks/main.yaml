@@ -1,0 +1,26 @@
+---
+- name: Get hashicorp GPG key
+  ansible.builtin.shell:
+    cmd: "wget -qO- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o {{ packer_hashicorp_keyring_path }}"
+    creates: "{{ packer_hashicorp_keyring_path }}"
+  become: true
+
+- name: Add packer apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by={{ packer_hashicorp_keyring_path }}] https://apt.releases.hashicorp.com mantic main"
+    state: present
+    filename: hashicorp-packer
+  become: true
+  register: packer_apt_repository
+
+- name: Update apt database
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+  when: packer_apt_repository.changed
+
+- name: Install packer
+  ansible.builtin.apt:
+    name: packer
+    state: present
+  become: true

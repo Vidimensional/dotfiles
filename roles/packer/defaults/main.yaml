@@ -1,0 +1,2 @@
+---
+packer_hashicorp_keyring_path: /usr/share/keyrings/hashicorp-archive-keyring.gpg
