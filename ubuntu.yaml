@@ -52,6 +52,7 @@
           - python-is-python3
           - tree
           - vim
+          - vlc
         install_packages_pip:
           - ansible
           - ansible-lint
