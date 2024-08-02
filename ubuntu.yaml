@@ -60,10 +60,10 @@
           - virtualenv
           - semantic-version>=2.10 # FIXME Needed for vidimensional.collection.github_release
           - PyGithub>=1.58 # FIXME Needed for vidimensional.collection.github_release
-        install_packages_snap:
+        install_packages_snap_classic:
           - code
+        install_packages_snap:
           - discord
-          - dive
           - slack
           - steam
       tags:
