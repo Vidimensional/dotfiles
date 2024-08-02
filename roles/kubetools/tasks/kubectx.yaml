@@ -11,16 +11,17 @@
     tar zxvf "${KREW}.tar.gz"
     ./"${KREW}" install krew
   args:
+    executable: /bin/bash
     creates: "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew"
 
 - name: Install kubectx
   ansible.builtin.command: |
-    "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew install ctx"
+    {{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew install ctx
   args:
     creates: "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-ctx"
 
 - name: Install kubens
   ansible.builtin.command: |
-    "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew install ns"
+    {{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-krew install ns
   args:
     creates: "{{ ansible_facts['user_dir'] }}/.krew/bin/kubectl-ns"
