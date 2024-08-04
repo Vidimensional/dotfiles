@@ -19,6 +19,8 @@ alias unvim="find . -iname '.*.swp' -delete"
 
 alias tiempo="curl wttr.in/"
 
+alias mp="multipass"
+
 #Commands running on Docker containers.
 #alias psql='docker run -it -v "${PWD}:/opt" -e "PGPASSWORD=${PGPASSWORD}" vidimensional/psql'
 #alias mysql='docker run -it vidimensional/mysql-client'
