@@ -65,6 +65,7 @@
           - code
         install_packages_snap:
           - discord
+          - multipass
           - slack
           - steam
       tags:
