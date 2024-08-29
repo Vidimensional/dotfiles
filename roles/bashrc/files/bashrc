@@ -16,6 +16,10 @@ __source_dir() {
 
 PATH='/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin'
 
+if [[ "$(uname -s)" == Darwin ]]; then
+    export PATH="/opt/homebrew/bin:${PATH}"
+fi
+
 ################################################################################
 # Source extra configs
 __source_dir ~/.bashrc.d
@@ -30,10 +34,9 @@ case `(uname -s)` in
         __source_dir /etc/bash_completion.d
         ;;
     Darwin)
-        if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-            . /usr/local/share/bash-completion/bash_completion
+        if [ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+            source /opt/homebrew/etc/profile.d/bash_completion.sh
         fi
-        __source_dir /usr/local/etc/bash_completion.d
         ;;
 esac
 
