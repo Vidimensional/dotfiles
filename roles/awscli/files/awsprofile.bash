@@ -1,7 +1,7 @@
 # This file is meant to be sourced from bashrc
 
 _aws_list_profiles() {
-    grep '\[' ~/.aws/credentials | tr -d ']['
+    gawk '/^\[profile/ {  gsub(/\]/, ""); print  $2}' ~/.aws/config
 }
 
 awsprofile() {
