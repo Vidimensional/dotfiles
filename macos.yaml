@@ -35,3 +35,9 @@
       tags:
         - bash
         - bashrc
+
+    - name: Install GNU tools
+      role: gnutools
+      tags:
+        - gnu
+        - gnutools

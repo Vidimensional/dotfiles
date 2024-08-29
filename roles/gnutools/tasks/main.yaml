@@ -1,0 +1,19 @@
+---
+- name: Install GNU tools
+  community.general.homebrew:
+    name:
+      - coreutils
+      - gawk
+      - gnu-tar
+      - gnu-sed
+    state: present
+  when: ansible_distribution == "MacOSX"
+
+- name: Copy .bashrc config
+  ansible.builtin.copy:
+    src: gnutools.bash
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/gnutools.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
+  when: ansible_distribution == "MacOSX"
