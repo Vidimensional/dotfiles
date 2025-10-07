@@ -1,5 +1,5 @@
 ---
 - name: Install Helm
   community.general.homebrew:
-    name: microk8s
+    name: helm
     state: present
