@@ -12,6 +12,6 @@
   changed_when: false
 
 - name: Configure new Bash as default shell
-  ansible.builtin.command: chsh -s "{{ shell_path }}" "{{ ansible_facts['user_id' }}"
+  ansible.builtin.command: chsh -s "{{ shell_path }}" "{{ ansible_facts['user_id'] }}"
   become: true
   when: current_shell.stdout != shell_path
