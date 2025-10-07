@@ -1,0 +1,78 @@
+---
+- name: Configure macOS
+  hosts: localhost
+  connection: local
+
+  vars:
+    github_token: !vault |
+      $ANSIBLE_VAULT;1.1;AES256
+      38633633336539666465366133663736636162393763653438623765373463306435306561613630
+      3435303036313566356139623864363662613431636239640a663038616339613739636436343336
+      62616630376338336236366434373939616231396463343763643238346538376630343034353930
+      6538313838653561370a613132366566353532643262633435363561326666343334333437343164
+      66333638656330326664666231393663383436336530366166623837616137353265323737386438
+      3031666565303031616364343337386430613161393764326639
+    foldingathome_passkey: !vault |
+      $ANSIBLE_VAULT;1.1;AES256
+      62386239616234316166356436386239323062626161636661663839353065396362363130643866
+      3332303839363566653534663862393339636432653961650a613634616234383738313530333561
+      37623735643762373066653136333234346166356561313261303430366230633336333538393530
+      6463313361653236310a633837386362646636313235333130636536633562393464376637333238
+      64333664376466653764653135333465326634643162623861396435383033623462656632306537
+      3164626663333337346163353035376663666362633733376430
+    tmp_path: /tmp/dotfiles
+
+  pre_tasks:
+    - name: Create tmp path for working
+      ansible.builtin.file:
+        path: "{{ tmp_path }}/"
+        state: directory
+        mode: u=rwx,g=rx,o=rx
+
+  roles:
+    - name: Base bash configuration.
+      role: bashrc
+      tags:
+        - bash
+        - bashrc
+
+    - name: Install GNU tools
+      role: gnutools
+      tags:
+        - gnu
+        - gnutools
+
+    - name: Install & upgrade packages.
+      role: install_packages
+      vars:
+        install_packages_apt:
+          - curl
+          - gnome-screenshot
+          - hplip-gui
+          - htop
+          - jq
+          - mockery
+          - podman
+          - python3-full
+          - python3-pip
+          - python-is-python3
+          - tree
+          - vim
+          - vlc
+        install_packages_pip:
+          - ansible
+          - ansible-lint
+          - black
+          - pre-commit
+          - virtualenv
+          - semantic-version>=2.10 # FIXME Needed for vidimensional.collection.github_release
+          - PyGithub>=1.58 # FIXME Needed for vidimensional.collection.github_release
+        install_packages_snap_classic:
+          - code
+        install_packages_snap:
+          - discord
+          - multipass
+          - slack
+          - steam
+      tags:
+        - packages

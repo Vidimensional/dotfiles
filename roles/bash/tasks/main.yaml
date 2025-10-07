@@ -1,4 +1,8 @@
 ---
+- name: Install Bash for macOS
+  ansible.builtin.include_tasks: macos.yaml
+  when: ansible_distribution == "MacOSX"
+
 - name: Ensure .bashrc.d directory exists
   ansible.builtin.file:
     path: "{{ ansible_facts['user_dir'] }}/.bashrc.d"
