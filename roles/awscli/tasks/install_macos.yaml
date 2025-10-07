@@ -1,0 +1,5 @@
+---
+- name: Install Docker with Colima environment
+  community.general.homebrew:
+    name: awscli
+    state: present

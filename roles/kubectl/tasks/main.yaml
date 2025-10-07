@@ -7,11 +7,13 @@
   ansible.builtin.include_tasks: install_ubuntu.yaml
   when: ansible_distribution == "Ubuntu"
 
-- name: Copy .bashrc config
+- name: Install kubectx
+  ansible.builtin.include_tasks: kubectx.yaml
+
+- name: Copy bashrc config
   ansible.builtin.copy:
-    src: "awsprofile.bash"
-    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/awsprofile.bash"
+    src: kubectl.bash
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/kubectl.bash"
     owner: "{{ ansible_facts['user_uid'] }}"
     group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
-

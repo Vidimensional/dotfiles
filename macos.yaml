@@ -28,3 +28,17 @@
   - name: Install GNU tools
     role: gnutools
 
+  - name: Install Git.
+    role: git
+  
+  - name: Install Docker
+    role: docker
+
+  - name: Install AWS CLI.
+    role: awscli
+
+  - name: Install kubectl.
+    role: kubectl
+
+  - name: Install helm.
+    role: helm

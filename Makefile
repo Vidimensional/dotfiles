@@ -17,3 +17,11 @@ macos:
 		--ask-become-pass \
 		--vault-password-file vault-pass.txt \
 		macos.yaml
+
+
+.PHONY: facts
+facts:
+	ansible-playbook \
+		--ask-become-pass \
+		--vault-password-file vault-pass.txt \
+		ansiblefacts.yaml

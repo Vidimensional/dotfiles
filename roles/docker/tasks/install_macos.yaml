@@ -1,0 +1,10 @@
+---
+- name: Install Docker with Colima environment
+  community.general.homebrew:
+    name:
+    - qemu
+    - colima
+    - docker
+    - docker-compose
+    - docker-completion
+    state: present

@@ -1,0 +1,7 @@
+---
+- name: Install git tools
+  community.general.homebrew:
+    name:
+    - git
+    - tig
+    state: present

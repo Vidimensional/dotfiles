@@ -1,0 +1,8 @@
+---
+- name: Install git tools
+  ansible.builtin.apt:
+    name:
+      - git
+      - tig
+    state: present
+  become: true

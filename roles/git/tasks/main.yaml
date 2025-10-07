@@ -1,11 +1,11 @@
 ---
-- name: Install git tools
-  ansible.builtin.apt:
-    name:
-      - git
-      - tig
-    state: present
-  become: true
+- name: Install for macOS
+  ansible.builtin.include_tasks: install_macos.yaml
+  when: ansible_distribution == "MacOSX"
+
+- name: Install for Ubuntu
+  ansible.builtin.include_tasks: install_ubuntu.yaml
+  when: ansible_distribution == "Ubuntu"
 
 - name: Ensure .bashrc.d directory exists
   ansible.builtin.file:
