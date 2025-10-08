@@ -48,3 +48,6 @@
 
   - name: Install Spotify Player.
     role: spotify
+
+  - name: Install Go programming language.
+    role: go
