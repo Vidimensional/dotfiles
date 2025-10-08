@@ -8,10 +8,6 @@ case `uname -s` in
         ;;
     
     Darwin)
-        # TODO Delete this
-        # export GOROOT="/usr/local/opt/go/libexec"
-        # PATH="${PATH}:${GOPATH}/bin:${GOROOT}/bin"
-
         PATH="${PATH}:/usr/local/opt/php@7.4/bin"
         PATH="${PATH}:/usr/local/opt/mysql-client/bin"
         PATH="${PATH}:/usr/local/opt/libpq/bin"
