@@ -1,0 +1,22 @@
+---
+- name: Install in MacOS
+  community.general.homebrew:
+    name: go
+    state: latest
+  when: ansible_distribution == "MacOSX"
+
+- name: Install in Ubuntu
+  community.general.snap:
+    name: go
+    state: present
+    classic: true
+  become: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: Copy bashrc config
+  ansible.builtin.copy:
+    src: "go.bash"
+    dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/go.bash"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
