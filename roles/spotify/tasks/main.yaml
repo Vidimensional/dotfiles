@@ -1,7 +1,7 @@
 ---
 - name: Install in macOS
   community.general.homebrew:
-    name: spotify 
+    name: spotify
     state: latest
   when: ansible_distribution == "MacOSX"
 
