@@ -25,22 +25,22 @@
   - name: Base bash configuration.
     role: bash
 
-  - name: Install GNU tools
+  - name: Install GNU tools.
     role: gnutools
 
   - name: Install Git.
     role: git
   
-  - name: Install Docker
+  - name: Install Docker.
     role: docker
 
   - name: Install AWS CLI.
     role: awscli
 
-  - name: Install kubectl.
+  - name: Install Kubectl.
     role: kubectl
 
-  - name: Install helm.
+  - name: Install Helm.
     role: helm
 
   - name: Install Visual Studio Code.
