@@ -3,3 +3,11 @@
   community.general.snap:
     name: docker
   become: true
+
+- name: Copy config
+  ansible.builtin.copy:
+    src: settings.json
+    dest: "{{ vscode_linux_config_path }}/settings.json"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r

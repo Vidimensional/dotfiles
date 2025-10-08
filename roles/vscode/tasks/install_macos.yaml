@@ -3,3 +3,11 @@
   community.general.homebrew_cask:
     name: visual-studio-code
     state: latest
+
+- name: Copy config
+  ansible.builtin.copy:
+    src: settings.json
+    dest: "{{ vscode_macos_config_path }}/settings.json"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
