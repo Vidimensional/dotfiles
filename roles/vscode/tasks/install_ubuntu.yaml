@@ -5,7 +5,7 @@
     classic: true
   become: true
 
-- name: Compute missing extensions
+- name: Define vscode binary path
   ansible.builtin.set_fact:
     vscode_bin: "{{ vscode_binary_linux }}"
 

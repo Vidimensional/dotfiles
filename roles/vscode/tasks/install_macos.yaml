@@ -4,7 +4,7 @@
     name: visual-studio-code
     state: latest
 
-- name: Compute missing extensions
+- name: Define vscode binary path
   ansible.builtin.set_fact:
     vscode_bin: "{{ vscode_binary_macos }}"
 
