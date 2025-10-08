@@ -1,3 +1,0 @@
-# Homebrew package manager
-
-TODO

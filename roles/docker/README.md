@@ -28,10 +28,10 @@ N/A
 ## Requirements
 
 - macOS
-  - [Homebrew](../homebrew/README.md)
+  - Homebrew
 
 - Ubuntu
-  - N/A
+  - Snap
   
 ## Files
 

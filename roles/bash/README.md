@@ -28,7 +28,7 @@ In macOS installs latest Bash version and configures it as a default shell.
 ## Requirements
 
 - macOS
-  - [Homebrew](../homebrew/README.md)
+  - Homebrew
 
 - Ubuntu
   - N/A
