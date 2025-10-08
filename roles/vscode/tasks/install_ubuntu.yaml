@@ -1,7 +1,8 @@
 ---
-- name: Install docker snap.
+- name: Install vscode.
   community.general.snap:
-    name: docker
+    name: code
+    classic: true
   become: true
 
 - name: Copy config
