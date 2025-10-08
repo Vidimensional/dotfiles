@@ -42,7 +42,7 @@ N/A
 - macOS
   - Homebrew - [qemu](https://formulae.brew.sh/formula/qemu)
   - Homebrew - [colima](https://formulae.brew.sh/formula/colima)
-  - Homebrew - [docker](https://formulae.brew.sh/formula/colima)
+  - Homebrew - [docker](https://formulae.brew.sh/formula/docker)
   - Homebrew - [docker-completion](https://formulae.brew.sh/formula/docker-completion)
 
 - Ubuntu
