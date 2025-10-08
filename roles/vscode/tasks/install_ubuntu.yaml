@@ -1,0 +1,5 @@
+---
+- name: Install docker snap.
+  community.general.snap:
+    name: docker
+  become: true

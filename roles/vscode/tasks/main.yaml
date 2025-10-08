@@ -1,5 +1,16 @@
 ---
-- name: Install VSCode
-  community.general.homebrew_cask:
-    name: visual-studio-code
-    state: latest
+- name: Install for macOS
+  ansible.builtin.include_tasks: install_macos.yaml
+  when: ansible_distribution == "MacOSX"
+
+- name: Install for Ubuntu
+  ansible.builtin.include_tasks: install_ubuntu.yaml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Copy config
+  ansible.builtin.copy:
+    src: settings.json
+    dest: "{{ vscode_linux_config_path }}/settings.json"
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rw,g=r,o=r
