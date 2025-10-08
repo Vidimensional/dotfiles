@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-case "$( uname -o )" in
+case "$( uname -s )" in
   Linux)
     sudo apt-get update
     sudo apt-get install --assume-yes pipx
