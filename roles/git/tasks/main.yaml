@@ -1,10 +1,19 @@
 ---
-- name: Install for macOS
-  ansible.builtin.include_tasks: install_macos.yaml
+- name: Install in macOS
+  community.general.homebrew:
+    name:
+      - git
+      - tig
+    state: latest
   when: ansible_distribution == "MacOSX"
 
-- name: Install for Ubuntu
-  ansible.builtin.include_tasks: install_ubuntu.yaml
+- name: Install in Ubuntu
+  ansible.builtin.apt:
+    name:
+      - git
+      - tig
+    state: latest
+  become: true
   when: ansible_distribution == "Ubuntu"
 
 - name: Copy config

@@ -1,5 +1,0 @@
----
-- name: Install
-  community.general.homebrew:
-    name: helm
-    state: latest

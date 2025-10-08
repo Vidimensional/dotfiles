@@ -1,7 +1,0 @@
----
-- name: Install
-  community.general.snap:
-    name: helm
-    state: present
-    classic: true
-  become: true
