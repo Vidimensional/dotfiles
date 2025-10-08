@@ -1,0 +1,13 @@
+---
+- name: Install in macOS
+  community.general.homebrew:
+    name: spotify 
+    state: latest
+  when: ansible_distribution == "MacOSX"
+
+- name: Install in Ubuntu
+  community.general.snap:
+    name: spotify
+    state: present
+  become: true
+  when: ansible_distribution == "Ubuntu"

@@ -45,3 +45,6 @@
 
   - name: Install Visual Studio Code.
     role: vscode
+
+  - name: Install Spotify Player.
+    role: spotify
