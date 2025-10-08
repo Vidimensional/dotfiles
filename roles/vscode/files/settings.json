@@ -13,6 +13,9 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
     "[python]": {
         "editor.codeActionsOnSave": {
             "source.organizeImports": "always"
