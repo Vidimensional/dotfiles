@@ -19,7 +19,7 @@ The configuration can be found as is in a JSON file [`files/settings.json`](file
 ## Requirements
 
 * macOS
-  * [Hombrew](../homebrew/README.md)
+  * [Homebrew](../homebrew/README.md)
 
 * Ubuntu
   * N/A
