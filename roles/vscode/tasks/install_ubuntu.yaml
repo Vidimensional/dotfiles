@@ -1,5 +1,5 @@
 ---
-- name: Install vscode.
+- name: Install vscode
   community.general.snap:
     name: code
     classic: true
