@@ -1,11 +1,7 @@
 # This file is meant to be sourced from bashrc
 
+PATH="${PATH}:${HOME}/.local/bin"
 
-case `uname -s` in
-    Linux)
-        PATH="${PATH}:${HOME}/.local/bin"
-        PATH="${PATH}:/snap/bin"
-        ;;
-esac
+[ "$( uname -s )" == Linux ] && PATH="${PATH}:/snap/bin"
 
 export PATH
