@@ -20,7 +20,7 @@ Installs GNU implementation for Posix tools in macOS.
 ## Supported platforms
 
 - macOS
-- Ubuntu (it does nothing, but desn't crash eihter).
+- Ubuntu (it does nothing, but doesn't crash either).
 
 ## Variables
 
