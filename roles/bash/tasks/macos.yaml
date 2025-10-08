@@ -12,6 +12,6 @@
   changed_when: false
 
 - name: Configure Homebrew Bash as default shell
-  ansible.builtin.command: chsh -s "{{ shell_path }}" "{{ ansible_facts['user_id'] }}"
+  ansible.builtin.command: chsh -s "{{ bash_path_macos }}" "{{ ansible_facts['user_id'] }}"
   become: true
-  when: current_shell.stdout != shell_path
+  when: current_shell.stdout != bash_path_macos

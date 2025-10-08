@@ -1,7 +1,14 @@
 ---
-- name: Install
+- name: Install kubectx
   community.general.snap:
     name: kubectl
     state: present
     classic: true
+  become: true
+
+- name: Install kubectx
+  ansible.builtin.apt:
+    name:
+      - kubectx
+    state: latest
   become: true

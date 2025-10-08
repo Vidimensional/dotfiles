@@ -1,19 +1,48 @@
-# git Role
+# Git Role
 
-Installs `git` & `tig` tools. Also configures Git.
+- [Git Role](#git-role)
+  - [Description](#description)
+  - [Supported platforms](#supported-platforms)
+  - [Variables](#variables)
+  - [Requirements](#requirements)
+  - [Files](#files)
+  - [Packages installed](#packages-installed)
 
-## Requirements
+## Description
 
-* apt (Ubuntu)
+Installs [git](https://git-scm.com/) & [tig](https://jonas.github.io/tig/) tools. 
+
+Also configures Git.
+
+## Supported platforms
+
+- macOS
+- Ubuntu
 
 ## Variables
 
 N/A
 
+## Requirements
+
+- macOS
+  - [Homebrew](../homebrew/README.md)
+
+- Ubuntu
+  - N/A
+
 ## Files
 
-Provides functions `gpush` & `gpull` ([Link](files/bashrc.git.bash)).
+- [`~/.bashrc.d/git.bash`](files/git.bash) Adds some shell aliases and functions for working with Git.
+- [`~/.gitconfig`](files/gitconfig) Git global configuration.
+- [`~/.gitconfig.d/gitignore`](files/gitconfig.d/gitignore) Global gitignore config.
 
-Provides gitconfig ([Link](files/gitconfig)).
+## Packages installed
 
-Provides global gitignore file ([Link](files/gitconfig.d/gitignore)).
+- macOS
+  - Homebrew - [git](https://formulae.brew.sh/formula/git)
+  - Homebrew - [tig](https://formulae.brew.sh/formula/tig)
+
+- Ubuntu
+  - APT - git
+  - APT - tig

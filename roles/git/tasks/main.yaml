@@ -19,5 +19,5 @@
       dest: "{{ ansible_facts['user_dir'] }}/.gitconfig"
     - src: gitconfig.d/
       dest: "{{ ansible_facts['user_dir'] }}/.gitconfig.d"
-    - src: bashrc.git.bash
-      dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/git.sh"
+    - src: git.bash
+      dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/git.bash"

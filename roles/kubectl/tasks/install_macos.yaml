@@ -1,5 +1,7 @@
 ---
 - name: Install
   community.general.homebrew:
-    name: kubectl
+    name:
+      - kubectl
+      - kubectx
     state: latest

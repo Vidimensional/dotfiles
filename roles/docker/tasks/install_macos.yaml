@@ -5,6 +5,5 @@
       - qemu
       - colima
       - docker
-      - docker-compose
       - docker-completion
     state: latest

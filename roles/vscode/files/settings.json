@@ -27,6 +27,9 @@
         80
     ],
     "explorer.compactFolders": false,
+    "github.copilot.enable": {
+        "*": false
+    },
     "isort.args": [
         "--profile",
         "black"
