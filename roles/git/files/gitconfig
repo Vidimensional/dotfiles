@@ -10,6 +10,9 @@
 [include]
     path = ~/.gitconfig.local
 
+[pull]
+        rebase = true
+
 [user]
     email = dvrubia@gmail.com
     name = Daniel Vidal de la Rubia
