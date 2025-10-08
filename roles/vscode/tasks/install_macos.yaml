@@ -1,5 +1,5 @@
 ---
-- name: Install cask
+- name: Install
   community.general.homebrew_cask:
     name: visual-studio-code
     state: latest

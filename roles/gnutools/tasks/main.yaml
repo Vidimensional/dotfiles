@@ -1,5 +1,5 @@
 ---
-- name: Install GNU tools
+- name: Install
   community.general.homebrew:
     name:
       - coreutils
@@ -9,7 +9,7 @@
     state: latest
   when: ansible_distribution == "MacOSX"
 
-- name: Copy .bashrc config
+- name: Copy bashrc config
   ansible.builtin.copy:
     src: gnutools.bash
     dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/gnutools.bash"

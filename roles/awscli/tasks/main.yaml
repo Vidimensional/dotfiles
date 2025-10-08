@@ -7,7 +7,7 @@
   ansible.builtin.include_tasks: install_ubuntu.yaml
   when: ansible_distribution == "Ubuntu"
 
-- name: Copy .bashrc config
+- name: Copy bashrc config
   ansible.builtin.copy:
     src: "awsprofile.bash"
     dest: "{{ ansible_facts['user_dir'] }}/.bashrc.d/awsprofile.bash"

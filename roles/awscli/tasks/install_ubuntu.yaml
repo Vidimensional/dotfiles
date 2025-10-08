@@ -1,5 +1,5 @@
 ---
-- name: Install aws-cli
+- name: Install
   community.general.snap:
     name: aws-cli
     state: present

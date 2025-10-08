@@ -1,17 +1,17 @@
 ---
-- name: Install docker snap.
+- name: Install
   community.general.snap:
     name: docker
   become: true
 
-- name: Create docker group.
+- name: Create docker group
   ansible.builtin.group:
     name: docker
     state: present
     system: true
   become: true
 
-- name: Add user to docker group.
+- name: Add user to docker group
   ansible.builtin.user:
     name: "{{ ansible_facts['user_id'] }}"
     groups: docker

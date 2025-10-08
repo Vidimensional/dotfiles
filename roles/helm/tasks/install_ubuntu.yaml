@@ -1,5 +1,5 @@
 ---
-- name: Install Helm
+- name: Install
   community.general.snap:
     name: microk8s
     state: present
