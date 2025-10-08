@@ -1,0 +1,33 @@
+---
+- name: Update apt database
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 28800 # 8 hours * 3600 = 28800 seconds
+  become: true
+  changed_when: false
+
+- name: Upgrade apt packages
+  ansible.builtin.apt:
+    upgrade: full
+  become: true
+
+- name: Install apt packages
+  ansible.builtin.apt:
+    name: "{{ install_packages_apt }}"
+    state: present
+  become: true
+  when: install_packages_apt is defined
+
+- name: Install & upgrade snap packages (classic mode)
+  ansible.builtin.snap:
+    name: "{{ install_packages_snap_classic }}"
+    state: present
+  become: true
+  when: install_packages_snap_classic is defined
+
+- name: Install & upgrade snap packages
+  ansible.builtin.snap:
+    name: "{{ install_packages_snap }}"
+    state: present
+  become: true
+  when: install_packages_snap is defined

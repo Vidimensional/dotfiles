@@ -4,7 +4,6 @@
   connection: local
 
   vars:
-    tmp_path: /tmp/dotfiles
     github_token: !vault |
       $ANSIBLE_VAULT;1.1;AES256
       38633633336539666465366133663736636162393763653438623765373463306435306561613630
@@ -20,25 +19,8 @@
       path: "{{ tmp_path }}/"
       state: directory
       mode: u=rwx,g=rx,o=rx
-  
+
   roles:
-  - name: Base bash configuration.
-    role: bash
+  - name: Install and configure Bash
+    role: bashrc
 
-  - name: Install GNU tools
-    role: gnutools
-
-  - name: Install Git.
-    role: git
-  
-  - name: Install Docker
-    role: docker
-
-  - name: Install AWS CLI.
-    role: awscli
-
-  - name: Install kubectl.
-    role: kubectl
-
-  - name: Install helm.
-    role: helm

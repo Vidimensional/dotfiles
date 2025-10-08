@@ -1,11 +1,11 @@
 ---
-- name: Install vscode
+- name: Install
   community.general.snap:
     name: code
     classic: true
   become: true
 
-- name: Define vscode binary path
+- name: Define binary path
   ansible.builtin.set_fact:
     vscode_bin: "{{ vscode_binary_linux }}"
 

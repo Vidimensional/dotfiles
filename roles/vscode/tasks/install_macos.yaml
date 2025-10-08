@@ -1,10 +1,10 @@
 ---
-- name: Install VSCode cask
+- name: Install cask
   community.general.homebrew_cask:
     name: visual-studio-code
     state: latest
 
-- name: Define vscode binary path
+- name: Define binary path
   ansible.builtin.set_fact:
     vscode_bin: "{{ vscode_binary_macos }}"
 
