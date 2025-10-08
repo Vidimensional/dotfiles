@@ -36,23 +36,3 @@ The list of extensions we want to install can be provided via the variable `vsco
 
 * Ubuntu
   * Snap - [code](https://snapcraft.io/code)
-
-## purria
-
-```yaml
-    - name: List installed VS Code extensions
-      ansible.builtin.command: "{{ vscode_bin }} --list-extensions"
-      register: vscode_installed
-      changed_when: false
-      failed_when: false  # ok if Code isn't installed yet
-
-    - name: Compute missing extensions
-      ansible.builtin.set_fact:
-        vscode_missing: "{{ vscode_extensions | difference(vscode_installed.stdout_lines | default([])) }}"
-
-    - name: Install missing extensions
-      ansible.builtin.command: "{{ vscode_bin }} --install-extension {{ item }}"
-      loop: "{{ vscode_missing }}"
-      loop_control: { label: "{{ item }}" }
-      when: vscode_missing | length > 0
-```
