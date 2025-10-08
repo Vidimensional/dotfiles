@@ -8,7 +8,7 @@ vscode_extensions_list:
   - github.copilot-chat # AI chat features powered by Copilot
 
   # Ansible
-  - redhat.ansible
+  - redhat.ansible # Ansible language support
   - redhat.vscode-yaml # YAML Language Support by Red Hat, with built-in Kubernetes syntax support
 
   # Containers
