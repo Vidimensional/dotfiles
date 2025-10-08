@@ -2,7 +2,6 @@
 - name: Install
   community.general.snap:
     name: code
-    classic: true
   become: true
 
 - name: Define binary path

@@ -35,8 +35,6 @@ N/A
 
 ## Packages installed
 
-- Generic
-
 - macOS
   - Homebrew - [kubectl](https://formulae.brew.sh/formula/kubernetes-cli)
   - Homebrew - [kubectx](https://formulae.brew.sh/formula/kubectx)

@@ -3,7 +3,6 @@
   community.general.snap:
     name: kubectl
     state: present
-    classic: true
   become: true
 
 - name: Install kubectx
