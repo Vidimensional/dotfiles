@@ -24,10 +24,10 @@ The list of extensions we want to install can be provided via the variable `vsco
 ## Requirements
 
 - macOS
-  - [Homebrew](../homebrew/README.md)
+  - Homebrew
 
 - Ubuntu
-  - N/A
+  - Snap
 
 ## Packages installed
 
