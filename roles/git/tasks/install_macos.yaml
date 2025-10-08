@@ -1,7 +1,0 @@
----
-- name: Install
-  community.general.homebrew:
-    name:
-      - git
-      - tig
-    state: latest

@@ -1,10 +1,16 @@
 ---
-- name: Install for macOS
-  ansible.builtin.include_tasks: install_macos.yaml
+- name: Install in macOS
+  community.general.homebrew:
+    name: awscli
+    state: latest  
   when: ansible_distribution == "MacOSX"
 
-- name: Install for Ubuntu
-  ansible.builtin.include_tasks: install_ubuntu.yaml
+- name: Install in Ubuntu
+  community.general.snap:
+    name: aws-cli
+    state: present
+    classic: true
+  become: true
   when: ansible_distribution == "Ubuntu"
 
 - name: Copy bashrc config
