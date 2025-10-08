@@ -10,7 +10,7 @@
 
 ## Description
 
-Installs the [Go Program Language](https://go.dev/) tools.
+Installs the [Go Programming Language](https://go.dev/) tools.
 
 ## Supported platforms
 
