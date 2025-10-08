@@ -4,10 +4,14 @@
     name: visual-studio-code
     state: latest
 
+- name: Compute missing extensions
+  ansible.builtin.set_fact:
+    vscode_bin: "{{ vscode_binary_macos }}"
+
 - name: Copy config
   ansible.builtin.copy:
     src: settings.json
-    dest: "{{ vscode_macos_config_path }}/settings.json"
+    dest: "{{ vscode_config_path_macos }}/settings.json"
     owner: "{{ ansible_facts['user_uid'] }}"
     group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r

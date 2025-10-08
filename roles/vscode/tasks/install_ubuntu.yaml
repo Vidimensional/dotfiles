@@ -5,10 +5,14 @@
     classic: true
   become: true
 
+- name: Compute missing extensions
+  ansible.builtin.set_fact:
+    vscode_bin: "{{ vscode_binary_linux }}"
+
 - name: Copy config
   ansible.builtin.copy:
     src: settings.json
-    dest: "{{ vscode_linux_config_path }}/settings.json"
+    dest: "{{ vscode_config_path_linux }}/settings.json"
     owner: "{{ ansible_facts['user_uid'] }}"
     group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
