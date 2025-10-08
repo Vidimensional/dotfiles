@@ -1,5 +1,35 @@
 ---
-- name: Install VSCode
-  community.general.homebrew_cask:
-    name: visual-studio-code
-    state: latest
+- name: Install for macOS
+  ansible.builtin.include_tasks: install_macos.yaml
+  when: ansible_distribution == "MacOSX"
+
+- name: Install for Ubuntu
+  ansible.builtin.include_tasks: install_ubuntu.yaml
+  when: ansible_distribution == "Ubuntu"
+
+- name: List installed VS Code extensions
+  ansible.builtin.command: "{{ vscode_bin }} --list-extensions"
+  register: vscode_extensions_installed
+  changed_when: false
+
+- name: Compute missing extensions
+  ansible.builtin.set_fact:
+    vscode_extensions_to_install: "{{ vscode_extensions_list | difference(vscode_extensions_installed.stdout_lines | default([])) }}"
+
+- name: vscode_extensions_list
+  debug:
+    var: vscode_extensions_list
+
+- name: vscode_extensions_installed
+  debug:
+    var: vscode_extensions_installed
+
+- name: vscode_extensions_to_install
+  debug:
+    var: vscode_extensions_to_install
+
+- name: Install missing extensions
+  ansible.builtin.command: "{{ vscode_bin }} --install-extension {{ item }}"
+  loop: "{{ vscode_extensions_to_install }}"
+  loop_control: { label: "{{ item }}" }
+  when: vscode_extensions_to_install | length > 0

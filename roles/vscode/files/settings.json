@@ -1,0 +1,38 @@
+{
+    "[dockercompose]": {
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.insertSpaces": true,
+        "editor.quickSuggestions": {
+            "comments": false,
+            "other": true,
+            "strings": true
+        },
+        "editor.tabSize": 2
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        80
+    ],
+    "explorer.compactFolders": false,
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.typeCheckingMode": "standard",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "workbench.tree.indent": 20,
+    "workbench.tree.renderIndentGuides": "always"
+}
