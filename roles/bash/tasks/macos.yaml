@@ -2,9 +2,9 @@
 - name: Installs latest Bash
   community.general.homebrew:
     name:
-    - bash
-    - bash-completion
-    state: present
+      - bash
+      - bash-completion
+    state: latest
 
 - name: Check current shell
   ansible.builtin.command: echo $SHELL

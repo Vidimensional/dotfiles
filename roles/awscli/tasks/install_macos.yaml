@@ -1,5 +1,5 @@
 ---
-- name: Install Docker with Colima environment
+- name: Install AWS Cli
   community.general.homebrew:
     name: awscli
-    state: present
+    state: latest

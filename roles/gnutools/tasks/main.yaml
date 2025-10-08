@@ -6,7 +6,7 @@
       - gawk
       - gnu-tar
       - gnu-sed
-    state: present
+    state: latest
   when: ansible_distribution == "MacOSX"
 
 - name: Copy .bashrc config

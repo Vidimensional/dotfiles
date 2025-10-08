@@ -2,6 +2,6 @@
 - name: Install git tools
   community.general.homebrew:
     name:
-    - git
-    - tig
-    state: present
+      - git
+      - tig
+    state: latest
