@@ -1,6 +1,6 @@
 ---
 - name: Install aws-cli
-  ansible.builtin.snap:
+  community.general.snap:
     name: aws-cli
     state: present
     classic: true

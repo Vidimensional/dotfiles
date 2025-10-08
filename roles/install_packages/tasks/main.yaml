@@ -26,14 +26,14 @@
   when: install_packages_pip is defined
 
 - name: Install & upgrade snap packages (classic mode)
-  ansible.builtin.snap:
+  community.general.snap:
     name: "{{ install_packages_snap_classic }}"
     state: present
   become: true
   when: install_packages_snap_classic is defined
 
 - name: Install & upgrade snap packages
-  ansible.builtin.snap:
+  community.general.snap:
     name: "{{ install_packages_snap }}"
     state: present
   become: true

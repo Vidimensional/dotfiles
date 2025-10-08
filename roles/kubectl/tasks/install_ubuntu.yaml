@@ -1,6 +1,6 @@
 ---
 - name: Install Kubectl
-  ansible.builtin.snap:
+  community.general.snap:
     name: kubectl
     state: present
     classic: true

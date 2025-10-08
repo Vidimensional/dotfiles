@@ -1,6 +1,6 @@
 ---
 - name: Install go
-  ansible.builtin.snap:
+  community.general.snap:
     name: go
     state: present
     classic: true
