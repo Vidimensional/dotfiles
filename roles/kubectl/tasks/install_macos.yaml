@@ -2,4 +2,4 @@
 - name: Install Kubectl
   community.general.homebrew:
     name: kubectl
-    state: present
+    state: latest
