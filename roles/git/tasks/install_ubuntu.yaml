@@ -4,5 +4,5 @@
     name:
       - git
       - tig
-    state: present
+    state: latest
   become: true

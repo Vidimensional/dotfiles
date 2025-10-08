@@ -1,7 +1,7 @@
 ---
 - name: Install
   community.general.snap:
-    name: microk8s
+    name: helm
     state: present
     classic: true
   become: true

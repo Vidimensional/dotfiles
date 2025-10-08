@@ -1,6 +1,6 @@
-# AWS CLI Role
+# Helm role
 
-- [AWS CLI Role](#aws-cli-role)
+- [Helm role](#helm-role)
   - [Description](#description)
   - [Supported platforms](#supported-platforms)
   - [Variables](#variables)
@@ -10,9 +10,7 @@
 
 ## Description
 
-Installs [AWS CLI tool](https://aws.amazon.com/cli/).
-
-Also installs [`awsprofile`](files/awsprofile.bash) tool to switch between aws profiles.
+Installs [Helm](https://helm.sh/).
 
 ## Supported platforms
 
@@ -30,15 +28,15 @@ N/A
 
 - Ubuntu
   - N/A
-
+  
 ## Files
 
-- [`~/.bashrc.d/awsprofile.bash`](files/awsprofile.bash) utility used to switch between AWS profiles.
+- [`~/bashrc.d/helm.bash`](files/helm.bash) Shell aliases for working with Helm.
 
 ## Packages installed
 
 - macOS
-  - Homebrew - [awscli](https://formulae.brew.sh/formula/awscli)
+  - Homebrew - [helm](https://formulae.brew.sh/formula/helm)
 
 - Ubuntu
-  - Snap - [aws-cli](https://snapcraft.io/aws-cli)
+  - Snap - [helm](https://snapcraft.io/helm)

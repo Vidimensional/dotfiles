@@ -7,9 +7,6 @@
   ansible.builtin.include_tasks: install_ubuntu.yaml
   when: ansible_distribution == "Ubuntu"
 
-- name: Install kubectx
-  ansible.builtin.include_tasks: kubectx.yaml
-
 - name: Copy bashrc config
   ansible.builtin.copy:
     src: kubectl.bash

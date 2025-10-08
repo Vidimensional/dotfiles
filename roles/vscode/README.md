@@ -8,31 +8,31 @@ The list of extensions we want to install can be provided via the variable `vsco
 
 ## Supported platforms
 
-* macOS
-* Ubuntu
+- macOS
+- Ubuntu
 
 ## Variables
 
-| Name                           | Description                           | Required | Default                                                                             |
-|--------------------------------|---------------------------------------|----------|-------------------------------------------------------------------------------------|
-| `vscode_binary_linux`          | Path of the `code` binary in Linux.   | No       | `/snap/bin/code`                                                                    |
-| `vscode_binary_macos`          | Path of the `code` binary in macOS.   | No       | `/opt/homebrew/bin/code`                                                            |
-| `vscode_extensions_list`       | List of extensions we want to install. | No       | List too long. See [`defaults/main.yaml`](defaults/main.yaml) for the complete list |
-| `vscode_config_path_linux`     | Configuration path in Linux.          | No       | `{{ ansible_facts['user_dir'] }}/.config/Code/User`                                 |
-| `vscode_config_path_macos`     | Configuration path in macOS.          | No       | `{{ ansible_facts['user_dir'] }}/Library/Application Support/Code/User`             |
+| Name                       | Description                            | Required | Default                                                                             |
+| -------------------------- | -------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| `vscode_binary_linux`      | Path of the `code` binary in Linux.    | No       | `/snap/bin/code`                                                                    |
+| `vscode_binary_macos`      | Path of the `code` binary in macOS.    | No       | `/opt/homebrew/bin/code`                                                            |
+| `vscode_extensions_list`   | List of extensions we want to install. | No       | List too long. See [`defaults/main.yaml`](defaults/main.yaml) for the complete list |
+| `vscode_config_path_linux` | Configuration path in Linux.           | No       | `{{ ansible_facts['user_dir'] }}/.config/Code/User`                                 |
+| `vscode_config_path_macos` | Configuration path in macOS.           | No       | `{{ ansible_facts['user_dir'] }}/Library/Application Support/Code/User`             |
 
 ## Requirements
 
-* macOS
-  * [Homebrew](../homebrew/README.md)
+- macOS
+  - [Homebrew](../homebrew/README.md)
 
-* Ubuntu
-  * N/A
+- Ubuntu
+  - N/A
 
 ## Packages installed
 
-* macOS
-  * Homebrew Cask - [visual-studio-code](https://formulae.brew.sh/cask/visual-studio-code)
+- macOS
+  - Homebrew Cask - [visual-studio-code](https://formulae.brew.sh/cask/visual-studio-code)
 
-* Ubuntu
-  * Snap - [code](https://snapcraft.io/code)
+- Ubuntu
+  - Snap - [code](https://snapcraft.io/code)
