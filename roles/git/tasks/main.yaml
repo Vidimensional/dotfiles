@@ -7,12 +7,6 @@
   ansible.builtin.include_tasks: install_ubuntu.yaml
   when: ansible_distribution == "Ubuntu"
 
-- name: Ensure .bashrc.d directory exists
-  ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.bashrc.d"
-    state: directory
-    mode: "0755"
-
 - name: Copy config
   ansible.builtin.copy:
     src: "{{ item.src }}"
