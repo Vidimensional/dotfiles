@@ -8,7 +8,7 @@
 
 Upgrades APT (Ubuntu) and Homebrew (macOS) packages.
 
-Since Snap upgrade automatically, this module doesn't upgrade them.
+Since Snap upgrades automatically, this role doesn't upgrade them.
 
 ## Supported platforms
 
