@@ -8,7 +8,7 @@
 
 - name: Check current shell
   ansible.builtin.command: echo $SHELL
-  register: bash_urrent_shell
+  register: bash_current_shell
   changed_when: false
 
 - name: Configure Homebrew Bash as default shell # noqa: no-changed-when (we already check the execution with when clause)
