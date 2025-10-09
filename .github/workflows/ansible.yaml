@@ -30,9 +30,6 @@ jobs:
           sudo apt-get install --assume-yes pipx
           pipx install --include-deps ansible-lint
           ansible-galaxy install -r collections/requirements.yml
-          # TODO Debug info. Revert this later
-          ansible --version
-          ansible-lint --version
 
       - name: Run ansible-lint
         run: ansible-lint roles/* playbook.yaml
