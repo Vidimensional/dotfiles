@@ -11,7 +11,7 @@ Since Snap upgrade automatically, this module doesn't upgrade them.
 
 ## Variables
 
-N?A     |
+N/A
 
 ## Requirements
 
