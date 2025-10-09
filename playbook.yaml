@@ -22,6 +22,9 @@
         mode: u=rwx,g=rx,o=rx
 
   roles:
+    - name: Upgrade packages
+      role: upgrade_packages
+
     - name: Base bash configuration.
       role: bash
 
