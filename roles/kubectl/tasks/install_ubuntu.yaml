@@ -10,5 +10,5 @@
   ansible.builtin.apt:
     name:
       - kubectx
-    state: latest
+    state: present
   become: true
