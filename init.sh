@@ -14,4 +14,4 @@ case "$( uname -s )" in
     ;;
 esac
 
-ansible-galaxy install -r requirements/main.yaml
+ansible-galaxy install -r roles/requirements.yaml

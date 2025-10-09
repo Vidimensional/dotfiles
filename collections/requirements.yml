@@ -1,4 +1,5 @@
 ---
+# for some idiotic reason, the file extension should be `yml`
 collections:
   - vidimensional.collection
   - community.general
