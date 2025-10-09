@@ -1,0 +1,24 @@
+---
+- name: Update apt database
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 28800 # 8 hours * 3600 = 28800 seconds
+  become: true
+  changed_when: false
+  when: ansible_distribution == "Ubuntu"
+
+- name: Upgrade apt packages
+  ansible.builtin.apt:
+    upgrade: full
+  become: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: Update Homebrew
+  community.general.homebrew:
+    update_homebrew: true
+  when: ansible_distribution == "MacOSX"
+
+- name: Upgrade Homebrew packages
+  community.general.homebrew:
+    upgrade_all: true
+  when: ansible_distribution == "MacOSX"
