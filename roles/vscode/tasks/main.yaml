@@ -16,7 +16,7 @@
   ansible.builtin.set_fact:
     vscode_extensions_to_install: "{{ vscode_extensions_list | difference(vscode_extensions_installed.stdout_lines | default([])) }}"
 
-- name: Install missing extensions
+- name: Install missing extensions # noqa: no-changed-when (we already check the execution with when clause)
   ansible.builtin.command: "{{ vscode_bin }} --install-extension {{ item }}"
   loop: "{{ vscode_extensions_to_install }}"
   loop_control: { label: "{{ item }}" }

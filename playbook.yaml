@@ -15,39 +15,39 @@
       3031666565303031616364343337386430613161393764326639
 
   pre_tasks:
-  - name: Create tmp path for working
-    ansible.builtin.file:
-      path: "{{ tmp_path }}/"
-      state: directory
-      mode: u=rwx,g=rx,o=rx
-  
+    - name: Create tmp path for working
+      ansible.builtin.file:
+        path: "{{ tmp_path }}/"
+        state: directory
+        mode: u=rwx,g=rx,o=rx
+
   roles:
-  - name: Base bash configuration.
-    role: bash
+    - name: Base bash configuration.
+      role: bash
 
-  - name: Install GNU tools.
-    role: gnutools
+    - name: Install GNU tools.
+      role: gnutools
 
-  - name: Install Git.
-    role: git
-  
-  - name: Install Docker.
-    role: docker
+    - name: Install Git.
+      role: git
 
-  - name: Install AWS CLI.
-    role: awscli
+    - name: Install Docker.
+      role: docker
 
-  - name: Install Kubectl.
-    role: kubectl
+    - name: Install AWS CLI.
+      role: awscli
 
-  - name: Install Helm.
-    role: helm
+    - name: Install Kubectl.
+      role: kubectl
 
-  - name: Install Visual Studio Code.
-    role: vscode
+    - name: Install Helm.
+      role: helm
 
-  - name: Install Spotify Player.
-    role: spotify
+    - name: Install Visual Studio Code.
+      role: vscode
 
-  - name: Install Go programming language.
-    role: go
+    - name: Install Spotify Player.
+      role: spotify
+
+    - name: Install Go programming language.
+      role: go

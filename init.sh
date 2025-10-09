@@ -9,9 +9,9 @@ case "$( uname -s )" in
     pipx install --include-deps ansible
     ;;
   Darwin)
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh )"
     brew install ansible
     ;;
 esac
 
-ansible-galaxy install -r requirements/main.yaml
+ansible-galaxy install -r collections/requirements.yml

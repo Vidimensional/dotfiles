@@ -2,7 +2,7 @@
 - name: Install in macOS
   community.general.homebrew:
     name: awscli
-    state: latest  
+    state: latest
   when: ansible_distribution == "MacOSX"
 
 - name: Install in Ubuntu
@@ -20,4 +20,3 @@
     owner: "{{ ansible_facts['user_uid'] }}"
     group: "{{ ansible_facts['user_gid'] }}"
     mode: u=rw,g=r,o=r
-

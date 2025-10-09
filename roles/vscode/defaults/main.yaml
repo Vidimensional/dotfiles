@@ -35,8 +35,7 @@ vscode_extensions_list:
   - ms-python.black-formatter # Formatting support for Python files using the Black formatter
   - ms-python.debugpy # Python Debugger extension using debugpy
   - ms-python.isort # Import organization support for Python files using isort.
-  - ms-python.python # Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more
-  - ms-python.vscode-pylance # A performant, feature-rich language server for Python in VS Code
+  - ms-python.python # Python language support with extension access points for many features
   - ms-python.vscode-python-envs # Provides a unified python environment experience
 
   # Terraform
@@ -47,4 +46,3 @@ vscode_extensions_list:
   - github.github-vscode-theme # GitHub theme for VS Code
   - redhat.vscode-xml # XML Language Support by Red Hat
   - editorconfig.editorconfig # EditorConfig Support for Visual Studio Code
-
