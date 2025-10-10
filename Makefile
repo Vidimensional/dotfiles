@@ -1,6 +1,6 @@
 .PHONY: init
 init:
-	/bin/bash init.sh
+	/bin/bash init/install_ansible.sh
 
 .PHONY: playbook run
 run: playbook
