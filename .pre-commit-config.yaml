@@ -1,0 +1,20 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      # - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v25.9.1
+    hooks:
+      - name: Ansible Lint
+        id: ansible-lint
+        files: ^(roles/|playbook\.yaml$)
+        language_version: python3.12 # In Ubuntu we have an old version
+        pass_filenames: false
+        args:
+          - roles
+          - playbook.yaml
