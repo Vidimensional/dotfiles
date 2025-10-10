@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installs the dependencies needed to run Ansible
+
 set -euo pipefail
 
 case "$( uname -s )" in
