@@ -19,9 +19,9 @@ Installs [molecule](https://github.com/ansible/molecule). It is used to test thi
 
 ## Variables
 
-| Name                   | Description                                                                        | Required | Default               |
-| ---------------------- | ---------------------------------------------------------------------------------- | -------- | --------------------- |
-| `pipx_executable_path` | `anible-playbook` could be ran in a virtualenv, we want to access the system pipx. | No       | `/usr/local/bin/pipx` |
+| Name                   | Description                                                                         | Required | Default               |
+| ---------------------- | ----------------------------------------------------------------------------------- | -------- | --------------------- |
+| `pipx_executable_path` | `ansible-playbook` could be ran in a virtualenv, we want to access the system pipx. | No       | `/usr/local/bin/pipx` |
 
 ## Requirements
 
