@@ -14,7 +14,7 @@ Installs [Docker](https://www.docker.com/).
 
 In Ubuntu also adds user to docker group to work without `root`.
 
-In macOS installs `qemu` and `colima` in order to run without requiring Docker Desktop.
+In macOS installs [qemu](https://www.qemu.org/) and [colima](https://github.com/abiosoft/colima) in order to work without Docker Desktop.
 
 ## Supported platforms
 
@@ -32,7 +32,7 @@ N/A
 
 - Ubuntu
   - Snap
-  
+
 ## Files
 
 - [`~/bashrc.d/docker.bash`](files/docker.bash) Shell aliases for working with Docker.
