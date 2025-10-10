@@ -12,8 +12,7 @@ repos:
     hooks:
       - name: Ansible Lints
         id: ansible-lint
-        files: ^(roles/|playbook\.yaml$) # solo dispara el hook si se tocan estos paths
-        # verbose: true
+        files: ^(roles/|playbook\.yaml$)
         language_version: python3.12 # In Ubuntu we have an old version
         pass_filenames: false
         args:
