@@ -26,10 +26,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install --assume-yes pipx
-          pipx install --include-deps ansible-lint
-          ansible-galaxy install -r collections/requirements.yml
+          bash init/install_ansible.sh
+          ANSIBLE_ROLES_PATH="$(pwd)/roles" ansible-playbook init/install_molecule.yaml
 
       - name: Run ansible-lint
         run: ansible-lint roles/* playbook.yaml
+
+      # - name: Run tests with molecule
+      #   run: <run molecule here>
