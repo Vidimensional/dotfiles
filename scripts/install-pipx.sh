@@ -4,7 +4,6 @@
 
 set -euo pipefail
 
-# Installing pipx depends on the OS
 case "$( uname -s )" in
   Linux)
     sudo apt-get update
@@ -16,6 +15,3 @@ case "$( uname -s )" in
     brew install pipx
     ;;
 esac
-
-pipx install --include-deps ansible
-ansible-galaxy install -r collections/requirements.yml

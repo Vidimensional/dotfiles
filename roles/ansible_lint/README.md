@@ -1,6 +1,6 @@
-# Molecule role
+# Ansible-lint role
 
-- [Molecule role](#molecule-role)
+- [Ansible-lint role](#ansible-lint-role)
   - [Description](#description)
   - [Supported platforms](#supported-platforms)
   - [Variables](#variables)
@@ -10,7 +10,7 @@
 
 ## Description
 
-Installs [molecule](https://github.com/ansible/molecule). It is used to test this project.
+Installs [ansible-lint](https://github.com/ansible/ansible-lint). It is used to test this project.
 
 ## Supported platforms
 
@@ -37,4 +37,4 @@ N/A
 
 ## Packages installed
 
-- pipx - [molecule](https://pypi.org/project/molecule/)
+- pipx - [ansible-lint](https://pypi.org/project/ansible-lint/)

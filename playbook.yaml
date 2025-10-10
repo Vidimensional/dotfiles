@@ -31,6 +31,12 @@
     - name: Install GNU tools.
       role: gnutools
 
+    - name: Install molecule.
+      role: molecule
+
+    - name: Install ansible_lint
+      role: ansible_lint
+
     - name: Install Git.
       role: git
 
