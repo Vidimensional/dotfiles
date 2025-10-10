@@ -1,6 +1,6 @@
 ---
-- name: Install molecule
+- name: Install ansible-lint
   community.general.pipx:
-    name: molecule
+    name: ansible-lint
     state: present
     executable: "{{ pipx_executable_path }}"
