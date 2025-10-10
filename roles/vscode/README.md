@@ -1,4 +1,4 @@
-# Visual Studio Code module
+# Visual Studio Code role
 
 Installs and configures [Visual Studio Code](https://code.visualstudio.com/) and its extensions.
 
