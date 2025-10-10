@@ -14,7 +14,7 @@ Configures localhost Desktop with Ansible(you can call it an overcomplicated dot
 
 ## Supported environments
 
-This project is only been tested on:
+This project has only been tested on:
 
 - Ubuntu 24.04.03 'Noble Numbat'
 - macOS 15.4.1 'Sequoia'
