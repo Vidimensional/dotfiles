@@ -1,8 +1,4 @@
 ---
-- name: Python executable
-  ansible.builtin.debug:
-    msg: "{{ ansible_facts['python']['executable'] }}"
-
 - name: Install molecule
   community.general.pipx:
     name: molecule
