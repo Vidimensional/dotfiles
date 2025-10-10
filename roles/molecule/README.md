@@ -1,6 +1,6 @@
-# Anible Molecule role
+# Ansible Molecule role
 
-- [Anible Molecule role](#anible-molecule-role)
+- [Ansible Molecule role](#ansible-molecule-role)
   - [Description](#description)
   - [Supported platforms](#supported-platforms)
   - [Variables](#variables)
