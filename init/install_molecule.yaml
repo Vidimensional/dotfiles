@@ -1,0 +1,8 @@
+---
+- name: Install molecule
+  hosts: localhost
+  connection: local
+
+  roles:
+    - name: Install molecule
+      role: molecule

@@ -1,0 +1,5 @@
+---
+- name: Install molecule
+  community.general.pipx:
+    name: molecule
+    state: present
