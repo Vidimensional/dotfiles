@@ -21,7 +21,7 @@ Installs [ansible-lint](https://github.com/ansible/ansible-lint). It is used to 
 
 | Name                   | Description                                                                         | Required | Default               |
 | ---------------------- | ----------------------------------------------------------------------------------- | -------- | --------------------- |
-| `pipx_executable_path` | `ansible-playbook` could be ran in a virtualenv, we want to access the system pipx. | No       | `/usr/local/bin/pipx` |
+| `pipx_executable_path` | `ansible-playbook` could be run in a virtualenv, we want to access the system pipx. | No       | `/usr/local/bin/pipx` |
 
 ## Requirements
 
