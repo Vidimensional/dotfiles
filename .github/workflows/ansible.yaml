@@ -27,6 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           bash init/install_ansible.sh
+          pipx install --include-deps ansible-lint
           ANSIBLE_ROLES_PATH="$(pwd)/roles" ansible-playbook init/install_molecule.yaml
 
       - name: Run ansible-lint
