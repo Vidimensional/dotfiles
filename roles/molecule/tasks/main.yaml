@@ -1,4 +1,15 @@
 ---
+# Since ansible is being ran in a venv when executed on a GitHub Action workflow, it doesn't have
+# visibility of the already installed pipx. So we ensure that is installed again 😜
+- name: Install pipx if running in GitHub Actions
+  ansible.builtin.pip:
+    name: pipx
+    state: latest # noqa package-latest (https://ansible-lint.readthedocs.io/rules/package-latest/)
+    extra_args: --break-system-packages # Annoying PEP 668.
+  become: true
+  when: ansible_env.GITHUB_ACTIONS is defined and
+        ansible_env.GITHUB_ACTIONS == "true"
+
 - name: Install molecule
   community.general.pipx:
     name: molecule
