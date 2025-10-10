@@ -15,3 +15,5 @@ case "$( uname -s )" in
     brew install pipx
     ;;
 esac
+
+pipx ensurepath
