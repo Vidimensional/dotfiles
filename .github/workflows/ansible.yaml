@@ -28,7 +28,6 @@ jobs:
         run: |
           bash init/install_ansible.sh
           ANSIBLE_ROLES_PATH="$(pwd)/roles" ansible-playbook init/install_molecule.yaml
-          molecule --version
 
       - name: Run ansible-lint
         run: ansible-lint roles/* playbook.yaml
