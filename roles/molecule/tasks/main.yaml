@@ -1,0 +1,6 @@
+---
+- name: Install molecule
+  community.general.pipx:
+    name: molecule
+    state: present
+    executable: "{{ pipx_executable_path }}"

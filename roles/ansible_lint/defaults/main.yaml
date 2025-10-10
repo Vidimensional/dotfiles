@@ -1,0 +1,2 @@
+---
+pipx_executable_path: /usr/local/bin/pipx # noqa: var-naming[no-role-prefix] we are using this variable for more than one role
