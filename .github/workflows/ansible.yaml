@@ -27,7 +27,27 @@ jobs:
       - name: Install dependencies
         run: |
           bash init/install_ansible.sh
-          ANSIBLE_ROLES_PATH="$(pwd)/roles" ansible-playbook init/install_molecule.yaml
+          # ANSIBLE_ROLES_PATH="$(pwd)/roles" ansible-playbook init/install_molecule.yaml
+
+      - name: Debug info
+        run: |
+          echo "####### INIT DEBUG BLOCK #######"
+          echo ">>> python -> `which python`"
+          echo ">>> pip -> `which pip`"
+          echo ">>> pipx -> `which pipx`"
+          echo ">>> ls -la:"
+          echo `ls -la /opt/pipx/venvs/ansible-core/bin`
+          echo "####### END DEBUG BLOCK #######"
+          ansible localhost -m setup > /tmp/ansible_facts.json
+
+      - name: Upload facts as artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: ansible-facts-${{ github.run_number }}
+          path: /tmp/ansible_facts.json
+
+      - name: Problematic instruction
+        run: ANSIBLE_ROLES_PATH="$(pwd)/roles" ansible-playbook init/install_molecule.yaml
 
       - name: Run ansible-lint
         run: ansible-lint roles/* playbook.yaml
