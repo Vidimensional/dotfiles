@@ -30,6 +30,7 @@
     "github.copilot.enable": {
         "*": false
     },
+    "githubPullRequests.terminalLinksHandler": "github",
     "isort.args": [
         "--profile",
         "black"
