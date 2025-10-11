@@ -9,6 +9,14 @@
   ansible.builtin.set_fact:
     vscode_bin: "{{ vscode_binary_linux }}"
 
+- name: "Ensure `vscode_config_path_linux` exists"
+  ansible.builtin.file:
+    path: "{{ vscode_config_path_linux }}"
+    state: directory
+    owner: "{{ ansible_facts['user_uid'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+    mode: u=rwx,g=rx,o=rx
+
 - name: Copy config
   ansible.builtin.copy:
     src: settings.json

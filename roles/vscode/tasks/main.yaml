@@ -1,9 +1,9 @@
 ---
-- name: Install for macOS
+- name: Install and configure for macOS
   ansible.builtin.include_tasks: install_macos.yaml
   when: ansible_distribution == "MacOSX"
 
-- name: Install for Ubuntu
+- name: Install and configure for Ubuntu
   ansible.builtin.include_tasks: install_ubuntu.yaml
   when: ansible_distribution == "Ubuntu"
 
