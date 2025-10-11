@@ -17,3 +17,7 @@ case "$( uname -s )" in
 esac
 
 pipx ensurepath
+# Make sure we got $PIPX_BIN_DIR on our $PATH (and, for some reason, sourcing ~/.bashrc wasn't working)
+export PATH="${PATH}:$( pipx environment --value PIPX_BIN_DIR )"
+pipx install --include-deps ansible
+ansible-galaxy install -r collections/requirements.yml

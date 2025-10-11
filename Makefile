@@ -14,30 +14,16 @@ help: ## Show this help
 	@echo "Written by $(SCRIPT_AUTHOR), version $(SCRIPT_VERSION)"
 
 
-.PHONY: init
-init: install-pipx install-ansible install-collections ## Calls the targets needed to apply the ansible playbook.
+.PHONY: install-dep
+install-dep: ## Install dependencies needed to run the playbook.
+	/bin/bash scripts/install-dependencies.sh
 
-
-.PHONY: install-pipx
-install-pipx: ## Installs pipx (needed to install Ansible and other dependencies) [called by `init`].
-	/bin/bash scripts/install-pipx.sh
-
-.PHONY: install-ansible
-install-ansible: install-pipx ## Installs Ansible [called by `init`].
-	pipx install --include-deps ansible
-
-.PHONY: install-collections
-install-collections: ## Installs collections needed to run the playbook [called by `init`].
-	ansible-galaxy install -r collections/requirements.yml
-
-.PHONY: install-lint
-install-lint: ## Installs ansible-lint.
+.PHONY: install-test-tools
+install-test-tools: ## Install testing tools (ansible-lint & molecule) basically for CI pipeline.
 	ansible localhost --module-name include_role\
 		--args name=ansible_lint\
 		--extra-vars pipx_executable_path=`which pipx`
 
-.PHONY: install-molecule
-install-molecule: ## Install molecule.
 	ansible localhost --module-name include_role\
 		--args name=molecule\
 		--extra-vars pipx_executable_path=`which pipx`

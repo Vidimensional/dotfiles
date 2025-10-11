@@ -10,7 +10,7 @@
 
 ## Description
 
-Configures localhost Desktop with Ansible(you can call it an overcomplicated dotfiles repo 😜).
+Configures localhost Desktop with Ansible (you can call it an overcomplicated dotfiles repo 😜).
 
 ## Supported environments
 
@@ -29,12 +29,8 @@ Usage: make [target] ...
 
 options:
   help                Show this help
-  init                Calls the targets needed to apply the ansible playbook.
-  install-pipx        Installs pipx (needed to install Ansible and other dependencies) [called by `init`].
-  install-ansible     Installs Ansible [called by `init`].
-  install-collections Installs collections needed to run the playbook [called by `init`].
-  install-lint        Installs ansible-lint.
-  install-molecule    Install molecule.
+  install-dep         Install dependencies needed to run the playbook.
+  install-test-tools  Install testing tools (ansible-lint & molecule) basically for CI pipeline.
   run                 Runs the playbook and configures localhost.
   lint                Runs ansible-lint.
   test                Runs tests with molecule.
@@ -47,7 +43,7 @@ Written by Daniel Vidal de la Rubia, version v1.0
 To install Ansible and its dependencies:
 
 ```text
-make init
+make install-dep
 ```
 
 To apply the configurations on your Desktop.
@@ -61,8 +57,7 @@ make run
 To install testing dependencies:
 
 ```text
-make install-lint
-make install-molecule
+make install-test-tools
 ```
 
 To run linter:
@@ -79,6 +74,6 @@ make test
 
 ## License
 
-This project is licensed under the [Do What The Fuck You Want To Public License](LICENSE)(WTFPL).
+This project is licensed under the [Do What The Fuck You Want To Public License](LICENSE) (WTFPL).
 
 So do what the fuck you want with this.

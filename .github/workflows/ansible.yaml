@@ -26,9 +26,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          make init
-          make install-lint
-          make install-molecule
+          make install-dep
+          make install-test-tools
 
       - name: Run ansible-lint
         run: make lint
