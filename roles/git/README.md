@@ -7,7 +7,7 @@
   - [Requirements](#requirements)
   - [Files](#files)
   - [Packages installed](#packages-installed)
-  - [Role dependancy](#role-dependancy)
+  - [Role dependency](#role-dependency)
 
 ## Description
 
@@ -48,6 +48,6 @@ N/A
   - apt - git
   - apt - tig
 
-## Role dependancy
+## Role dependency
 
 - [bash](../bash/README.md)
