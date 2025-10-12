@@ -42,4 +42,4 @@ lint:  ## Runs ansible-lint.
 
 .PHONY: test
 test:  ## Runs tests with molecule.
-	@echo not implemented yet
+	molecule test --all --command-borders

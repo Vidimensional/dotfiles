@@ -1,0 +1,19 @@
+---
+# noqa name[template]
+# noqa var-naming[no-role-prefix]
+- name: Get {{ path }} stats
+  ansible.builtin.stat:
+    path: "{{ path }}"
+    checksum_algorithm: "{{ checksum_algorithm }}"
+  register: file
+  changed_when: false
+
+- name: Assert checksum
+  ansible.builtin.assert:
+    that: file.stat.checksum == checksum
+  when: checksum != None
+
+- name: Assert file mode
+  ansible.builtin.assert:
+    that: file.stat.mode == file_mode
+  when: file_mode != None

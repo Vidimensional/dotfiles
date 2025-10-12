@@ -1,0 +1,37 @@
+# molecule.yml
+---
+driver:
+  name: docker
+
+platforms:
+  - name: instance
+    image: vidimensional/testingansible:2
+    pre_build_image: true
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: converge.yml
+  # config_options: #                                       This can be used to define the path of roles
+  #   defaults: #                                             This can be used to define the path of roles
+  #     collection_path: /home/vidi/dev/vidi/dotfiles/roles # This can be used to define the path of roles
+  inventory:
+    host_vars:
+      instance:
+        ansible_connection: community.docker.docker_api # force API connection
+        ansible_python_interpreter: /usr/bin/python3
+        ansible_docker_timeout: 600
+
+verifier:
+  name: ansible
+
+scenario:
+  test_sequence:
+    # - cleanup
+    # - destroy
+    # - create
+    # - converge
+    # - idempotence restore later
+    - verify
+    # - cleanup
+    # - destroy
