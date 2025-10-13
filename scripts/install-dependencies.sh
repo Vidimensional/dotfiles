@@ -31,4 +31,4 @@ log_and_exec pipx ensurepath
 # Make sure we got $PIPX_BIN_DIR on our $PATH (and, for some reason, sourcing ~/.bashrc wasn't working)
 export PATH="${PATH}:$( pipx environment --value PIPX_BIN_DIR )"
 log_and_exec pipx install --include-deps ansible
-log_and_exec ansible-galaxy install -r collections/requirements.yml
+log_and_exec ansible-galaxy install -r roles/requirements.yml
