@@ -26,10 +26,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install --assume-yes pipx
-          pipx install --include-deps ansible-lint
-          ansible-galaxy install -r collections/requirements.yml
+          make install-dep
+          make install-test-tools
 
       - name: Run ansible-lint
-        run: ansible-lint roles/* playbook.yaml
+        run: make lint
+
+      # - name: Run tests with molecule
+      #   run: <run molecule here>

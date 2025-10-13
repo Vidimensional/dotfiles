@@ -7,10 +7,11 @@
   - [Requirements](#requirements)
   - [Files](#files)
   - [Packages installed](#packages-installed)
+  - [Role dependency](#role-dependency)
 
 ## Description
 
-Installs [git](https://git-scm.com/) & [tig](https://jonas.github.io/tig/) tools. 
+Installs [git](https://git-scm.com/) & [tig](https://jonas.github.io/tig/) tools.
 
 Also configures Git.
 
@@ -29,7 +30,7 @@ N/A
   - Homebrew
 
 - Ubuntu
-  - Snap
+  - apt
 
 ## Files
 
@@ -44,5 +45,9 @@ N/A
   - Homebrew - [tig](https://formulae.brew.sh/formula/tig)
 
 - Ubuntu
-  - APT - git
-  - APT - tig
+  - apt - git
+  - apt - tig
+
+## Role dependency
+
+- [bash](../bash/README.md)

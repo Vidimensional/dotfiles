@@ -1,0 +1,10 @@
+---
+- name: Looking for `{{ command }}` binary # noqa name[template] var-naming[no-role-prefix]
+  ansible.builtin.command:
+    cmd: which {{ command }}
+  register: which_command
+  changed_when: false
+
+- name: Checking if we found a `{{ command }}` binary # noqa name[template] var-naming[no-role-prefix]
+  ansible.builtin.assert:
+    that: which_command.rc == 0

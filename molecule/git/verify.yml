@@ -1,0 +1,26 @@
+---
+- name: Verify - git
+  hosts: all
+  gather_facts: true
+  tasks:
+    # noqa role-name[path]
+    - name: GIT - Assert `git` is installed
+      ansible.builtin.include_role:
+        name: ../roles/assert_installed
+      vars:
+        command: git
+
+    # noqa role-name[path]
+    - name: Assert `tig` is installed
+      ansible.builtin.include_role:
+        name: ../roles/assert_installed
+      vars:
+        command: tig
+
+    # noqa role-name[path]
+    - name: Assert `~/.gitconfig` exists
+      ansible.builtin.include_role:
+        name: ../roles/assert_file
+      vars:
+        path: "{{ ansible_facts.user_dir }}/.gitconfig"
+        file_mode: "0644"

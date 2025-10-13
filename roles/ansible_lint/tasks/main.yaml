@@ -1,0 +1,6 @@
+---
+- name: Install ansible-lint
+  community.general.pipx:
+    name: ansible-lint
+    state: present
+    executable: "{{ pipx_executable_path }}"

@@ -1,0 +1,5 @@
+---
+
+file_mode: null # noqa var-naming[no-role-prefix]
+checksum: null # noqa var-naming[no-role-prefix]
+checksum_algorithm: sha1 # noqa var-naming[no-role-prefix]

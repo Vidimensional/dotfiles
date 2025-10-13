@@ -1,0 +1,10 @@
+---
+- name: Converge - git
+  hosts: all
+  gather_facts: true
+  become: false
+
+  tasks:
+    - name: Git # noqa role-name[path] molecule bullshit forces us 🤷‍♂️
+      ansible.builtin.include_role:
+        name: "../../roles/git"
